@@ -1,0 +1,84 @@
+.adjustpars {
+  &-header {
+    @extend %inner-header;
+  }
+  &-list {
+    display: grid;
+    row-gap: $h4-size;
+    padding-top: $p-size;
+  }
+  &-item {
+    display: grid;
+    grid-template-rows: max-content;
+    grid-template-columns: 1fr max-content 1fr;
+    row-gap: $p-size;
+    column-gap: $p-size;
+    padding: $p-size;
+    border-radius: 0.25rem;
+    border: 1px solid setcolor(green, dark25);
+    @extend %box-shadow;
+      background-color: setcolor(white, light75);
+    &-hole {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      font-size: $h6-size;
+      font-weight: 700;
+      color: setcolor(black, light25);
+    }
+    &-par {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      color: setcolor(blue, dark55);
+      font-size: $h5-size;
+      font-weight: 700;
+    }
+    &-advice {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      align-self: center;
+      font-size: $h6-size;
+      font-weight: 700;
+    }
+    &-increase {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+      text-align: center;
+      background: setcolor(blue, light65);
+      border: 1px solid setcolor(green, base);
+      border-radius: 0.25rem;
+      & svg {
+        width: 32px;
+        align-self: center;
+        justify-self: center;
+        fill: setcolor(green, base);
+      }
+    }
+    &-decrease {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      text-align: center;
+      background: setcolor(blue, light65);
+      border: 1px solid setcolor(green, base);
+      border-radius: 0.25rem;
+      & svg {
+        width: 32px;
+        align-self: center;
+        justify-self: center;
+        fill: setcolor(red, base);
+      }
+    }
+  } // end item
+  &-submit {
+    @extend %form-input-button;
+    @extend %box-shadow;
+    width: 100%;
+    margin-top: $h3-size;
+    margin-bottom: $h5-size;
+  }
+  &-success {
+    @extend %create-success;
+    &-good {
+      @extend %create-success-display;
+    }
+  }
+}

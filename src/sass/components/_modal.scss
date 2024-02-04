@@ -1,0 +1,95 @@
+%modal {
+  position: absolute;
+  display: grid;
+  top: 10vh;
+  left: 105vw;
+  height: 75vh;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: .65rem;
+  border: 1px solid setcolor(blue, dark25);
+  background-color: setcolor(white, light25);
+  box-shadow:
+    0.4px 0.4px 0.6px rgba(0, 0, 0, 0.027),
+    0.8px 0.8px 1.4px rgba(0, 0, 0, 0.039),
+    1.4px 1.4px 2.4px rgba(0, 0, 0, 0.048),
+    2.2px 2.2px 3.7px rgba(0, 0, 0, 0.056),
+    3.2px 3.2px 5.5px rgba(0, 0, 0, 0.064),
+    4.7px 4.7px 8px rgba(0, 0, 0, 0.072),
+    7px 7px 12.1px rgba(0, 0, 0, 0.081),
+    11.2px 11.2px 19.2px rgba(0, 0, 0, 0.093),
+    21px 21px 36px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+  &-display {
+    transform: translateX(-100vw);
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  }
+  &-header {
+    font-weight: 700;
+    font-size: $h4-size;
+    align-self: center;
+    text-align: center;
+    padding: $p-size;
+    background-color: rgba(setcolor(blue, light55), 0.25);
+    border-bottom: 1px solid setcolor(green, base);
+  }
+  &-list {
+    display: grid;
+    align-content: flex-start;
+    row-gap: $p-size;
+    padding-top: 1rem;
+  }
+  &-list-item {
+    display: grid;
+    grid-template-columns: 1fr 20%;
+    align-items: center;
+    justify-self: center;
+    height: $h3-size;
+    width: 85%;
+    padding-left: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid setcolor(green, base);
+    &-checkmark {
+      height: 32px;
+      width: 32px;
+      fill: setcolor(green, light25);
+      &-good {
+        fill: setcolor(green, dark35);
+      }
+    }
+  }
+  &-footer {
+    display: grid;
+    grid-template-columns: 5rem 1fr 1fr 5rem;
+    justify-items: center;
+    align-items: center;
+    font-size: $p-size;
+    color: setcolor(red, dark15);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid setcolor(red, dark15);
+    background-image: linear-gradient(setcolor(blue, light75), setcolor(blue, light55));
+    &-text {
+      font-weight: 700;
+      justify-self: right;
+    }
+    &-svg {
+      height: 32px;
+      width: 32px;
+      padding: 3px;
+      border-radius: 100%;
+      border: 1px solid setcolor(red, dark15);
+    }
+  }
+  &-nodata {
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    text-align: center;
+    &-header {
+      padding: $p-size;
+      font-size: $h4-size;
+      line-height: calc($h4-size * $scale);
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "quicksandlight";
+      src: url("../../fonts/quicksand-light.woff2") format('woff2'),
+          url("../../fonts/quicksand-light.woff") format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: "quicksandregular";
+      src: url("../../fonts/quicksand-regular.woff2") format('woff2'),
+          url("../../fonts/quicksand-regular.woff") format('woff');
+  font-display: swap;
+}
+
+body {
+  background-color: setcolor(white, light25);
+  font-family: "quicksandregular", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  color: setcolor(black, dark25);
+}
+a {
+  line-height: calc($p-size * $scale);
+}
+ul, ol, p {
+  font-size: $p-size;
+  line-height: calc($p-size * $scale);
+}
+h6 { 
+  font-size: $h6-size;
+  line-height: calc($h6-size * $scale);
+} 
+h5 { 
+  font-size: $h5-size;
+  line-height: calc($h5-size * $scale);
+} 
+h4 { 
+  font-size: $h4-size;
+  line-height: calc($h4-size * $scale);
+}
+h3 { 
+  font-size: $h3-size;
+  line-height: calc($h3-size * $scale);
+} 
+h2 { 
+  font-size: $h2-size;
+  line-height: calc($h2-size * $scale);
+}
+h1 { 
+  font-size: $h1-size;
+  line-height: calc($h1-size * $scale);
+}

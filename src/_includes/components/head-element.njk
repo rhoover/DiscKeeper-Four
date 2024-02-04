@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>{{title}}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content="Lightweight and Elegant Disc Golf Score Keeping" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="DiscKeeper" />
+    <meta name="apple-mobile-web-app-title" content="DiscKeeper" />
+    <meta name='apple-touch-fullscreen' content='yes' />
+    <meta name="theme-color" content="#666D93" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Because Microsoft Exists -->
+    <meta name="msapplication-starturl" content="disckeeper.io">
+    <meta name="msapplication-config" content="/img/dk-icns/browserconfig.xml" />
+    <meta name="msapplication-navbutton-color" content="#666D93" />
+    <meta name="msapplication-TileColor" content="#666D93" />
+    <!-- Chrome for Android Add To Homescreen -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Chrome for Android Tool Bar Color -->
+    <meta name="theme-color" content="#666D93" />
+    <!-- The Essential Links -->
+    <link rel="author" href="http://www.moosedog.io">
+    <link rel="canonical" href="https://disckeeper.io">
+    <!-- Facebook -->
+    <meta property="og:url" content="https://disckeeper.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DiscKeeper" />
+    <meta property="og:image" content="https://disckeeper.io/img/disckeeper-logo.png" />
+    <meta property="og:description" content="Lightweight and Elegant Disc Golf Score Keeping" />
+    <meta property="og:site_name" content="DiscKeeper" />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://disckeeper.io" />
+    <meta name="twitter:site" content="@robinhoover" />
+    <meta property="twitter:title" content="DiscKeeper" />
+    <meta property="twitter:description" content="Lightweight and Elegant Disc Golf Score Keeping" />
+    <meta property="twitter:image" content="https://disckeeper.io/img/disckeeper-logo.png" />
+
+    <!-- Critical Styles -->
+    {% set critical %}
+      {% include "../../critical/critical.css" %}
+    {% endset %}
+    <style>
+      {{ critical | safe }}
+    </style>
+
+
+    <!-- Normal Styles -->
+
+    {# This is how to concatenate strings with Nunjucks, join stuff in an array #}
+    {% set cssName = ['/css/dk-', page.fileSlug, '.css'] | join%}
+
+    {# note here the rev, signaling to the plugin for it's cache-busting revisioning prowess #}
+    {% if page.fileSlug == '' %}
+      <link rel="stylesheet" type="text/css" href="{{ "/css/dk-home.css" | rev }}" media="tty" onload="this.media='screen'"/>
+    {% else %}
+      <link rel="stylesheet" type="text/css" href="{{ cssName | rev }}" media="tty" onload="this.media='screen'"/>
+    {% endif%}
+
+    <!-- Service Worker Initialize -->
+    {% if env.enviro == "build" %}
+      {% set js %}
+        {% include "../../js/inline/disckeeper-sw-register.js" %}
+      {% endset %}
+      <script>
+        {{ js | jsmin | safe }}
+      </script>
+    {% endif %}
+    
+  </head>

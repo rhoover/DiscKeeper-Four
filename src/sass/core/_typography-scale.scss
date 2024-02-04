@@ -1,0 +1,9 @@
+  $scale: 1.33; 
+  
+  $p-size: 1rem;
+  $h6-size: calc($p-size * $scale);
+  $h5-size: calc($h6-size * $scale);
+  $h4-size: calc($h5-size * $scale);
+  $h3-size: calc($h4-size * $scale);
+  $h2-size: calc($h3-size * $scale);
+  $h1-size: calc($h2-size * $scale);

@@ -1,0 +1,31 @@
+// .create-player {
+//   @extend %list-main;
+// }
+
+.createplayer {
+  grid-template-rows: max-content 15vh;
+  &-header {
+    @extend %inner-header;
+  }
+  &-form {
+    @extend %form;
+    &-input {
+      &-text {
+        @extend %form-input-text;
+      }
+      &-label {
+        @extend %form-input-label;
+      }
+    }
+    &-submit {
+      @extend %form-input-button;
+      @extend %box-shadow;
+    }
+  }
+  &-success {
+    @extend %create-success;
+    &-display {
+      @extend %create-success-display;
+    }
+  }
+}
