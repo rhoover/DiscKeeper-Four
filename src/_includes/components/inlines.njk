@@ -1,6 +1,6 @@
   <!-- back button behavior -->
   {% set js %}
-    {% include "../../js/inline/backbutton.js" %}
+    {% include "../../js/inline/button-back.js" %}
   {% endset %}
   <script>
     {{ js | jsmin | safe }}
@@ -8,7 +8,7 @@
 
   <!-- menu button behavior -->
   {% set js %}
-    {% include "../../js/inline/menubutton.js" %}
+    {% include "../../js/inline/button-menu.js" %}
   {% endset %}
   <script>
     {{ js | jsmin | safe }}
@@ -54,7 +54,7 @@
   {% if page.fileSlug == 'adjustpars' %}
   <!-- adjustpars behavior-->
     {% set js %}
-      {% include "../../js/inline/adjustpars.js" %}
+      {% include "../../js/inline/adjust-pars.js" %}
     {% endset %}
     <script>
       {{ js | jsmin | safe }}
