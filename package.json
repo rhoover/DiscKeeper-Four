@@ -19,7 +19,6 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "breakpoint-sass": "^3.0.0",
     "eleventy-plugin-rev": "^2.0.0",
     "eleventy-sass": "^2.2.4",
     "html-minifier": "^4.0.0",
