@@ -48,7 +48,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter("jsmin", jsMinifier);
   
   ////////////////////////////////////////////////////
-  // Utililities
+  // Utilities
   ////////////////////////////////////////////////////
 
   // minify html for production build
