@@ -126,6 +126,7 @@
       console.log('playerScoringRounds:', playerScoringRounds);
       
       // bunge the throws for each hole from each round into it's own array [3,2,4] inside an array
+      //aka an array of arrays
       for (let i = 0; i < playerScoringRounds.length; i++) {
         for (let j = 0; j < holeThrowsArray.length; j++) {
           holeThrowsArray[j].push(playerScoringRounds[i][j].holeThrows);
@@ -135,15 +136,19 @@
 
       // build the min-max-avg for each hole
       for (let i = 0; i < holeThrowsArray.length; i++) {
+        // first the math
         let minNumber = Math.min(...holeThrowsArray[i]);
         let maxNumber = Math.max(...holeThrowsArray[i]);
         let avgNumber = holeThrowsArray[i].reduce((a,b) => a + b) / holeThrowsArray[i].length;
         // round down to nearest integer, i.e. no decimals
-        avgNumber = Math.floor(Number(avgNumber));
+        let gridAvgNumber = Math.floor(Number(avgNumber));
+        // restrict to one decimal place
+        let realAvg = parseFloat(avgNumber.toFixed(1));
+        // hole number as string
         let hn = i + 1;
         let holeNumber = 'Hole ' + hn.toString();
 
-        minMaxAvg.push({hole: holeNumber, minimum: minNumber, maximum: maxNumber, average: avgNumber});
+        minMaxAvg.push({hole: holeNumber, minimum: minNumber, maximum: maxNumber, gridaverage: gridAvgNumber, realavg: realAvg});
       };
 
       // need to get the holePar into minMaxAvg for display purposes
@@ -231,8 +236,8 @@
             <p style="grid-column-end: span ${hole.maximum}">
               Worst: <span>${hole.maximum}</span>
             </p>
-            <p style="grid-column-end: span ${hole.average}">
-              Average: <span>${hole.average}</span>
+            <p style="grid-column-end: span ${hole.gridaverage}">
+              Average: <span>${hole.realavg}</span>
             </p>
           </div>
         `;
