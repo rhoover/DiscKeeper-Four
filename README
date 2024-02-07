@@ -2,4 +2,8 @@ A lightweight and elegant disc golf scorekeeping solution.
 
 Lots of re-building from previous versions.
 
+Built with eleventy.js, vanilla-js, and indexedDB for local storage.
+
+Service worker insures web-apps will win.
+
 Now with smokin' hot graphs!
