@@ -195,15 +195,15 @@
       // console.log('overAllScore:', overAllScore);
 
       // build the min-max-avg for the overall course score
-      let averageScore = overAllScore.reduce((a,b) => a + b) / overAllScore.length;
-      // get rid of decimals
-      averageScore = Number(averageScore).toFixed(0);
-      // return to typeof number
-      averageScore = Number(averageScore);
       let bestScore = Math.min(...overAllScore);
       let worstScore = Math.max(...overAllScore);
+      let averageScore = overAllScore.reduce((a,b) => a + b) / overAllScore.length;
+      // round down to nearest integer
+      let gridAverageScore = Math.floor(Number(averageScore));
+      // restrict to one decimal place
+      let realAverageScore = parseFloat(averageScore.toFixed(1));
       
-      minMaxAvgScore.push({minimum: bestScore, maximum: worstScore, average: averageScore});
+      minMaxAvgScore.push({minimum: bestScore, maximum: worstScore, gridaverage: gridAverageScore, realavg: realAverageScore});
       // console.log('minMaxAvgScore', minMaxAvgScore);
 
       stats.buildRoundGraph(chosenCourseName, minMaxAvgScore)
@@ -272,8 +272,8 @@
         <p style="grid-column-end: span ${minMaxAvgScore[0].maximum}">
           Worst: <span>${minMaxAvgScore[0].maximum}</span>
         </p>
-        <p style="grid-column-end: span ${minMaxAvgScore[0].average}">
-          Average: <span>${minMaxAvgScore[0].average}</span>
+        <p style="grid-column-end: span ${minMaxAvgScore[0].gridaverage}">
+          Average: <span>${minMaxAvgScore[0].realavg}</span>
         </p>
       `;
       roundDivHeader.innerHTML = roundHeaderOutput;

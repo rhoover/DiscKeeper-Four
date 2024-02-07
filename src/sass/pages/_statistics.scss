@@ -114,7 +114,7 @@
   }
   &-round {
     @extend %modal;
-    grid-template-rows: 5rem 1fr;
+    grid-template-rows: 5rem 0.25fr;
     top: 1vh;
     width: 100%;
     height: 80vh;
