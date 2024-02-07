@@ -38,10 +38,6 @@ header {
     height: 50px;
     width: 50px;
     filter: drop-shadow(0px 0px 2px white);
-    // @include breakpoint($medium) {
-    //   justify-self: end;
-    //   margin-right: 1rem;
-    // }
   }
   &-text {
     text-align: center;
