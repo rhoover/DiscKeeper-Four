@@ -80,6 +80,7 @@
         border-radius: 0.65rem;
         border: 1px solid setcolor(blue, base);
         background-color: rgba(setcolor(blue, base),0.15);
+        @extend %box-shadow;
         &-name {
           display: flex;
           justify-content: space-between;
