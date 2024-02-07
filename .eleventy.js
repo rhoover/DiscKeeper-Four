@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////
+// Declare All The Things
+////////////////////////////////////////////////////
+
 // Plugins
 const pluginRev = require("eleventy-plugin-rev");
 const eleventySass = require("eleventy-sass");
@@ -11,6 +15,10 @@ const jsMinifier = require("./src/_eleventy/filters/minify-javascript.js");
 const sassOptions = require("./src/_eleventy/utilities/sassOptions.js");
 const minifyProduction = require("./src/_eleventy/utilities/minify-html.js");
 const serviceWorkerData = require("./src/_eleventy/utilities/serviceWorkerData.js");
+
+////////////////////////////////////////////////////
+// Let Eleventy Do Its Thing
+////////////////////////////////////////////////////
 
 module.exports = function(eleventyConfig) {
 
