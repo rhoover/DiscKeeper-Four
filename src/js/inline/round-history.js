@@ -145,8 +145,8 @@
           <div class="roundhistory-roundmodal-hole">
             <p class="roundhistory-roundmodal-hole-number">${scoreData[i].holeNumber}</p>
             <p class="roundhistory-roundmodal-hole-par">Par:   ${scoreData[i].holePar}</p>
-            <p class="roundhistory-roundmodal-hole-throws">Throws:   ${scoreData[i].holeThrows}</p>
-            <p class="roundhistory-roundmodal-hole-score">Score:   ${scoreData[i].holeOverUnder}</p>
+            <p class="roundhistory-roundmodal-hole-throws">Hole Throws:   ${scoreData[i].holeThrows}</p>
+            <p class="roundhistory-roundmodal-hole-score">Hole Score:   ${scoreData[i].holeOverUnder}</p>
             <p class="roundhistory-roundmodal-hole-roundthrows">Round Throws:   ${scoreData[i].roundThrows}</p>
             <p class="roundhistory-roundmodal-hole-roundscore">Round Score:   ${scoreData[i].roundOverUnder}</p>
           </div>
