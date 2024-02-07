@@ -12,8 +12,9 @@
     "build": "npm-run-all serviceworker build:final"
   },
   "keywords": [
-    "discgolf",
-    "disc golf scoring"
+    "disc golf",
+    "disc golf scoring",
+    "disc golf score keeping"
   ],
   "author": "robin@moosedog.io",
   "license": "ISC",
