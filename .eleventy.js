@@ -44,7 +44,7 @@ module.exports = function(eleventyConfig) {
   // Filters
   ////////////////////////////////////////////////////
 
-  // minify inline js codes on the fly
+  // minify inline js codes on the fly, which can happern because of the sym-link between js/inline and _includes
   eleventyConfig.addNunjucksAsyncFilter("jsmin", jsMinifier);
   
   ////////////////////////////////////////////////////
