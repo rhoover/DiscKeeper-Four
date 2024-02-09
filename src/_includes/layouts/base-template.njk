@@ -1,3 +1,39 @@
+---
+eleventyComputed:
+  meta:
+    "@context": "https://schema.org"
+    "@type": "WebSite"
+    "name": "DiscKeeper"
+    "about": "A Lightweight and Elegant Disc Golf Scorekeeping Web App"
+    "url": "https://disckeeper.io{{ page.url }}"
+    "mainEntityOfPage": "https://disckeeper.io/"
+    "screenshot": "https://disckeeper.io/img/disckeeper-screenshot.png"
+    "audience": "Disc Golf Active Lifestyle"
+    "inLanguage": "en-US"
+    "isAccessibleForFree": "true"
+    "datePublished": "{{ page.date | dateFormat }}"
+    "logo":
+      "@type": "ImageObject"
+      "url": "https://disckeeper.io/img/disckeeper-logo.png"
+    "publisher":
+      "@type": "Organization"
+      "@id": "https://disckeeper.io/#publisher"
+      "name": "Moosedog Studios"
+      "description": "Creating Custom Web Sites and Web Apps: Made in Vermont"
+      "url": "https://moosedog.io"
+      "email": "robin@moosedog.io"
+      "logo":
+        "@type": "ImageObject"
+        "url": "https://disckeeper.io/img/moosedog-logo.png"
+      "contactPoint":
+        "@type": "ContactPoint"
+        "@id": "https://disckeeper.io/#contactpoint"
+        "name": "Robin Hoover"
+        "email": "robin@moosedog.io"
+        "telephone": "+18026962455"
+        "contactType": "Web Developer"
+---
+
 
   {% include 'components/head-element.njk' %}
   <body>

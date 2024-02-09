@@ -8,8 +8,10 @@ const eleventySass = require("eleventy-sass");
 
 // Filters
 const jsMinifier = require("./src/_eleventy/filters/minify-javascript.js");
+const dateFormatter = require("./src/_eleventy/filters/date-format.js");
 
 // Shortcodes
+const schemaData = require("./src/_eleventy/shortcodes/structured-data.js");
 
 // Utilities
 const sassOptions = require("./src/_eleventy/utilities/sassOptions.js");
@@ -47,6 +49,9 @@ module.exports = function(eleventyConfig) {
   ////////////////////////////////////////////////////
   // Shortcodes
   ////////////////////////////////////////////////////
+
+  // json-ld data creation
+  eleventyConfig.addShortcode("schemaDataShortCode", schemaData);
   
   ////////////////////////////////////////////////////
   // Filters
@@ -54,6 +59,9 @@ module.exports = function(eleventyConfig) {
 
   // minify inline js codes on the fly, which can happern because of the sym-link between js/inline and _includes
   eleventyConfig.addNunjucksAsyncFilter("jsmin", jsMinifier);
+
+  // date formatter...duh
+  eleventyConfig.addFilter("dateFormat", dateFormatter);
   
   ////////////////////////////////////////////////////
   // Utilities
