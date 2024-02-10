@@ -31,11 +31,11 @@
         return index === roundsData.findIndex(o => obj.courseName === o.courseName)
       });
 
-      roundHistory.buildChooseCourseSection(deduped);
+      roundHistory.buildChooseCourse(deduped);
       roundHistory.buildRoundsList(roundsData);
     }, // massageRoundData()
 
-    buildChooseCourseSection(deduped) {
+    buildChooseCourse(deduped) {
 
       let chooseSection = document.querySelector('.choose');
       let roundsSection = document.querySelector('.items');
@@ -55,7 +55,7 @@
       roundsSection.innerHTML = roundsSectionOutput;
 
       roundHistory.manageButtons(chooseSection);
-    }, // end buildChooseCourseSection
+    }, // end buildChooseCourse
 
     manageButtons(chooseSection) {
 
