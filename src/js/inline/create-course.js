@@ -20,7 +20,7 @@
     }, // end init()
 
     courseSetUp(idbData) {
-      let formEl = document.querySelector('.createcourse-form');
+      let formEl = document.querySelector('.form');
 
       formEl.addEventListener('submit', formElementListener);
       function formElementListener(event) {
@@ -109,7 +109,7 @@
           });
 
           //some UI assistance
-          document.querySelector('.createcourse-success').classList.add('createcourse-success-display');
+          document.querySelector('.success').classList.add('success-display');
           
           localforage.setItem('courseList', deduped);
 
@@ -124,7 +124,7 @@
         case 'differentpar':
 
           //some UI assistance
-          document.querySelector('.createcourse-success').classList.add('createcourse-success-display');
+          document.querySelector('.success').classList.add('success-display');
 
           // courseInProgress because the pars for the course need to be adjusted
           // this will be handled by adjustpars.js
@@ -141,7 +141,7 @@
     }, // end handleButtonSelection()
 
     alreadyExists() {
-      document.querySelector('.createcourse-exists').classList.add('createcourse-exists-display');
+      document.querySelector('.exists').classList.add('exists-display');
     } // end alreadyExists()
   };
 

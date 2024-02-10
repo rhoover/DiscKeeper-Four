@@ -1,87 +1,90 @@
-
 .createcourse {
   position: relative;
-  &-header {
-    @extend %inner-header;
+}
+
+.header {
+  @extend %inner-header;
+}
+
+.form {
+  @extend %form;
+  &-input {
+    &-text {
+      @extend %form-input-text;
+      width: 85%;
+    }
+    &-label {
+      @extend %form-input-label;
+    }
+    &-clear {
+      @extend %form-input-text;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 10%;
+      text-align: center;
+    }
   }
-  &-form {
-    @extend %form;
-    &-input {
-      &-text {
-        @extend %form-input-text;
-        width: 85%;
-      }
-      &-label {
-        @extend %form-input-label;
-      }
-      &-clear {
-        @extend %form-input-text;
-        padding-left: 0px;
-        padding-right: 0px;
-        width: 10%;
-        text-align: center;
+  &-response {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: $h5-size;
+    justify-items: center;
+  }
+  &-submit {
+    @extend %form-input-button;
+    @extend %box-shadow;
+    width: 100%;
+    align-self: center;
+  }
+  &-holes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: $h5-size;
+    justify-items: center;
+    padding: $p-size;
+    border-top: 1px solid setcolor(blue, base);
+    border-bottom: 1px solid setcolor(blue, base);
+    &-question {
+      grid-column: 1 / 3;
+      line-height: $h4-size;
+      font-size: $h5-size;
+      font-weight: 700;
+      text-align: center;
+      &-italics {
+        font-size: $h4-size;
+        font-style: italic;
+        color: setcolor(blue, base);
       }
     }
-    &-response {
+    &-radio {
       display: grid;
-      grid-template-columns: 1fr;
-      row-gap: $h5-size;
-      justify-items: center;
-    }
-    &-submit {
-      @extend %form-input-button;
-      @extend %box-shadow;
-      width: 100%;
-      align-self: center;
-    }
-    &-holes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      row-gap: $h5-size;
-      justify-items: center;
-      padding: $p-size;
-      border-top: 1px solid setcolor(blue, base);
-      border-bottom: 1px solid setcolor(blue, base);
-      &-question {
-        grid-column: 1 / 3;
-        line-height: $h4-size;
-        font-size: $h5-size;
-        font-weight: 700;
-        text-align: center;
-        &-italics {
-          font-size: $h4-size;
-          font-style: italic;
-          color: setcolor(blue, base);
-        }
-      }
-      &-radio {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: $h4-size 1fr;
-        align-items: center;
-        font-size: $h5-size;
-      }
-    }
-  }
-  &-success {
-    position: absolute;
-    left: 105vw;
-    top: 25vh;
-    &-display {
-      @extend %create-success-display;
-    }
-  }
-  &-exists {
-    position: absolute;
-    left: 105vw;
-    top: 25vh;
-    font-size: $h5-size;
-    & a {
+      grid-template-rows: 1fr;
+      grid-template-columns: $h4-size 1fr;
+      align-items: center;
       font-size: $h5-size;
     }
-    &-display {
-      @extend %create-success-display;
-    }
+  }
+}
+
+.success {
+  position: absolute;
+  left: 105vw;
+  top: 25vh;
+  &-display {
+    @extend %create-success-display;
+  }
+}
+
+.exists {
+  position: absolute;
+  left: 105vw;
+  top: 25vh;
+  font-size: $h5-size;
+  & a {
+    font-size: $h5-size;
+  }
+  &-display {
+    @extend %create-success-display;
   }
 }
 
