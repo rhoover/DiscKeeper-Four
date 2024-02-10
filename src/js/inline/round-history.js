@@ -45,30 +45,30 @@
         return acc;
       }, []);
 
-      let chooseSection = document.querySelector('.roundhistory-choose');
-      let roundsSection = document.querySelector('.roundhistory-items');
+      let chooseSection = document.querySelector('.choose');
+      let roundsSection = document.querySelector('.items');
       let buttonOutput = '';
       let roundsSectionOutput = '';
 
       deduped.forEach((course) => {
         buttonOutput += `
-        <button class="roundhistory-button" data-course="${course.courseID}">${course.courseName}</button>
+        <button class="button" data-course="${course.courseID}">${course.courseName}</button>
         `;
         roundsSectionOutput += `
-        <div class="roundhistory-course" data-courseid="${course.courseID}"></div>
+        <div class="course" data-courseid="${course.courseID}"></div>
         `;
       });
 
       chooseSection.innerHTML = buttonOutput;
       roundsSection.innerHTML = roundsSectionOutput;
 
-      roundHistory.buildRoundsList(roundsData);
       roundHistory.manageButtons(chooseSection);
+      roundHistory.buildRoundsList(roundsData);
     }, // massageRoundData()
 
     manageButtons(chooseSection) {
 
-      let courseTargets = document.querySelectorAll('.roundhistory-course');
+      let courseTargets = document.querySelectorAll('.course');
 
       chooseSection.addEventListener('click', buttonClick);
       function buttonClick(event) {
@@ -76,16 +76,16 @@
         let clickedButton = event.target;
 
         courseTargets.forEach((target) => {
-          if (target.classList.contains('roundhistory-course-visible')) {
-            target.classList.remove('roundhistory-course-visible');
+          if (target.classList.contains('course-visible')) {
+            target.classList.remove('course-visible');
           };
 
           if (clickedButton.dataset.course === target.dataset.courseid) {
 
             if (document.startViewTransition) {
-              document.startViewTransition(() => target.classList.add('roundhistory-course-visible'));
+              document.startViewTransition(() => target.classList.add('course-visible'));
             } else {
-              target.classList.add('roundhistory-course-visible');
+              target.classList.add('course-visible');
             };
           }; // end if
         }); // end forEach
@@ -94,16 +94,16 @@
 
     buildRoundsList(roundsData) {
 
-      let courseDivs = document.querySelectorAll('.roundhistory-course');
+      let courseDivs = document.querySelectorAll('.course');
 
       for (let i = 0; i < courseDivs.length; i++) {
         for (let j = 0; j < roundsData.length; j++) {
           if (roundsData[j].courseID === courseDivs[i].dataset.courseid) {
 
             courseDivs[i].innerHTML += `
-            <div class="roundhistory-round" data-roundid="${roundsData[j].roundID}">
-              <p class="roundhistory-round-header">${roundsData[j].courseName} <span>${roundsData[j].roundDate}</span></p>
-              <p class="roundhistory-round-score"><span>${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws   ➤</p>
+            <div class="round" data-roundid="${roundsData[j].roundID}">
+              <p class="round-header">${roundsData[j].courseName} <span>${roundsData[j].roundDate}</span></p>
+              <p class="round-score"><span>${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws   ➤</p>
             </div>
           `;
           };
@@ -114,23 +114,23 @@
 
 
     manageRoundModal(roundsData) {
-      let roundModal = document.querySelector('.roundhistory-roundmodal');
-      let chosenRound = document.querySelector('.roundhistory-items');
+      let roundModal = document.querySelector('.roundmodal');
+      let chosenRound = document.querySelector('.items');
 
-      let roundModalHeader = document.querySelector('.roundhistory-roundmodal-header');
+      let roundModalHeader = document.querySelector('.roundmodal-header');
       let roundModalHeaderOutput = '';
 
-      let holesElement = document.querySelector('.roundhistory-roundmodal-holes');
+      let holesElement = document.querySelector('.roundmodal-holes');
       let holesElementOutput = '';
 
-      let closeModal = document.querySelector('.roundhistory-roundmodal-header');
+      let closeModal = document.querySelector('.roundmodal-header');
 
       let clickedRoundID = '';
       let round = {};
 
       chosenRound.addEventListener('click', choseRound);
       function choseRound(event) {
-        clickedRoundID = event.target.closest('.roundhistory-round').getAttribute('data-roundid');
+        clickedRoundID = event.target.closest('.round').getAttribute('data-roundid');
 
         round = roundsData.find((round) => round.roundID == clickedRoundID);
         console.log(round);
@@ -143,17 +143,17 @@
           }
         });
         let scoreData = primaryPlayerScores[0];
-        console.log('primary scores', scoreData);
+        // console.log('primary scores', scoreData);
 
         for (let i = 0; i < scoreData.length; i++) {
           holesElementOutput += `
-          <div class="roundhistory-roundmodal-hole">
-            <p class="roundhistory-roundmodal-hole-number">${scoreData[i].holeNumber}</p>
-            <p class="roundhistory-roundmodal-hole-par">Par:   ${scoreData[i].holePar}</p>
-            <p class="roundhistory-roundmodal-hole-throws">Hole Throws:   ${scoreData[i].holeThrows}</p>
-            <p class="roundhistory-roundmodal-hole-score">Hole Score:   ${scoreData[i].holeOverUnder}</p>
-            <p class="roundhistory-roundmodal-hole-roundthrows">Round Throws:   ${scoreData[i].roundThrows}</p>
-            <p class="roundhistory-roundmodal-hole-roundscore">Round Score:   ${scoreData[i].roundOverUnder}</p>
+          <div class="roundmodal-hole">
+            <p class="roundmodal-hole-number">${scoreData[i].holeNumber}</p>
+            <p class="roundmodal-hole-par">Par:   ${scoreData[i].holePar}</p>
+            <p class="roundmodal-hole-throws">Hole Throws:   ${scoreData[i].holeThrows}</p>
+            <p class="roundmodal-hole-score">Hole Score:   ${scoreData[i].holeOverUnder}</p>
+            <p class="roundmodal-hole-roundthrows">Round Throws:   ${scoreData[i].roundThrows}</p>
+            <p class="roundmodal-hole-roundscore">Round Score:   ${scoreData[i].roundOverUnder}</p>
           </div>
           `;
         };
@@ -161,11 +161,12 @@
         roundModalHeader.innerHTML = roundModalHeaderOutput;
         holesElement.innerHTML = holesElementOutput;
 
-        roundModal.classList.toggle('roundhistory-roundmodal-open');
+        roundModal.classList.toggle('roundmodal-open');
       }; // end choseRound()
 
       closeModal.addEventListener('click', (event) => {
-        roundModal.classList.toggle('roundhistory-roundmodal-open');
+        roundModal.classList.toggle('roundmodal-open');
+        // adjusting modal inner DOM
         roundModalHeaderOutput = '';
         holesElementOutput = '';
         roundModalHeader.innerHTML = roundModalHeaderOutput;
@@ -176,8 +177,8 @@
 
     noRounds(roundsData) {
       let roundsWarning = document.querySelector('.roundhistory');
-      let statsEncourage = document.querySelector('.roundhistory-stats');
-      let roundItems = document.querySelector('.roundhistory-items')
+      let statsEncourage = document.querySelector('.stats');
+      let roundItems = document.querySelector('.items')
       let warningOutput = "";
 
       if (roundsData == null) {
@@ -186,8 +187,8 @@
         roundItems.remove();
 
         warningOutput += `
-          <p class="roundhistory-warning">You don't have any rounds saved yet,</p>
-          <a href="pages/roundsetup.html" class="roundhistory-warning-link">Go ahead and start one!  ➤</a>
+          <p class="warning">You don't have any rounds saved yet,</p>
+          <a href="pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
         `;
         roundsWarning.innerHTML += warningOutput;
       };
