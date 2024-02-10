@@ -4,186 +4,190 @@
   row-gap: $h5-size;
   align-items: center;
   position: relative;
-  &-modal {
-    &-nocourse {
-      @extend %modal;
-      top: 25vh;
-      height: 50vh;
-      padding: $p-size;
-      transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-      & p {
-        font-size: $h6-size;
-      }
-      &-link {
-        @extend %form-input-button;
-        font-size: $h5-size;
-        text-decoration: none;
-      }
-      &-display {
-        @extend %modal-display;
-        grid-template-rows: repeat(2, 50%);
-        align-items: center;
-        // transform: translateX(-100vw);
-        // transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
-      }
+}
+
+.modal {
+  &-nocourse {
+    @extend %modal;
+    top: 25vh;
+    height: 50vh;
+    padding: $p-size;
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+    & p {
+      font-size: $h6-size;
     }
-    &-courses {
-      @extend %modal;
-      grid-template-rows: auto 1fr auto;
-      top: 5vh;
-      transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-      &-header {
-        @extend %modal-header;
-      }
-      &-choice {
-        height: 2rem;
-        width: 85%;
-        justify-self: center;
-        border: 1px solid setcolor(blue, base);
-        border-radius: 0.25rem;
-        & p {
-          line-height: 2rem;
-        }
-      }
-      &-list {
-        @extend %modal-list;
-        overflow-y: scroll;
-        padding-top: $h6-size;
-      }
-      &-item {
-        @extend %modal-list-item;
-        &-checkmark {
-          @extend %modal-list-item-checkmark;
-        }
-        &-clicked {
-          border: 2px solid setcolor(green, base);
-          background-color: setcolor(green, light75);
-        }
-      }
-      &-footer {
-        @extend %modal-footer;
-        &-close {
-          &-icon {
-            @extend %modal-footer-svg;
-            stroke: setcolor(red, dark15);
-            grid-column: 1 / 2;
-          }
-          &-text {
-            @extend %modal-footer-text;
-            grid-column: 2 / 3;
-            justify-self: start;
-          }
-        }
-        &-save {
-          &-icon {
-            @extend %modal-footer-svg;
-            grid-column: 4 / 5;
-            border: 1px solid setcolor(green, base);
-            stroke: setcolor(green, base);
-          }
-          &-text {
-            @extend %modal-footer-text;
-            color: setcolor(green, base);
-            grid-column: 3 / 4;
-          }
-        }
-      }
-      &-display {
-        @extend %modal-display;
-      }
+    &-link {
+      @extend %form-input-button;
+      font-size: $h5-size;
+      text-decoration: none;
     }
-    &-players {
-      @extend %modal;
-      grid-template-rows: auto 7rem 1fr auto;
-      row-gap: 1rem;
-      top: 5vh;
-      transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-      &-header {
-        @extend %modal-header;
-      }
-      &-explain {
-        width: 85%;
-        padding: 1rem;
-        justify-self: center;
-        border: 1px solid setcolor(blue, base);
-        border-radius: 0.25rem;
-        background-color: rgba(setcolor(blue, base), 0.15);
-      }
-      &-list {
-        @extend %modal-list;
-        overflow-y: scroll;
-        padding-top: 0px;
-      }
-      &-item {
-        @extend %modal-list-item;
-        &-checkmark {
-          @extend %modal-list-item-checkmark;
-        }
-        &-clicked {
-          border: 2px solid setcolor(green, base);
-          background-color: setcolor(green, light75);
-        }
-      }
-      &-footer {
-        @extend %modal-footer;
-        &-close {
-          &-icon {
-            @extend %modal-footer-svg;
-            stroke: setcolor(red, dark15);
-            grid-column: 1 / 2;
-          }
-          &-text {
-            @extend %modal-footer-text;
-            grid-column: 2 / 3;
-            justify-self: start;
-          }
-        }
-        &-save {
-          &-icon {
-            @extend %modal-footer-svg;
-            grid-column: 4 / 5;
-            border: 1px solid setcolor(green, base);
-            stroke: setcolor(green, base);
-          }
-          &-text {
-            @extend %modal-footer-text;
-            color: setcolor(green, base);
-            grid-column: 3 / 4;
-          }
-        }
-      }
-      &-display {
-        @extend %modal-display;
-      }
+    &-display {
+      @extend %modal-display;
+      grid-template-rows: repeat(2, 50%);
+      align-items: center;
+      // transform: translateX(-100vw);
+      // transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
     }
   }
-  &-content {
-    height: 100%;
-    display: grid;
-    grid-template-rows: 1fr max-content;
-    row-gap: $p-size;
-    justify-items: center;
-    align-items: center;
-    &-results {
-      width: 100%;
-      border: 1px solid setcolor(green, base);
+  &-courses {
+    @extend %modal;
+    grid-template-rows: auto 1fr auto;
+    top: 5vh;
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+    &-header {
+      @extend %modal-header;
+    }
+    &-choice {
+      height: 2rem;
+      width: 85%;
+      justify-self: center;
+      border: 1px solid setcolor(blue, base);
       border-radius: 0.25rem;
+      & p {
+        line-height: 2rem;
+      }
+    }
+    &-list {
+      @extend %modal-list;
+      overflow-y: scroll;
+      padding-top: $h6-size;
+    }
+    &-item {
+      @extend %modal-list-item;
+      &-checkmark {
+        @extend %modal-list-item-checkmark;
+      }
+      &-clicked {
+        border: 2px solid setcolor(green, base);
+        background-color: setcolor(green, light75);
+      }
+    }
+    &-footer {
+      @extend %modal-footer;
+      &-close {
+        &-icon {
+          @extend %modal-footer-svg;
+          stroke: setcolor(red, dark15);
+          grid-column: 1 / 2;
+        }
+        &-text {
+          @extend %modal-footer-text;
+          grid-column: 2 / 3;
+          justify-self: start;
+        }
+      }
+      &-save {
+        &-icon {
+          @extend %modal-footer-svg;
+          grid-column: 4 / 5;
+          border: 1px solid setcolor(green, base);
+          stroke: setcolor(green, base);
+        }
+        &-text {
+          @extend %modal-footer-text;
+          color: setcolor(green, base);
+          grid-column: 3 / 4;
+        }
+      }
+    }
+    &-display {
+      @extend %modal-display;
     }
   }
-  &-selections {
-    &-course {
-      text-align: center;
-      padding: 1rem 0px;
-      font-size: $h5-size;
+  &-players {
+    @extend %modal;
+    grid-template-rows: auto 7rem 1fr auto;
+    row-gap: 1rem;
+    top: 5vh;
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+    &-header {
+      @extend %modal-header;
     }
-    &-players {
-      text-align: center;
-      padding: 1rem 0px;
-      font-size: $h5-size;
+    &-explain {
+      width: 85%;
+      padding: 1rem;
+      justify-self: center;
+      border: 1px solid setcolor(blue, base);
+      border-radius: 0.25rem;
+      background-color: rgba(setcolor(blue, base), 0.15);
+    }
+    &-list {
+      @extend %modal-list;
+      overflow-y: scroll;
+      padding-top: 0px;
+    }
+    &-item {
+      @extend %modal-list-item;
+      &-checkmark {
+        @extend %modal-list-item-checkmark;
+      }
+      &-clicked {
+        border: 2px solid setcolor(green, base);
+        background-color: setcolor(green, light75);
+      }
+    }
+    &-footer {
+      @extend %modal-footer;
+      &-close {
+        &-icon {
+          @extend %modal-footer-svg;
+          stroke: setcolor(red, dark15);
+          grid-column: 1 / 2;
+        }
+        &-text {
+          @extend %modal-footer-text;
+          grid-column: 2 / 3;
+          justify-self: start;
+        }
+      }
+      &-save {
+        &-icon {
+          @extend %modal-footer-svg;
+          grid-column: 4 / 5;
+          border: 1px solid setcolor(green, base);
+          stroke: setcolor(green, base);
+        }
+        &-text {
+          @extend %modal-footer-text;
+          color: setcolor(green, base);
+          grid-column: 3 / 4;
+        }
+      }
+    }
+    &-display {
+      @extend %modal-display;
     }
   }
-  &-button {
-    @extend %form-input-button;
+}
+
+.content {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  row-gap: $p-size;
+  justify-items: center;
+  align-items: center;
+  &-results {
+    width: 100%;
+    border: 1px solid setcolor(green, base);
+    border-radius: 0.25rem;
+  }
+}
+
+.selections {
+  &-course {
+    text-align: center;
+    padding: 1rem 0px;
     font-size: $h5-size;
   }
+  &-players {
+    text-align: center;
+    padding: 1rem 0px;
+    font-size: $h5-size;
+  }
+}
+
+.button {
+  @extend %form-input-button;
+  font-size: $h5-size;
 }
