@@ -84,7 +84,6 @@
         event.target.closest('p').classList.toggle('modal-courses-item-clicked');
 
       });
-      console.log('chosen course:', chosenCourse);
 
       coursesFooter.addEventListener('click', (event) => {
         let action = event.target.getAttribute('data-action');
@@ -96,7 +95,7 @@
           break;
           case 'save':
 
-            // first dedupe chosenCourse array
+            // first dedupe chosenCourse array as each click on a course adds it to array, even if it appears on-screen that the user is changing their mind about course choice
             //https://stackoverflow.com/questions/43505967/completely-removing-duplicate-items-from-an-array
             let dedupeCourses = chosenCourse.filter(
               Map.prototype.get,
