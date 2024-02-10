@@ -4,22 +4,21 @@
   const stats = {
 
     init() {
-      async function getData() {
-        const coursesFetch = await localforage.getItem('courseList');
-        const roundsFetch = await localforage.getItem('savedRounds');
-        return [coursesFetch, roundsFetch];
-      };
-      getData().then(fetchedData => {
-        const fetchedCourses = fetchedData[0];
-        const fetchedRounds = fetchedData[1];
 
+      async function getData() {
+        const roundsFetch = await localforage.getItem('savedRounds');
+        return roundsFetch;
+      };
+
+      getData().then(data => {
         // are there rounds or not
-        switch (fetchedRounds) {
+        switch (data) {
           // if there is saved rounds data
-          case fetchedRounds:
-            stats.buildListForDOM(fetchedRounds);
+          case data:
+            stats.buildListForDOM(data);
             // console.log('fetched rounds:', fetchedRounds);
           break;
+          
           // if there is not saved rounds data
           case false:
             stats.noRounds();            
