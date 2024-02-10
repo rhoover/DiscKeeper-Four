@@ -26,24 +26,16 @@
         return new Date(b.roundDate) - new Date(a.roundDate);
       });
 
-      // so there will be only one button for each course, despite how many rounds on each course
-      // count how many rounds for each course, and add to new duplicates array of objects
-      const deduped = roundsData.reduce((acc, item) => {
-        let newItem = acc.find((i) => i.courseName === item.courseName); // check if an item with the current courseName exists
-        //Use !newItem, because if you don't find a object - you don't add it in array
-        if (!newItem) {
-          // create a new object w/ new shape
-          // item.name = item.courseName;
-          item.count = 1;
-          acc.push(item);
-        } else {
-          // object exists -> update count
-          //You find this object and you need add to finded object
-          //item.count += 1;
-            newItem.count += 1;
-        }
-        return acc;
-      }, []);
+      // dedupe so only one courseName appearance in choose section
+      const deduped = roundsData.filter((obj, index) => {
+        return index === roundsData.findIndex(o => obj.courseName === o.courseName)
+      });
+
+      roundHistory.buildChooseCourseSection(deduped);
+      roundHistory.buildRoundsList(roundsData);
+    }, // massageRoundData()
+
+    buildChooseCourseSection(deduped) {
 
       let chooseSection = document.querySelector('.choose');
       let roundsSection = document.querySelector('.items');
@@ -63,8 +55,7 @@
       roundsSection.innerHTML = roundsSectionOutput;
 
       roundHistory.manageButtons(chooseSection);
-      roundHistory.buildRoundsList(roundsData);
-    }, // massageRoundData()
+    }, // end buildChooseCourseSection
 
     manageButtons(chooseSection) {
 

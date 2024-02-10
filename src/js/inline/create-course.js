@@ -103,6 +103,7 @@
 
           // pressed top button all par three course
           idbData.push(courseObject);
+          
           // remove duplicates leaving 1 original
           const deduped = idbData.filter((obj, index) => {
             return index === idbData.findIndex(o => obj.courseName === o.courseName)
