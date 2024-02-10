@@ -18,7 +18,7 @@
             stats.buildListForDOM(data);
             // console.log('fetched rounds:', fetchedRounds);
           break;
-          
+
           // if there is not saved rounds data
           case false:
             stats.noRounds();            
@@ -33,11 +33,12 @@
 
     noRounds() {
       let mainElement = document.querySelector('.statistics');
-      let courseItems = document.querySelector('.courses')
+      let courseItemsSection = document.querySelector('.courses')
       let warningOutput = "";
 
+      // remove section where course cards to choose are displayed since there are no rounds
       if (roundsData == null) {
-        courseItems.remove();
+        courseItemsSection.remove();
       };
 
       warningOutput += `
