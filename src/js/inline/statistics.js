@@ -12,6 +12,7 @@
       getData().then(fetchedData => {
         const fetchedCourses = fetchedData[0];
         const fetchedRounds = fetchedData[1];
+
         // are there rounds or not
         switch (fetchedRounds) {
           // if there is saved rounds data
@@ -33,7 +34,7 @@
 
     noRounds() {
       let mainElement = document.querySelector('.statistics');
-      let courseItems = document.querySelector('.statistics-courses')
+      let courseItems = document.querySelector('.courses')
       let warningOutput = "";
 
       if (roundsData == null) {
@@ -41,15 +42,15 @@
       };
 
       warningOutput += `
-        <p class="statistics-warning">You don't have any rounds saved yet,</p>
-        <a href="pages/roundsetup.html" class="statistics-warning-link">Go ahead and start one!  ➤</a>
+        <p class="warning">You don't have any rounds saved yet,</p>
+        <a href="pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
       `;
       mainElement.innerHTML += warningOutput;
 
     }, // end noRounds()
 
     buildListForDOM (fetchedRounds) {
-      let coursesList = document.querySelector('.statistics-courses');
+      let coursesList = document.querySelector('.courses');
       let coursesOutput = "";
       let deduped;
 
@@ -57,13 +58,14 @@
       deduped = fetchedRounds.filter((obj, index) => {
         return index === fetchedRounds.findIndex(o => obj.courseName === o.courseName)
       });
-      // <span>➤</span>
+
+      // then present on-screen
       deduped.forEach((round) => {
         coursesOutput += `
-          <div class="statistics-course">
+          <div class="course">
             <p>${round.courseName}</p>
-            <button class="statistics-course-button" data-choice="round" data-courseid="${round.courseID}">Round Stats</button>
-            <button class="statistics-course-button" data-choice="holes" data-courseid="${round.courseID}">Hole Stats</button>
+            <button class="course-button" data-choice="round" data-courseid="${round.courseID}">Round Stats</button>
+            <button class="course-button" data-choice="holes" data-courseid="${round.courseID}">Hole Stats</button>
           </div>
           
         `;
@@ -76,7 +78,7 @@
 
     manageDOMList(fetchedRounds) {
 
-      let courses = document.querySelector('.statistics-courses');
+      let courses = document.querySelector('.courses');
       let chosenCourseID = '';
       let buttonChoice = '';
       let chosenCourseRounds = [];
@@ -85,8 +87,8 @@
       function getRounds(event) {
 
         // which button was clicked
-        chosenCourseID = event.target.closest('.statistics-course-button').dataset.courseid;
-        buttonChoice = event.target.closest('.statistics-course-button').dataset.choice;
+        chosenCourseID = event.target.closest('.course-button').dataset.courseid;
+        buttonChoice = event.target.closest('.course-button').dataset.choice;
 
         // get the appropriate rounds
         chosenCourseRounds = fetchedRounds.filter((round) => {return round.courseID == chosenCourseID});
@@ -181,7 +183,7 @@
       playerScoringRounds = playerScoring.map((rounds) => rounds.playerThrows);
       // console.log('playerScoringRounds:', playerScoringRounds);
 
-      // get the last hole of each round to build an overall score comparison
+      // get the last hole of each round and bunge it into an array to later build an overall score comparison
       playerScoringRounds.forEach((round) => {
         lastHole = round[round.length - 1];
         lastHoleArray.push(lastHole);
@@ -211,24 +213,24 @@
 
     buildHoleGraph(chosenCourseName, minMaxAvg) {
 
-      let graphDiv = document.querySelector('.statistics-graph');
-      let graphDivHeader = document.querySelector('.statistics-graph-header');
-      let graphDivChart = document.querySelector('.statistics-graph-chart');
+      let graphDiv = document.querySelector('.graph');
+      let graphDivHeader = document.querySelector('.graph-header');
+      let graphDivChart = document.querySelector('.graph-chart');
       let headerOutput = '';
       let chartOutput = '';
 
 
       console.log('minMaxAvg:', minMaxAvg);
 
-      headerOutput = `<h1 class="statistics-graph-header-text">${chosenCourseName}</h1><p class="statistics-graph-close">Close</p>`;
+      headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
 
       // https://joshcollinsworth.com/blog/css-grid-bar-charts
       minMaxAvg.forEach((hole) => {
         chartOutput += `
-          <div class="statistics-graph-chart-hole">
-            <h4 class="statistics-graph-chart-hole-name" style="grid-column: span ${hole.maximum}">
+          <div class="graph-chart-hole">
+            <h4 class="graph-chart-hole-name" style="grid-column: span ${hole.maximum}">
               ${hole.hole} 
-              <span class="statistics-graph-chart-hole-name-par">Par: ${hole.par}</span>
+              <span class="graph-chart-hole-name-par">Par: ${hole.par}</span>
             </h4>
             <p style="grid-column-end: span ${hole.minimum}">
               Best: <span>${hole.minimum}</span>
@@ -246,24 +248,24 @@
       graphDivHeader.innerHTML = headerOutput;
       graphDivChart.innerHTML = chartOutput;
 
-      graphDiv.classList.toggle('statistics-graph-display');
+      graphDiv.classList.toggle('graph-display');
 
-      let closeModal = document.querySelector('.statistics-graph-close');
+      let closeModal = document.querySelector('.graph-close');
       closeModal.addEventListener('click', (event) => {
-        graphDiv.classList.toggle('statistics-graph-display');
+        graphDiv.classList.toggle('graph-display');
       });
 
     }, // end buildHoleGraph()
 
     buildRoundGraph(chosenCourseName, minMaxAvgScore) {
       // console.log(chosenCourseName, minMaxAvgScore);
-      let roundDiv = document.querySelector('.statistics-round');
-      let roundDivHeader = document.querySelector('.statistics-round-header');
-      let roundDivChart = document.querySelector('.statistics-round-chart');
+      let roundDiv = document.querySelector('.round');
+      let roundDivHeader = document.querySelector('.round-header');
+      let roundDivChart = document.querySelector('.round-chart');
       let roundHeaderOutput = '';
       let roundChartOutput = '';
 
-      roundHeaderOutput = `<h1 class="statistics-round-header-text">${chosenCourseName}</h1><p class="statistics-round-close">Close</p>`;
+      roundHeaderOutput = `<h1 class="round-header-text">${chosenCourseName}</h1><p class="round-close">Close</p>`;
 
       roundChartOutput = `
         <p style="grid-column-end: span ${minMaxAvgScore[0].minimum}">
@@ -279,11 +281,11 @@
       roundDivHeader.innerHTML = roundHeaderOutput;
       roundDivChart.innerHTML = roundChartOutput;
 
-      roundDiv.classList.toggle('statistics-round-display');
+      roundDiv.classList.toggle('round-display');
 
-      let closeModal = document.querySelector('.statistics-round-close');
+      let closeModal = document.querySelector('.round-close');
       closeModal.addEventListener('click', (event) => {
-        roundDiv.classList.toggle('statistics-round-display');
+        roundDiv.classList.toggle('round-display');
       });
     } // end buildHoleGraph()
   }; // end stats{}

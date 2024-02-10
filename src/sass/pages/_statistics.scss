@@ -1,155 +1,103 @@
 .statistics {
   position: relative;
-  &-courses {
-    display: grid;
-    row-gap: $p-size;
+}
 
+.courses {
+  display: grid;
+  row-gap: $p-size;
+
+}
+
+.course {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  line-height: $h3-size;
+  padding: $p-size;
+  border-radius: 0.25rem;
+  border: 1px solid setcolor(blue, base);
+  @extend %box-shadow;
+  & p {
+    grid-column: 1 / 3;
+    font-size: $h4-size;
   }
-  &-course {
+  & [data-choice="round"] {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    @extend %form-input-button;
+    font-size: $p-size;
+    width: 90%;
+  }
+  & [data-choice="holes"] {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    @extend %form-input-button;
+    font-size: $p-size;
+    width: 90%;
+  }
+}
+
+.graph {
+  @extend %modal;
+  grid-template-rows: 0.55fr 1fr;
+  top: 0vh;
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  &-header {
+    @extend %modal-header;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    align-items: center;
-    justify-items: center;
-    line-height: $h3-size;
-    padding: $p-size;
-    border-radius: 0.25rem;
-    border: 1px solid setcolor(blue, base);
-    @extend %box-shadow;
-    & p {
-      grid-column: 1 / 3;
-      font-size: $h4-size;
-    }
-    & [data-choice="round"] {
-      grid-row: 2 / 3;
+    grid-template-columns: 1fr 0.25fr;
+    &-text {
       grid-column: 1 / 2;
-      @extend %form-input-button;
-      font-size: $p-size;
-      width: 90%;
-    }
-    & [data-choice="holes"] {
-      grid-row: 2 / 3;
-      grid-column: 2 / 3;
-      @extend %form-input-button;
-      font-size: $p-size;
-      width: 90%;
+      font-size: $h4-size;
+      line-height: $h3-size;
+      text-align: left;
     }
   }
-  &-graph {
-    @extend %modal;
-    grid-template-rows: 5rem 1fr;
-    top: 1vh;
-    width: 100%;
-    height: 80vh;
-    overflow-y: scroll;
-    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-    &-header {
-      @extend %modal-header;
-      display: grid;
-      grid-template-columns: 1fr 0.25fr;
-      &-text {
-        grid-column: 1 / 2;
-        font-size: $h4-size;
-        line-height: $h3-size;
-        text-align: left;
-      }
-    }
-    &-close {
-      grid-column: 2 / 3;
-      justify-self: right;
-      align-self: center;
-      padding: calc($p-size / 2);
-      color: setcolor(red, base);
-      background-color: setcolor(white, base);
-      border-radius: 0.25rem;
-      border: 1px solid setcolor(red, base);
-      @extend %box-shadow;
-    }
-    // https://joshcollinsworth.com/blog/css-grid-bar-charts
-    &-chart {
-      display: grid;
-      gap: 1.5rem 0;
-      margin: $p-size;
-      &-hole {
-        display: grid;
-        grid-template-columns: auto;
-        grid-auto-columns: 1fr;
-        gap: 1.5em 0;
-        align-items: center;
-        padding-bottom: 1.5rem;
-        border-radius: 0.65rem;
-        border: 1px solid setcolor(blue, base);
-        background-color: rgba(setcolor(blue, base),0.15);
-        @extend %box-shadow;
-        &-name {
-          display: flex;
-          justify-content: space-between;
-          padding: 0.75rem;
-          font-size: $h4-size;
-          font-weight: 700;
-          border-bottom: 1px solid setcolor(blue, base);
-          line-height: $h4-size;
-          &-par {
-            text-align: right;
-          }
-        }
-        & p:nth-child(n+2):nth-child(-n+4) {
-          grid-column-start: 1;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 0.5rem;
-          font-size: $h6-size;
-          font-weight: 700;
-          line-height: $h3-size;
-          border-top-right-radius: 2rem;
-          border-bottom-right-radius: 2rem;
-          background-color: rgba(setcolor(blue, base),0.55);
-        }
-      }
-    }
-    &-display {
-      @extend %modal-display;
-      transform: translateX(-105vw);
-    }
+  &-close {
+    grid-column: 2 / 3;
+    justify-self: right;
+    align-self: center;
+    padding: calc($p-size / 2);
+    color: setcolor(red, base);
+    background-color: setcolor(white, base);
+    border-radius: 0.25rem;
+    border: 1px solid setcolor(red, base);
+    @extend %box-shadow;
   }
-  &-round {
-    @extend %modal;
-    grid-template-rows: 5rem 0.25fr;
-    top: 1vh;
-    width: 100%;
-    height: 80vh;
-    overflow-y: scroll;
-    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-    &-header {
-      @extend %modal-header;
+  // https://joshcollinsworth.com/blog/css-grid-bar-charts
+  &-chart {
+    display: grid;
+    gap: 1.5rem 0;
+    margin: $p-size;
+    &-hole {
       display: grid;
-      grid-template-columns: 1fr 0.25fr;
-      &-text {
-        grid-column: 1 / 2;
-        font-size: $h4-size;
-        line-height: $h3-size;
-        text-align: left;
-      }
-    }
-    &-close {
-      grid-column: 2 / 3;
-      justify-self: right;
-      align-self: center;
-      padding: calc($p-size / 2);
-      color: setcolor(red, base);
-      background-color: setcolor(white, base);
-      border-radius: 0.25rem;
-      border: 1px solid setcolor(red, base);
+      grid-template-columns: auto;
+      grid-auto-columns: 1fr;
+      gap: 1.5em 0;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid setcolor(blue, base);
+      background-color: rgba(setcolor(blue, base),0.15);
       @extend %box-shadow;
-    }
-    // https://joshcollinsworth.com/blog/css-grid-bar-charts
-    &-chart {
-      display: grid;
-      gap: 1.5rem 0;
-      margin: $p-size;
-      border-left: 1px solid setcolor(blue, dark50);
-      & p {
+      &-name {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        font-size: $h4-size;
+        font-weight: 700;
+        border-bottom: 1px solid setcolor(blue, base);
+        line-height: $h4-size;
+        &-par {
+          text-align: right;
+        }
+      }
+      & p:nth-child(n+2):nth-child(-n+4) {
         grid-column-start: 1;
         display: flex;
         align-items: center;
@@ -163,9 +111,65 @@
         background-color: rgba(setcolor(blue, base),0.55);
       }
     }
-    &-display {
-      @extend %modal-display;
-      transform: translateX(-105vw);
+  }
+  &-display {
+    @extend %modal-display;
+    transform: translateX(-105vw);
+  }
+}
+
+.round {
+  @extend %modal;
+  grid-template-rows: 5rem 0.25fr;
+  top: 1vh;
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  &-header {
+    @extend %modal-header;
+    display: grid;
+    grid-template-columns: 1fr 0.25fr;
+    &-text {
+      grid-column: 1 / 2;
+      font-size: $h4-size;
+      line-height: $h3-size;
+      text-align: left;
     }
+  }
+  &-close {
+    grid-column: 2 / 3;
+    justify-self: right;
+    align-self: center;
+    padding: calc($p-size / 2);
+    color: setcolor(red, base);
+    background-color: setcolor(white, base);
+    border-radius: 0.25rem;
+    border: 1px solid setcolor(red, base);
+    @extend %box-shadow;
+  }
+  // https://joshcollinsworth.com/blog/css-grid-bar-charts
+  &-chart {
+    display: grid;
+    gap: 1.5rem 0;
+    margin: $p-size;
+    border-left: 1px solid setcolor(blue, dark50);
+    & p {
+      grid-column-start: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.5rem;
+      font-size: $h6-size;
+      font-weight: 700;
+      line-height: $h3-size;
+      border-top-right-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      background-color: rgba(setcolor(blue, base),0.55);
+    }
+  }
+  &-display {
+    @extend %modal-display;
+    transform: translateX(-105vw);
   }
 }
