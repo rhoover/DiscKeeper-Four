@@ -20,11 +20,13 @@
     }, // end init()
 
     massageRoundData(roundsData) {
+
       //sort by date
       roundsData.sort((a,b) => {
         return new Date(b.roundDate) - new Date(a.roundDate);
       });
 
+      // so there will be only one button for each course, despite how many rounds on each course
       // count how many rounds for each course, and add to new duplicates array of objects
       const deduped = roundsData.reduce((acc, item) => {
         let newItem = acc.find((i) => i.courseName === item.courseName); // check if an item with the current courseName exists
@@ -64,24 +66,6 @@
       roundHistory.manageButtons(chooseSection);
     }, // massageRoundData()
 
-    buildRoundsList(roundsData) {
-      let courseDivs = document.querySelectorAll('.roundhistory-course');
-
-      for (let i = 0; i < courseDivs.length; i++) {
-        for (let j = 0; j < roundsData.length; j++) {
-          if (roundsData[j].courseID === courseDivs[i].dataset.courseid) {
-
-            courseDivs[i].innerHTML += `<div class="roundhistory-round" data-roundid="${roundsData[j].roundID}">
-            <p class="roundhistory-round-header">${roundsData[j].courseName} <span>${roundsData[j].roundDate}</span></p>
-            <p class="roundhistory-round-score"><span>${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws   ➤</p>
-          </div>`;
-
-          };
-        };
-      };
-
-    }, // end buildRoundsList()
-
     manageButtons(chooseSection) {
 
       let courseTargets = document.querySelectorAll('.roundhistory-course');
@@ -107,6 +91,27 @@
         }); // end forEach
       }; // end listener
     },
+
+    buildRoundsList(roundsData) {
+
+      let courseDivs = document.querySelectorAll('.roundhistory-course');
+
+      for (let i = 0; i < courseDivs.length; i++) {
+        for (let j = 0; j < roundsData.length; j++) {
+          if (roundsData[j].courseID === courseDivs[i].dataset.courseid) {
+
+            courseDivs[i].innerHTML += `
+            <div class="roundhistory-round" data-roundid="${roundsData[j].roundID}">
+              <p class="roundhistory-round-header">${roundsData[j].courseName} <span>${roundsData[j].roundDate}</span></p>
+              <p class="roundhistory-round-score"><span>${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws   ➤</p>
+            </div>
+          `;
+          };
+        };
+      };
+
+    }, // end buildRoundsList()
+
 
     manageRoundModal(roundsData) {
       let roundModal = document.querySelector('.roundhistory-roundmodal');
