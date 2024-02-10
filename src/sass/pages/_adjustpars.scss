@@ -1,13 +1,13 @@
-.adjustpars {
-  &-header {
+// .adjustpars {
+.header {
     @extend %inner-header;
-  }
-  &-list {
+}
+.list {
     display: grid;
     row-gap: $h4-size;
     padding-top: $p-size;
-  }
-  &-item {
+}
+.item {
     display: grid;
     grid-template-rows: max-content;
     grid-template-columns: 1fr max-content 1fr;
@@ -67,18 +67,18 @@
         fill: setcolor(red, base);
       }
     }
-  } // end item
-  &-submit {
+} // end item
+.submit {
     @extend %form-input-button;
     @extend %box-shadow;
     width: 100%;
     margin-top: $h3-size;
     margin-bottom: $h5-size;
-  }
-  &-success {
+}
+.success {
     @extend %create-success;
     &-good {
       @extend %create-success-display;
     }
-  }
 }
+// }

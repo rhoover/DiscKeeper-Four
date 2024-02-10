@@ -18,10 +18,10 @@
 
       displayModal(fetchedData) {
 
-        let onboardModal = document.querySelector('.home-modal');
+        let onboardModal = document.querySelector('.modal');
 
         if (fetchedData == null) {
-          onboardModal.classList.add('home-modal-display');
+          onboardModal.classList.add('modal-display');
         };
       } // end displayModal()
   }

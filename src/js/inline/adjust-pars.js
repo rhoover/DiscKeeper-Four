@@ -17,19 +17,19 @@
     
     buildDOMList(courseObject) {
 
-      let insertHere = document.querySelector('.adjustpars-list');
+      let insertHere = document.querySelector('.list');
       let holesOutput = '';
 
       courseObject.courseHoles.forEach((hole) => {
         holesOutput += `
-          <div class="adjustpars-item" data-item="holeCard">
-            <p class="adjustpars-item-hole">Hole: ${hole.holeNumber}</p>
-            <p class="adjustpars-item-par">Par: <span data-bind="par">${hole.holePar}</span></p>
-            <p class="adjustpars-item-advice">Adjust Par:</p>
-            <button class="adjustpars-item-increase" data-model="increasePar">
+          <div class="item" data-item="holeCard">
+            <p class="item-hole">Hole: ${hole.holeNumber}</p>
+            <p class="item-par">Par: <span data-bind="par">${hole.holePar}</span></p>
+            <p class="item-advice">Adjust Par:</p>
+            <button class="item-increase" data-model="increasePar">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"/></svg>
             </button>
-            <button class="adjustpars-item-decrease" data-model="decreasePar">
+            <button class="item-decrease" data-model="decreasePar">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"/></svg>
             </button>
           </div>
@@ -46,7 +46,7 @@
       // so that clicking on a button adjusts the par number, both in the object and on the screen
 
       const holeCards = document.querySelectorAll('[data-item]');
-      const submitButton = document.querySelector('.adjustpars-submit');
+      const submitButton = document.querySelector('.submit');
 
       // it's all done in this loop so that the scope is confined to each item/hole
       for (let [index, hole] of holeCards.entries()) {
@@ -123,7 +123,7 @@
         localforage.removeItem('courseInProgress');
 
         //some UI assistance on our way out the door
-        document.querySelector('.adjustpars-success').classList.add('adjustpars-success-good');
+        document.querySelector('.success').classList.add('success-good');
 
         setTimeout(() => {
           window.location.href = '/';

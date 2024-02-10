@@ -5,101 +5,104 @@
   justify-items: center;
   row-gap: $p-size;
   position: relative;
-  &-links {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 0.5rem;
-    border: 1px solid setcolor(blue, base);
+}
+
+.links {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid setcolor(blue, base);
+  text-decoration: none;
+  color: setcolor(white, light55);
+  @extend %box-shadow;
+  & p {
+    font-weight: 700;
+    font-size: $h4-size;
+    text-shadow: -1px -1px 0 setcolor(black, base),
+      1px -1px 0 setcolor(black, base),
+      -1px 1px 0 setcolor(black, base),
+      1px 1px 0 setcolor(black, base),
+      4px 4px 10px rgba(setcolor(white, base), 0.75);
+  }
+  &-scoring {
+    @extend %home-item-base;
+    background-image: url("/img/home/scoring.webp");
+  }
+  &-createcourse {
+    @extend %home-item-base;
+    background-image: url("/img/home/createCourse.webp");
+  }
+  &-createplayer {
+    @extend %home-item-base;
+    background-image: url("/img/home/createPlayer.webp");
+  }
+  &-roundhistory {
+    @extend %home-item-base;
+    background-image: url("/img/home/roundHistory.webp");
+  }
+}
+
+.modal {
+  position: absolute;
+  display: grid;
+  grid-template-rows: max-content;
+  row-gap: $p-size;
+  align-items: center;
+  top: 25vh;
+  left: 105vw;
+  z-index: 150;
+  width: 90%;
+  margin: 0 auto;
+  padding: $p-size;
+  text-align: center;
+  background-color: setcolor(white, light75);
+  border: 1px solid setcolor(green, base);
+  border-radius: 0.65rem;
+  & p {
+    font-size: $h6-size;
+  }
+  &-link {
+    @extend %form-input-button;
+    font-size: $h5-size;
     text-decoration: none;
-    color: setcolor(white, light55);
-    @extend %box-shadow;
-    & p {
-      font-weight: 700;
-      font-size: $h4-size;
-      text-shadow: -1px -1px 0 setcolor(black, base),
-        1px -1px 0 setcolor(black, base),
-        -1px 1px 0 setcolor(black, base),
-        1px 1px 0 setcolor(black, base),
-        4px 4px 10px rgba(setcolor(white, base), 0.75);
-    }
-    &-scoring {
-      @extend %home-item-base;
-      background-image: url("/img/home/scoring.webp");
-    }
-    &-createcourse {
-      @extend %home-item-base;
-      background-image: url("/img/home/createCourse.webp");
-    }
-    &-createplayer {
-      @extend %home-item-base;
-      background-image: url("/img/home/createPlayer.webp");
-    }
-    &-roundhistory {
-      @extend %home-item-base;
-      background-image: url("/img/home/roundHistory.webp");
-    }
   }
-  &-modal {
+  &-display {
+    transform: translateX(-100vw);
+    transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
+  }
+}
+
+.share {
+  display: none;
+  position: fixed;
+  left: 0px;
+  bottom: 1rem;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(setcolor(blue, base),0.75);
+  border-radius: 0% 30% 30% 0%;
+  border-top: 1px solid setcolor(blue, dark25);
+  border-right: 1px solid setcolor(blue, dark25);
+  border-bottom: 1px solid setcolor(blue, dark25);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 400;
+  & svg {
+    display: block;
     position: absolute;
-    display: grid;
-    grid-template-rows: max-content;
-    row-gap: $p-size;
-    align-items: center;
-    top: 25vh;
-    left: 105vw;
-    z-index: 150;
-    width: 90%;
-    margin: 0 auto;
-    padding: $p-size;
-    text-align: center;
-    background-color: setcolor(white, light75);
-    border: 1px solid setcolor(green, base);
-    border-radius: 0.65rem;
-    & p {
-      font-size: $h6-size;
-    }
-    &-link {
-      @extend %form-input-button;
-      font-size: $h5-size;
-      text-decoration: none;
-    }
-    &-display {
-      transform: translateX(-100vw);
-      transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
-    }
+    top: 5px;
+    left: 9px;
+    width: 55%;
+    height: 55%;
+    fill: setcolor(white, light25);
   }
-  &-share {
-    display: none;
-    position: fixed;
-    left: 0px;
-    bottom: 1rem;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(setcolor(blue, base),0.75);
-    border-radius: 0% 30% 30% 0%;
-    border-top: 1px solid setcolor(blue, dark25);
-    border-right: 1px solid setcolor(blue, dark25);
-    border-bottom: 1px solid setcolor(blue, dark25);
-    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.25);
-    cursor: pointer;
-    z-index: 400;
-    & svg {
-      display: block;
-      position: absolute;
-      top: 5px;
-      left: 9px;
-      width: 55%;
-      height: 55%;
-      fill: setcolor(white, light25);
-    }
-    &-text {
-      color: setcolor(white, base);
-      position: absolute;
-      top: 31px;
-      left: 4px;
-    }
+  &-text {
+    color: setcolor(white, base);
+    position: absolute;
+    top: 31px;
+    left: 4px;
   }
 }
