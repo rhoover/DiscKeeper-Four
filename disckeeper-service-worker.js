@@ -2,7 +2,7 @@
   'use strict';
 
   // const result = Math.random().toString(36).substring(2,9);
-  let cacheName = 'disckeeperCache-019';
+  let cacheName = 'disckeeperCache-020';
   // let cacheName = 'artisanCache-' + result;
 
   //get the array of urls
