@@ -75,7 +75,7 @@
       // Try to find response in the cache.
       let response = await cache.match(request);
 
-      if (!response) {
+      if (!response) { // if there's nothing in a cache:
         if (request.cache === 'only-if-cached') return;
 
         // Try to fetch response from the network.
@@ -85,7 +85,7 @@
 
         // Cache the response since it wasn't in the cache
         cache.put(request, response.clone());
-      } else {
+      } else { // then there ios something in a cache:
         console.info('disckeeper got:', url.pathname, 'from', cacheName);
       };
 
