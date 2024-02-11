@@ -30,7 +30,7 @@
 
     event.waitUntil(seedCache());
 
-  });
+  }); // end install event-listener
 
   self.addEventListener('activate', event => {
 
@@ -48,7 +48,7 @@
     // let her take over
     event.waitUntil(clients.claim());
 
-  }); // end 'activate'
+  }); // end activate event-listener
 
   self.addEventListener('fetch', event => {
 
@@ -62,7 +62,6 @@
     if (!url.protocol.startsWith('http')) return;
 
     // blacklist to keep cache clean
-    if (url.pathname.startsWith('/bphoto/')) return; // yelp images, remaining are all google maps stuff
     if (url.origin === 'https://fonts.gstatic.com') return;
     if (url.origin === 'https://fonts.googleapis.com') return;
     if (url.origin === 'https://maps.googleapis.com') return;
@@ -82,12 +81,12 @@
         // Try to fetch response from the network.
         // We will get a 404 error if not found.
         response = await fetch(request, {cache: 'no-store'});
-        console.info('artisanWorker got', url.pathname, 'from network');
+        console.info('disckeeper got:', url.pathname, 'from network');
 
         // Cache the response since it wasn't in the cache
         cache.put(request, response.clone());
       } else {
-        console.info('artisanWorker got', url.pathname, 'from', cacheName);
+        console.info('disckeeper got:', url.pathname, 'from', cacheName);
       };
 
       return response;
@@ -95,5 +94,5 @@
 
     event.respondWith(getResponsePromise());
 
-  }); // end fetch
+  }); // end fetch event-listener
 })();
