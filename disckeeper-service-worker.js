@@ -4,11 +4,11 @@
   // const result = Math.random().toString(36).substring(2,9);
   // let cacheName = 'disckeeperCache-020';
   // let cacheName = 'artisanCache-' + result;
-  function cacheVersion() {
+  // function cacheVersion() {
     const result = Math.random().toString(36).substring(2,9);
     let cacheName = 'disckeeperCache-' + result;
-    return cacheName;
-  };
+    // return cacheName;
+  // };
 
   //get the array of urls
   async function getServiceWorkerData() {
@@ -21,9 +21,12 @@
 
   self.addEventListener('install', event => {
 
+    // cacheVersion();
+    // const result = Math.random().toString(36).substring(2,9);
+    // let cacheName = 'disckeeperCache-' + result;
+
     self.skipWaiting();
 
-    cacheVersion();
 
     const seedCache = async () => {
       getServiceWorkerData().then(files => {
