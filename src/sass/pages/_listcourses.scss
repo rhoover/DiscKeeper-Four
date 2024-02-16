@@ -20,6 +20,7 @@
   grid-template-columns: 1fr 0.5fr;
   align-items: center;
   padding: $p-size;
+  background-color: setcolor(white, light55);
   &-name {
     @extend %list-name;
   }
