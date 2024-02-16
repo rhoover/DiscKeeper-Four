@@ -12,7 +12,6 @@
 
         if (data) { // if true
           roundHistory.massageRoundData(data);
-          roundHistory.manageRoundModal(data);
         } else { // if not true, i.e. null
           roundHistory.noRounds(data);          
         };
@@ -103,68 +102,6 @@
 
     }, // end buildRoundsList()
 
-
-    manageRoundModal(roundsData) {
-      let roundModal = document.querySelector('.roundmodal');
-      let chosenRound = document.querySelector('.items');
-
-      let roundModalHeader = document.querySelector('.roundmodal-header');
-      let roundModalHeaderOutput = '';
-
-      let holesElement = document.querySelector('.roundmodal-holes');
-      let holesElementOutput = '';
-
-      let closeModal = document.querySelector('.roundmodal-header');
-
-      let clickedRoundID = '';
-      let round = {};
-
-      chosenRound.addEventListener('click', choseRound);
-      function choseRound(event) {
-        clickedRoundID = event.target.closest('.round').getAttribute('data-roundid');
-
-        round = roundsData.find((round) => round.roundID == clickedRoundID);
-        console.log(round);
-
-        roundModalHeaderOutput += `<p>${round.courseName}<br /> <span>${round.roundDate}<span></p> <p class="close">Close</p>`;
-
-        let primaryPlayerScores = round.players.map((player) => {
-          if (player.primary == true) {
-            return player.courseHoles;
-          }
-        });
-        let scoreData = primaryPlayerScores[0];
-        // console.log('primary scores', scoreData);
-
-        for (let i = 0; i < scoreData.length; i++) {
-          holesElementOutput += `
-          <div class="roundmodal-hole">
-            <p class="roundmodal-hole-number">${scoreData[i].holeNumber}</p>
-            <p class="roundmodal-hole-par">Par:   ${scoreData[i].holePar}</p>
-            <p class="roundmodal-hole-throws">Hole Throws:   ${scoreData[i].holeThrows}</p>
-            <p class="roundmodal-hole-score">Hole Score:   ${scoreData[i].holeOverUnder}</p>
-            <p class="roundmodal-hole-roundthrows">Round Throws:   ${scoreData[i].roundThrows}</p>
-            <p class="roundmodal-hole-roundscore">Round Score:   ${scoreData[i].roundOverUnder}</p>
-          </div>
-          `;
-        };
-
-        roundModalHeader.innerHTML = roundModalHeaderOutput;
-        holesElement.innerHTML = holesElementOutput;
-
-        roundModal.classList.toggle('roundmodal-open');
-      }; // end choseRound()
-
-      closeModal.addEventListener('click', (event) => {
-        roundModal.classList.toggle('roundmodal-open');
-        // adjusting modal inner DOM
-        roundModalHeaderOutput = '';
-        holesElementOutput = '';
-        roundModalHeader.innerHTML = roundModalHeaderOutput;
-        holesElement.innerHTML = holesElementOutput;
-      });
-
-    }, // end roundModal()
 
     noRounds(roundsData) {
       let roundsWarning = document.querySelector('.roundhistory');
