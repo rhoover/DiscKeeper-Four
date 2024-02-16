@@ -60,24 +60,32 @@
 
       let courseTargets = document.querySelectorAll('.course');
 
+      // section where course buttons live
       chooseSection.addEventListener('click', buttonClick);
       function buttonClick(event) {
 
         let clickedButton = event.target;
 
         courseTargets.forEach((target) => {
+
+          // animate out list of rounds
           if (target.classList.contains('course-visible')) {
-            target.classList.remove('course-visible');
+            if (document.startViewTransition) {
+              document.startViewTransition(() => target.classList.remove('course-visible'));
+            } else {
+              target.classList.remove('course-visible');
+            }; // end if view transition capability exists
           };
 
           if (clickedButton.dataset.course === target.dataset.courseid) {
 
+          // animate in list of rounds
             if (document.startViewTransition) {
               document.startViewTransition(() => target.classList.add('course-visible'));
             } else {
               target.classList.add('course-visible');
-            };
-          }; // end if
+            }; // end if view transition capability exists
+          }; // end if course = course
         }); // end forEach
       }; // end listener
     },
@@ -101,7 +109,6 @@
       };
 
     }, // end buildRoundsList()
-
 
     noRounds(roundsData) {
       let roundsWarning = document.querySelector('.roundhistory');
