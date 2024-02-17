@@ -21,13 +21,6 @@
 
   self.addEventListener('install', event => {
 
-    // cacheVersion();
-    // const result = Math.random().toString(36).substring(2,9);
-    // let cacheName = 'disckeeperCache-' + result;
-
-    self.skipWaiting();
-
-
     const seedCache = async () => {
       getServiceWorkerData().then(files => {
         caches.open(cacheName).then(cache => {
@@ -39,6 +32,8 @@
     };
 
     event.waitUntil(seedCache());
+    
+    self.skipWaiting();
 
   }); // end install event-listener
 
