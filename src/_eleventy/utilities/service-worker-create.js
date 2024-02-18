@@ -23,7 +23,6 @@ dealWithContent((err, content) => {
     })();
     `;
   
-  // fs.writeFile('../../../disckeeper-service-worker.js', newFile, (err) => {
   fs.writeFile('./disckeeper-service-worker.js', newFile, (err) => {
     if (err) {
       console.log('error writing:', err);
