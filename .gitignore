@@ -3,6 +3,7 @@ node_modules
 /dist
 package-lock.json
 disckeeper-service-worker-min.js
+disckeeper-service-worker.js
 /critical
 
 # local env files

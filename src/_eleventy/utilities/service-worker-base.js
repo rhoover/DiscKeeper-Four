@@ -1,9 +1,4 @@
-(() => {
-    "use strict";
 
-    let cacheName = cacheName-qkgot3v;
-
-    
   //get the array of urls
   async function getServiceWorkerData() {
     const url = '/service-worker-data.json';
@@ -94,7 +89,3 @@
     event.respondWith(getResponsePromise());
 
   }); // end fetch event-listener
-;
-
-    })();
-    

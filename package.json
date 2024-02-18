@@ -7,9 +7,10 @@
     "watch:critical": "sass --style compressed --no-source-map --watch src/sass/critical.scss:src/critical/critical.css",
     "watch:eleventy": "rm -rf dist && npx @11ty/eleventy --serve",
     "serve": "npm-run-all --parallel watch:eleventy watch:critical",
-    "serviceworker": "terser disckeeper-service-worker.js -o disckeeper-service-worker-min.js",
+    "serviceworker:create": "node src/_eleventy/utilities/service-worker-create.js",
+    "serviceworker:min": "terser disckeeper-service-worker.js -o disckeeper-service-worker-min.js",
     "build:final": "rm -rf dist && ELEVENTY_RUN_MODE=build npx @11ty/eleventy",
-    "build": "npm-run-all serviceworker build:final"
+    "build": "run-s serviceworker:create serviceworker:min build:final"
   },
   "keywords": [
     "disc golf",
