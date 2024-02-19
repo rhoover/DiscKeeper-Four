@@ -9,8 +9,8 @@
     "serve": "npm-run-all --parallel watch:eleventy watch:critical",
     "serviceworker:create": "node src/_eleventy/utilities/service-worker-create.js",
     "serviceworker:min": "terser disckeeper-service-worker.js -o disckeeper-service-worker-min.js",
-    "build:final": "rm -rf dist && ELEVENTY_RUN_MODE=build npx @11ty/eleventy",
-    "build": "run-s serviceworker:create serviceworker:min build:final"
+    "build:start": "rm -rf dist && ELEVENTY_RUN_MODE=build npx @11ty/eleventy",
+    "build": "run-s serviceworker:create serviceworker:min build:start"
   },
   "keywords": [
     "disc golf",
