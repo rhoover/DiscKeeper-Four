@@ -9,6 +9,7 @@ const eleventySass = require("eleventy-sass");
 // Filters
 const jsMinifier = require("./src/_eleventy/filters/minify-javascript.js");
 const dateFormatter = require("./src/_eleventy/filters/date-format.js");
+const { DateTime } = require("luxon");
 
 // Shortcodes
 const schemaData = require("./src/_eleventy/shortcodes/structured-data.js");
