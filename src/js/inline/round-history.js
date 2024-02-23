@@ -93,14 +93,21 @@
     buildRoundsList(roundsData) {
 
       let courseDivs = document.querySelectorAll('.course');
+      let dateOptions = {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      };
 
       for (let i = 0; i < courseDivs.length; i++) {
         for (let j = 0; j < roundsData.length; j++) {
           if (roundsData[j].courseID === courseDivs[i].dataset.courseid) {
+            let dateReadable = new Date(roundsData[j].roundDate).toLocaleDateString("en-US", dateOptions);
 
             courseDivs[i].innerHTML += `
             <div class="round" data-roundid="${roundsData[j].roundID}">
-              <p class="round-header">${roundsData[j].courseName} <span>${roundsData[j].roundDate}</span></p>
+              <p class="round-header">${roundsData[j].courseName} <span>${dateReadable}</span></p>
               <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws<span class="round-arrow">➤</span></p>
             </div>
           `;
