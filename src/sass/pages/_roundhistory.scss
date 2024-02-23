@@ -81,9 +81,16 @@
     font-size: $h5-size;
   }
   &-score {
+    display: flex;
+    justify-content: space-evenly;
     margin-top: $p-size;
     padding-left: $p-size;
+    padding-right: $p-size;
     padding-bottom: $p-size;
     font-size: $h5-size;
   }
+  .arrow {
+    justify-self: flex-end;
+  }
 }
+
