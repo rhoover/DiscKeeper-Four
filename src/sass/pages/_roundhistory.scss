@@ -100,6 +100,7 @@
     grid-template-rows: .10fr .10fr 1fr;
     row-gap: $p-size;
     overflow-y: scroll;
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-open {
       @extend %modal-display;
     }
