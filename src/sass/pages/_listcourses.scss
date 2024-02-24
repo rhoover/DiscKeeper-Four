@@ -18,21 +18,15 @@
 .item {
   @extend %list-item;
   grid-template-columns: 1fr 0.5fr;
-  align-items: center;
-  padding: $p-size;
-  background-color: setcolor(white, light55);
   &-name {
     @extend %list-name;
+    font-weight: 700;
   }
   & svg {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    justify-self: center;
-    fill: setcolor(red, dark35);
+    @extend %list-svg;
   }
   &-delete {
     @extend %list-delete-text;
-    font-weight: 700;
   }
 }
 
