@@ -131,7 +131,7 @@ const listcourses = {
           listcourses.deleteRounds(clickedCourseID, fetchedRounds);
         break;
         case 'no':
-          coursesModal.classList.toggle('modal-open');
+          coursesModal.classList.remove('modal-open');
         break;
         default:
         break;
