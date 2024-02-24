@@ -148,7 +148,7 @@
 
         roundModalHeader.innerHTML = `<p>${roundData.courseName}</p> <p>${dateReadable}</p>`;
 
-        // present the holes datavin the modal
+        // present the holes data in the modal
         for (let i = 0; i < holesArray.length; i++) {
           holesSection.innerHTML += `
             <div class="round-modal-hole">
@@ -161,11 +161,13 @@
           
         }
 
+        // bring it
         roundModal.classList.add('round-modal-open');
 
       });
 
 
+      // close it and delete the interior info
       closeButton.addEventListener('click', (event) => {
         roundModal.classList.remove('round-modal-open');
         holesSection.innerHTML = "";
