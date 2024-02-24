@@ -42,6 +42,7 @@
   row-gap: $h5-size;
   transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   width: 100%;
+  top: 0vh;
   &-header {
     @extend %modal-header;
     font-size: $h5-size;
