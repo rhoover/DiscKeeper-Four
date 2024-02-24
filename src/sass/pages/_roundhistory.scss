@@ -87,10 +87,83 @@
     padding-left: $p-size;
     padding-right: $p-size;
     padding-bottom: $p-size;
-    font-size: $h5-size;
+    font-size: $h6-size;
   }
   .arrow {
     justify-self: flex-end;
+  }
+  &-modal {
+    @extend %modal;
+    left: 100vw;
+    top: 0vh;
+    width: 100%;
+    grid-template-rows: .10fr .10fr 1fr;
+    row-gap: $p-size;
+    overflow-y: scroll;
+    &-open {
+      @extend %modal-display;
+    }
+    &-header {
+      @extend %modal-header;
+      width: 100%;
+      justify-self: center;
+      font-size: $h5-size;
+      display: flex;
+      justify-content: space-between;
+      & p:first-of-type {
+        font-size: $h5-size;
+      }
+    }
+    &-close {
+      justify-self: right;
+      align-self: center;
+      padding: calc($p-size / 2);
+      margin-right: $h5-size;
+      font-size: $h6-size;
+      color: setcolor(red, base);
+      background-color: setcolor(white, base);
+      border-radius: 0.25rem;
+      border: 1px solid setcolor(red, base);
+      @extend %box-shadow;
+    }
+    &-holes {
+      display: grid;
+      row-gap: $p-size;
+      padding: 0px $p-size $p-size $p-size;
+    }
+    &-hole {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      row-gap: $p-size;
+      height: 8rem;
+      padding: $p-size;
+      font-size: $h5-size;
+      font-weight: 700;
+      background-color: setcolor(white, light75);
+      border-radius: 0.25rem;
+      border: 1px solid setcolor(blue, base);
+      & :nth-of-type(1) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        font-weight: 700;
+      }
+      & :nth-of-type(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+      & :nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        height: 100%;
+        border-bottom: 1px solid setcolor(blue, dark25);
+      }
+      & :nth-of-type(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+    }
   }
 }
 

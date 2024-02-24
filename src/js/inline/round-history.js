@@ -32,6 +32,7 @@
 
       roundHistory.buildChooseCourse(deduped);
       roundHistory.buildRoundsList(roundsData);
+      roundHistory.roundScoresModal(roundsData);
     }, // massageRoundData()
 
     buildChooseCourse(deduped) {
@@ -93,6 +94,7 @@
     buildRoundsList(roundsData) {
 
       let courseDivs = document.querySelectorAll('.course');
+
       let dateOptions = {
         weekday: 'short',
         day: 'numeric',
@@ -116,6 +118,60 @@
       };
 
     }, // end buildRoundsList()
+
+    roundScoresModal(roundsData) {
+
+      console.log(roundsData);
+      let courseSection = document.querySelector('.items');
+      let roundModal = document.querySelector('.round-modal');
+      let roundModalHeader = document.querySelector('.round-modal-header');
+      let closeButton = document.querySelector('.round-modal-close');
+      let holesSection = document.querySelector('.round-modal-holes');
+
+      let dateOptions = {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      };
+
+      courseSection.addEventListener('click', (event) => {
+
+        // get the roundid
+        let clickedRound = event.target.closest('[data-roundid]').dataset.roundid;
+        // use the roundid to find the correct round in the array
+        let roundData = roundsData.find((round) => round.roundID === clickedRound);
+        // make the date readable
+        let dateReadable = new Date(roundData.roundDate).toLocaleDateString("en-US", dateOptions);
+        // array for pesentation
+        let holesArray = roundData.players[0].courseHoles;
+
+        roundModalHeader.innerHTML = `<p>${roundData.courseName}</p> <p>${dateReadable}</p>`;
+
+        // present the holes datavin the modal
+        for (let i = 0; i < holesArray.length; i++) {
+          holesSection.innerHTML += `
+            <div class="round-modal-hole">
+              <p>Hole ${holesArray[i].holeNumber}</p>
+              <p>Par ${holesArray[i].holePar}</p>
+              <p>Hole Throws: ${holesArray[i].holeThrows}</p>
+              <p>Round Score: ${holesArray[i].roundOverUnder}</p>
+            </div>
+          `;
+          
+        }
+
+        roundModal.classList.add('round-modal-open');
+
+      });
+
+
+      closeButton.addEventListener('click', (event) => {
+        roundModal.classList.remove('round-modal-open');
+        holesSection.innerHTML = "";
+      });
+
+    }, // end roundScoresModal()
 
     noRounds(roundsData) {
       let roundsWarning = document.querySelector('.roundhistory');
