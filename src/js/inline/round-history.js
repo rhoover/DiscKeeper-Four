@@ -109,8 +109,11 @@
 
             courseDivs[i].innerHTML += `
             <div class="round" data-roundid="${roundsData[j].roundID}">
-              <p class="round-header">${roundsData[j].courseName} <span>${dateReadable}</span></p>
-              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws<span class="round-arrow">➤</span></p>
+              <div class="round-header">
+                <p class="round-header-name">${roundsData[j].courseName}</p>
+                <p class=round-header-date> ${dateReadable}</p>
+              </div>
+              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws<span class="round-arrow">Details➤</span></p>
             </div>
           `;
           };
