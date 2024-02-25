@@ -114,9 +114,12 @@
         font-size: $h5-size;
       }
     }
+    &-closing {
+      padding-bottom: $p-size;
+      border-bottom: 1px solid setcolor(blue, dark35);
+    }
     &-close {
-      justify-self: right;
-      align-self: center;
+      float: right;
       padding: calc($p-size / 2);
       margin-right: $h5-size;
       font-size: $h6-size;
