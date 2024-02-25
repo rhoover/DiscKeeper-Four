@@ -103,7 +103,9 @@
             );
 
             // then add some meta info of the round
-            dedupeCourses[0].roundID = (+new Date).toString(36);
+            let newRoundID = Math.random().toString(36).substring(2,11);
+            newRoundID.toString();
+            dedupeCourses[0].roundID = newRoundID;
             dedupeCourses[0].roundDate = new Date().toLocaleDateString('en-US');
 
             // then save to idb
@@ -222,7 +224,6 @@
   setup.init();
 
   function assembleFinalData() {
-    // this needs to get something fed into it from init() even though it's not being used
     let submitButton = document.querySelector('[data-goscore]');
 
     submitButton.addEventListener('click', () => {

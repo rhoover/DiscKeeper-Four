@@ -21,6 +21,8 @@
 
     courseSetUp(idbData) {
       let formEl = document.querySelector('.form');
+      let newCourseID = Math.random().toString(36).substring(2,11);
+      newCourseID.toString();
 
       formEl.addEventListener('submit', formElementListener);
       function formElementListener(event) {
@@ -39,7 +41,7 @@
             courseObject = {
               courseName: formCourseName,
               courseLength: parseInt(formData.get('holeradio'), 10),
-              courseID: (+new Date).toString(36),
+              courseID: newCourseID,
               courseCreated: new Date().toLocaleDateString('en-US'),
               roundsScored: 0
             };  
@@ -58,7 +60,7 @@
               courseObject = {
                 courseName: formCourseName,
                 courseLength: parseInt(formData.get('holeradio'), 10),
-                courseID: (+new Date).toString(36),
+                courseID: newCourseID,
                 courseCreated: new Date().toLocaleDateString('en-US'),
                 roundsScored: 0
               };

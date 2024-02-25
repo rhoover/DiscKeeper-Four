@@ -36,11 +36,13 @@
     }, // end setUpPlayerObject()
 
     addPlayerMetaData(playerList, nameObject) {
+      let newPlayerID = Math.random().toString(36).substring(2,11);
+      newPlayerID.toString();
 
       let playerMetaInfo = {
         nameFirst: nameObject.firstName,
         nameLast: nameObject.lastName,
-        playerID: (+new Date).toString(36),
+        playerID: newPlayerID,
         playerCreated: new Date().toLocaleDateString('en-US')
       };
 
