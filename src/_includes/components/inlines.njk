@@ -126,16 +126,23 @@
   {% endif %}
 
   {% if page.fileSlug == 'roundhistory' %}
-  <!-- round history behavior-->
+    <!-- round history behavior-->
     {% set js %}
       {% include "../../js/inline/round-history.js" %}
     {% endset %}
     <script>
       {{ js | jsmin | safe }}
     </script>
-  <!-- round history scroller button behavior-->
+    <!-- round history scroller button behavior-->
     {% set js %}
       {% include "../../js/inline/scroll-top.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    <!-- round history modal scroller button behavior-->
+    {% set js %}
+      {% include "../../js/inline/scroll-top-modal.js" %}
     {% endset %}
     <script>
       {{ js | jsmin | safe }}
