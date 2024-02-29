@@ -10,13 +10,23 @@
 <!-- hole-by-hole chart -->
 <div class="graph">
   <div class="graph-header"></div>
+  <div class="graph-closing">
+    <p class="graph-close">Close</p>
+  </div>
   <div class="graph-chart"></div>
+  <div class="graph-footer">
+    {% include "components/scroll-button.njk" %}
+  </div>
 </div>
 
 <!-- round chart-->
 <div class="round">
   <div class="round-header"></div>
+  <div class="round-closing">
+    <p class="round-close">Close</p>
+  </div>
   <div class="round-chart"></div>
+  <div class="round-footer">
+    {% include "components/scroll-button.njk" %}
+  </div>
 </div>
-
-{% include "components/scroll-button.njk" %}

@@ -150,9 +150,16 @@
   {% endif %}
 
   {% if page.fileSlug == 'statistics' %}
-  <!-- rounds statistics behavior-->
+  <!-- statistics behavior-->
     {% set js %}
       {% include "../../js/inline/statistics.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  <!-- statistics-modal scroll behavior-->
+    {% set js %}
+      {% include "../../js/inline/scroll-top-modal-statistics.js" %}
     {% endset %}
     <script>
       {{ js | jsmin | safe }}

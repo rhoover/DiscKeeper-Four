@@ -222,7 +222,8 @@
 
       console.log('minMaxAvg:', minMaxAvg);
 
-      headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
+      // headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
+      headerOutput = `<p class="graph-header-text">${chosenCourseName}</p>`;
 
       // https://joshcollinsworth.com/blog/css-grid-bar-charts
       minMaxAvg.forEach((hole) => {
@@ -252,7 +253,7 @@
 
       let closeModal = document.querySelector('.graph-close');
       closeModal.addEventListener('click', (event) => {
-        graphDiv.classList.toggle('graph-display');
+        graphDiv.classList.remove('graph-display');
       });
 
     }, // end buildHoleGraph()
