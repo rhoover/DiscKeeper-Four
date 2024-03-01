@@ -22,7 +22,7 @@
   font-size: $h6-size;
 }
 
-.items {
+.rounds {
   @extend %list-main;
 }
 
@@ -30,7 +30,7 @@
   display: none;
   &-visible {
     display: grid;
-    row-gap: $p-size;
+    row-gap: $h6-size;
   }
 }
 
@@ -60,6 +60,7 @@
 
 .round {
   display: grid;
+  grid-template-rows: max-content;
   border-radius: 0.25rem;
   border: 1px solid setcolor(blue, base);
   @extend %box-shadow;
@@ -89,8 +90,10 @@
     padding-bottom: $p-size;
     font-size: $h6-size;
   }
-  .arrow {
+  &-arrow {
     justify-self: flex-end;
+    font-size: $h5-size;
+    padding: $p-size;
   }
   &-modal {
     @extend %modal;

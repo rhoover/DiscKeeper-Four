@@ -38,7 +38,7 @@
     buildChooseCourse(deduped) {
 
       let chooseSection = document.querySelector('.choose');
-      let roundsSection = document.querySelector('.items');
+      let roundsSection = document.querySelector('.rounds');
       let buttonOutput = '';
       let roundsSectionOutput = '';
 
@@ -113,7 +113,7 @@
                 <p class="round-header-name">${roundsData[j].courseName}</p>
                 <p class=round-header-date> ${dateReadable}</p>
               </div>
-              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws<span class="round-arrow">Details➤</span></p>
+              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws</p><p class="round-arrow">Details  ➤</p>
             </div>
           `;
           };
@@ -125,7 +125,7 @@
     roundScoresModal(roundsData) {
 
       console.log(roundsData);
-      let courseSection = document.querySelector('.items');
+      let courseSection = document.querySelector('.rounds');
       let roundModal = document.querySelector('.round-modal');
       let roundModalHeader = document.querySelector('.round-modal-header');
       let closeButton = document.querySelector('.round-modal-close');
@@ -181,7 +181,7 @@
     noRounds(roundsData) {
       let roundsWarning = document.querySelector('.roundhistory');
       let statsEncourage = document.querySelector('.stats');
-      let roundItems = document.querySelector('.items')
+      let roundItems = document.querySelector('.rounds')
       let warningOutput = "";
 
       if (roundsData == null) {
