@@ -1,5 +1,6 @@
 main {
   margin-top: 7rem;
+  padding-bottom: $h4-size;
   min-height: calc(100vh - 7rem);
   display: grid;
   grid-template-columns: minmax(1rem, 1fr) minmax(auto, 40rem) minmax(1rem, 1fr);

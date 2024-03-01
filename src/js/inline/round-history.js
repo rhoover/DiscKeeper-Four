@@ -113,7 +113,7 @@
                 <p class="round-header-name">${roundsData[j].courseName}</p>
                 <p class=round-header-date> ${dateReadable}</p>
               </div>
-              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> from ${roundsData[j].players[0].finalThrows} throws</p><p class="round-arrow">Details  ➤</p>
+              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> <span>from</span> <span> ${roundsData[j].players[0].finalThrows} throws</span></p><p class="round-arrow">Details  ➤</p>
             </div>
           `;
           };
@@ -156,8 +156,8 @@
           holesSection.innerHTML += `
             <div class="round-modal-hole">
               <p>Hole ${holesArray[i].holeNumber}</p>
-              <p>Par ${holesArray[i].holePar}</p>
-              <p>Hole Throws: ${holesArray[i].holeThrows}</p>
+              <p>Par: ${holesArray[i].holePar}</p>
+              <p>Throws: ${holesArray[i].holeThrows}</p>
               <p>Round Score: ${holesArray[i].roundOverUnder}</p>
             </div>
           `;

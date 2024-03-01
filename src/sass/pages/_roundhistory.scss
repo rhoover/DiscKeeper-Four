@@ -92,15 +92,17 @@
   }
   &-arrow {
     justify-self: flex-end;
-    font-size: $h5-size;
+    font-size: $h6-size;
     padding: $p-size;
+    margin: 0px $p-size $p-size 0px;
+    border: 1px solid setcolor(blue, base);
+    border-radius: 0.25rem;
+    @extend %box-shadow;
   }
   &-modal {
     @extend %modal;
     grid-template-rows: max-content max-content 1fr;
-    top: 0vh;
     width: 100%;
-    // row-gap: $p-size;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-open {
       @extend %modal-display;
@@ -129,35 +131,37 @@
     &-hole {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
       align-items: center;
-      row-gap: $p-size;
-      height: 8rem;
       padding: $p-size;
       font-size: $h5-size;
       font-weight: 700;
       background-color: setcolor(white, light75);
       border-radius: 0.25rem;
       border: 1px solid setcolor(blue, base);
-      & :nth-of-type(1) {
+      & :nth-of-type(1) { // hole number
         grid-column: 1 / 2;
-        grid-row: 1 / 2;
+        grid-row: 1 / 4;
+        align-self: center;
         font-size: $h4-size;
         font-weight: 700;
       }
-      & :nth-of-type(2) {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-      }
-      & :nth-of-type(3) {
+      & :nth-of-type(2) { // hole par
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        height: 100%;
-        border-bottom: 1px solid setcolor(blue, dark25);
+        padding: 0.5rem 0px 0.5rem 0px;
+        border-bottom: 1px solid setcolor(blue, base);
       }
-      & :nth-of-type(4) {
+      & :nth-of-type(3) { // hole throws
         grid-column: 2 / 3;
         grid-row: 2 / 3;
+        padding: 0.5rem 0px 0.5rem 0px;
+        border-bottom: 1px solid setcolor(blue, base);
+      }
+      & :nth-of-type(4) { // round score
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        padding: 0.5rem 0px 0.5rem 0px;
       }
     }
   }
