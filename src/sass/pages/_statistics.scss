@@ -42,45 +42,22 @@
 
 .graph {
   @extend %modal;
-  // grid-template-rows: 0.55fr 1fr;
-    grid-template-rows: .10fr .10fr 1fr;
-  top: 0vh;
-  width: 100%;
-  height: 80vh;
-  overflow-y: scroll;
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  @extend %modal-statistics;
   &-header {
     @extend %modal-header;
-    // display: grid;
-    // grid-template-columns: 1fr 0.25fr;
     &-text {
-      // grid-column: 1 / 2;
-      font-size: $h4-size;
-      line-height: $h3-size;
-      text-align: left;
+      @extend %modal-header-text;
     }
   }
   &-closing {
-    padding-bottom: $p-size;
-    padding-top: $p-size;
-    border-bottom: 1px solid setcolor(blue, dark35);
+    @extend %modal-closing;
   }
   &-close {
-    float: right;
-    padding: calc($p-size / 2);
-    margin-right: $h5-size;
-    font-size: $h6-size;
-    color: setcolor(red, base);
-    background-color: setcolor(white, base);
-    border-radius: 0.25rem;
-    border: 1px solid setcolor(red, base);
-    @extend %box-shadow;
+    @extend %modal-close-button;
   }
   // https://joshcollinsworth.com/blog/css-grid-bar-charts
   &-chart {
-    display: grid;
-    gap: 1.5rem 0;
-    margin: $p-size;
+    @extend %modal-chart;
     overflow-y: scroll;
     &-hole {
       display: grid;
@@ -122,45 +99,27 @@
   }
   &-display {
     @extend %modal-display;
-    transform: translateX(-105vw);
   }
 }
 
 .round {
   @extend %modal;
-  grid-template-rows: 5rem 0.25fr;
-  top: 1vh;
-  width: 100%;
-  height: 80vh;
-  overflow-y: scroll;
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  @extend %modal-statistics;
   &-header {
     @extend %modal-header;
-    display: grid;
-    grid-template-columns: 1fr 0.25fr;
     &-text {
-      grid-column: 1 / 2;
-      font-size: $h4-size;
-      line-height: $h3-size;
-      text-align: left;
+      @extend %modal-header-text;
     }
   }
+  &-closing {
+    @extend %modal-closing;
+  }
   &-close {
-    grid-column: 2 / 3;
-    justify-self: right;
-    align-self: center;
-    padding: calc($p-size / 2);
-    color: setcolor(red, base);
-    background-color: setcolor(white, base);
-    border-radius: 0.25rem;
-    border: 1px solid setcolor(red, base);
-    @extend %box-shadow;
+    @extend %modal-close-button;
   }
   // https://joshcollinsworth.com/blog/css-grid-bar-charts
   &-chart {
-    display: grid;
-    gap: 1.5rem 0;
-    margin: $p-size;
+    @extend %modal-chart;
     border-left: 1px solid setcolor(blue, dark50);
     & p {
       grid-column-start: 1;
@@ -178,6 +137,5 @@
   }
   &-display {
     @extend %modal-display;
-    transform: translateX(-105vw);
   }
 }

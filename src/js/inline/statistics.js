@@ -266,7 +266,7 @@
       let roundHeaderOutput = '';
       let roundChartOutput = '';
 
-      roundHeaderOutput = `<h1 class="round-header-text">${chosenCourseName}</h1><p class="round-close">Close</p>`;
+      roundHeaderOutput = `<p class="round-header-text">${chosenCourseName}</p>`;
 
       roundChartOutput = `
         <p style="grid-column-end: span ${minMaxAvgScore[0].minimum}">
@@ -286,7 +286,7 @@
 
       let closeModal = document.querySelector('.round-close');
       closeModal.addEventListener('click', (event) => {
-        roundDiv.classList.toggle('round-display');
+        roundDiv.classList.remove('round-display');
       });
     } // end buildHoleGraph()
   }; // end stats{}

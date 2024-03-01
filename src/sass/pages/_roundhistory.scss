@@ -94,20 +94,16 @@
   }
   &-modal {
     @extend %modal;
-    left: 100vw;
+    grid-template-rows: max-content max-content 1fr;
     top: 0vh;
     width: 100%;
-    grid-template-rows: .10fr .10fr 1fr;
-    row-gap: $p-size;
+    // row-gap: $p-size;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-open {
       @extend %modal-display;
     }
     &-header {
       @extend %modal-header;
-      width: 100%;
-      justify-self: center;
-      font-size: $h5-size;
       display: flex;
       justify-content: space-between;
       & p:first-of-type {
@@ -115,21 +111,13 @@
       }
     }
     &-closing {
-      padding-bottom: $p-size;
-      border-bottom: 1px solid setcolor(blue, dark35);
+      @extend %modal-closing;
     }
     &-close {
-      float: right;
-      padding: calc($p-size / 2);
-      margin-right: $h5-size;
-      font-size: $h6-size;
-      color: setcolor(red, base);
-      background-color: setcolor(white, base);
-      border-radius: 0.25rem;
-      border: 1px solid setcolor(red, base);
-      @extend %box-shadow;
+      @extend %modal-close-button;
     }
     &-holes {
+      margin-top: $p-size;
       display: grid;
       row-gap: $p-size;
       padding: 0px $p-size $p-size $p-size;
