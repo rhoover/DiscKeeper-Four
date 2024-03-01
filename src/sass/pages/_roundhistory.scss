@@ -101,8 +101,9 @@
   }
   &-modal {
     @extend %modal;
+    position: fixed;
     grid-template-rows: max-content max-content 1fr;
-    width: 100%;
+    width: 90%;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-open {
       @extend %modal-display;

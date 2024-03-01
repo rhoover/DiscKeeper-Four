@@ -2,7 +2,7 @@
   position: absolute;
   display: grid;
   top: 10vh;
-  left: 105vw;
+  left: 100vw;
   height: 75vh;
   width: 90%;
   margin: 0 auto;
@@ -21,7 +21,7 @@
     21px 21px 36px rgba(0, 0, 0, 0.12);
     z-index: 100;
   &-display {
-    transform: translateX(-105vw);
+    transform: translateX(-100vw);
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   }
   &-header {

@@ -146,14 +146,12 @@
 
 .modal {
   @extend %modal;
-  left: 100vw;
   top: 5vh;
   width: 100%;
   grid-template-rows: 12% 1fr 12%;
   row-gap: $p-size;
   &-open {
     @extend %modal-display;
-    transform: translateX(-100vw);
   }
   &-header {
     @extend %modal-header;
