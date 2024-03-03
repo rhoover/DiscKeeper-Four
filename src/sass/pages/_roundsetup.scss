@@ -9,8 +9,7 @@
 .modal {
   &-nocourse {
     @extend %modal;
-    top: 25vh;
-    height: 50vh;
+    height: 30vh;
     padding: $p-size;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     & p {
@@ -32,7 +31,7 @@
   &-courses {
     @extend %modal;
     grid-template-rows: auto 1fr auto;
-    top: 5vh;
+    row-gap: 1rem;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-header {
       @extend %modal-header;
@@ -50,7 +49,6 @@
     &-list {
       @extend %modal-list;
       overflow-y: scroll;
-      padding-top: $h6-size;
     }
     &-item {
       @extend %modal-list-item;
@@ -98,7 +96,6 @@
     @extend %modal;
     grid-template-rows: auto 7rem 1fr auto;
     row-gap: 1rem;
-    top: 5vh;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-header {
       @extend %modal-header;
@@ -114,7 +111,6 @@
     &-list {
       @extend %modal-list;
       overflow-y: scroll;
-      padding-top: 0px;
     }
     &-item {
       @extend %modal-list-item;
