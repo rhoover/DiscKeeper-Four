@@ -46,21 +46,11 @@
 }
 
 .modal {
-  position: absolute;
-  display: grid;
-  grid-template-rows: max-content;
-  row-gap: $p-size;
+  @extend %modal;
+  height: 30vh;
   align-items: center;
-  top: 25vh;
-  left: 105vw;
-  z-index: 150;
-  width: 90%;
-  margin: 0 auto;
   padding: $p-size;
   text-align: center;
-  background-color: setcolor(white, light75);
-  border: 1px solid setcolor(green, base);
-  border-radius: 0.65rem;
   & p {
     font-size: $h6-size;
   }
@@ -70,8 +60,8 @@
     text-decoration: none;
   }
   &-display {
-    transform: translateX(-100vw);
-    transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
+    @extend %modal-display;
+    transform: translateX(-95vw);
   }
 }
 
