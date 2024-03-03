@@ -25,6 +25,7 @@
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   }
   &-header {
+    width: 100%;
     font-weight: 700;
     font-size: $h4-size;
     align-self: center;
@@ -100,8 +101,8 @@
       justify-self: right;
     }
     &-svg {
-      height: 32px;
-      width: 32px;
+      height: 50px;
+      width: 50px;
       padding: 3px;
       border-radius: 100%;
       border: 1px solid setcolor(red, dark15);

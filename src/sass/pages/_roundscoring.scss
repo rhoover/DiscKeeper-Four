@@ -146,8 +146,6 @@
 
 .modal {
   @extend %modal;
-  top: 5vh;
-  width: 100%;
   grid-template-rows: 12% 1fr 12%;
   row-gap: $p-size;
   &-open {
@@ -155,8 +153,6 @@
   }
   &-header {
     @extend %modal-header;
-    width: 100%;
-    justify-self: center;
   }
   &-round {
     @extend %modal-list;
@@ -210,7 +206,7 @@
         @extend %modal-footer-svg;
         grid-column: 4 / 5;
         border: 1px solid setcolor(green, base);
-        stroke: setcolor(green, base);
+        fill: setcolor(green, base);
       }
       &-text {
         @extend %modal-footer-text;
