@@ -1,10 +1,10 @@
 %create-success {
-  position: absolute;
-  left: 105vw;
+  position: fixed;
+  left: 100vw;
   top: 25vh;
   &-display {
     align-self: center;
-    transform: translateX(-100vw);
+    transform: translateX(-95vw);
     transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
     padding: $h3-size;
     width: 90%;
