@@ -42,7 +42,7 @@
 
 .graph {
   @extend %modal;
-  @extend %modal-statistics;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-header {
     @extend %modal-header;
     &-text {
@@ -104,7 +104,8 @@
 
 .round {
   @extend %modal;
-  @extend %modal-statistics;
+  height: 50vh;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-header {
     @extend %modal-header;
     &-text {
