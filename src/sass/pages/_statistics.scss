@@ -140,3 +140,10 @@
     @extend %modal-display;
   }
 }
+
+.scroller-modal {
+  @extend %scroller-modal;
+  &-visible {
+    @extend %scroller-modal-visible;
+  }
+}

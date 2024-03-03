@@ -3,14 +3,14 @@
 
   var contentElem = document.querySelector('.graph-chart');
   var contentElemPos = contentElem.offsetTop;
-  var scrollButton = document.querySelector('.list-scroller');
+  var scrollButton = document.querySelector('.scroller-modal');
   // console.log(contentElem.getBoundingClientRect().top);
 
   contentElem.addEventListener('scroll', function () {
     if (contentElem.scrollTop > 150) {
-      scrollButton.classList.add('list-scroller-visible');      
+      scrollButton.classList.add('scroller-modal-visible');      
     } else {
-      scrollButton.classList.remove('list-scroller-visible');
+      scrollButton.classList.remove('scroller-modal-visible');
     };
   });
 
