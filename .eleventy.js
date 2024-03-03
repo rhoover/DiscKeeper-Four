@@ -9,7 +9,6 @@ const { DateTime } = require("luxon");
 
 // Filters
 const jsMinifier = require("./src/_eleventy/filters/minify-javascript.js");
-const dateFormatter = require("./src/_eleventy/filters/date-format.js");
 
 // Shortcodes
 const schemaData = require("./src/_eleventy/shortcodes/structured-data.js");
@@ -61,8 +60,10 @@ module.exports = function(eleventyConfig) {
   // minify inline js codes on the fly, which can happern because of the sym-link between js/inline and _includes
   eleventyConfig.addNunjucksAsyncFilter("jsmin", jsMinifier);
 
-  // date formatter...duh
-  eleventyConfig.addFilter("dateFormat", dateFormatter);
+  // luxon date formatter
+  eleventyConfig.addFilter("dateFormat", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString();
+  });
   
   ////////////////////////////////////////////////////
   // Utilities
