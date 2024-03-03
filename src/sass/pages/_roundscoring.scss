@@ -148,6 +148,7 @@
   @extend %modal;
   grid-template-rows: 12% 1fr 12%;
   row-gap: $p-size;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-open {
     @extend %modal-display;
   }
