@@ -67,18 +67,14 @@
 }
 
 .success {
-  position: absolute;
-  left: 105vw;
-  top: 25vh;
+  @extend %create-success;
   &-display {
     @extend %create-success-display;
   }
 }
 
 .exists {
-  position: absolute;
-  left: 105vw;
-  top: 25vh;
+  @extend %create-success;
   font-size: $h5-size;
   & a {
     font-size: $h5-size;
