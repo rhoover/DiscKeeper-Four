@@ -65,6 +65,9 @@
   border: 1px solid setcolor(blue, base);
   @extend %box-shadow;
   &-header {
+    display: flex;
+    flex-direction: column;
+    row-gap: $p-size;
     padding: $p-size;
     border-bottom: 1px solid setcolor(blue, dark25);
     background-color: rgba(setcolor(blue, base), 0.15);
@@ -73,7 +76,6 @@
     text-align: center;
     &-name {
       font-size: $h4-size;
-      margin-bottom: $p-size;
     }
   }
   &-name {
@@ -111,6 +113,8 @@
     &-header {
       @extend %modal-header;
       display: flex;
+      flex-direction: column;
+      row-gap: $p-size;
       justify-content: space-between;
       & p:first-of-type {
         font-size: $h5-size;
@@ -131,8 +135,9 @@
     }
     &-hole {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: .85fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
+      column-gap: 0.5rem;
       align-items: center;
       padding: $p-size;
       font-size: $h5-size;
@@ -151,18 +156,22 @@
         grid-column: 2 / 3;
         grid-row: 1 / 2;
         padding: 0.5rem 0px 0.5rem 0px;
-        border-bottom: 1px solid setcolor(blue, base);
+        border: 1px solid setcolor(blue, base);
+        border-radius: 0.5rem;
+        text-align: center;
       }
       & :nth-of-type(3) { // hole throws
         grid-column: 2 / 3;
         grid-row: 2 / 3;
         padding: 0.5rem 0px 0.5rem 0px;
         border-bottom: 1px solid setcolor(blue, base);
+        font-size: $h6-size;
       }
       & :nth-of-type(4) { // round score
         grid-column: 2 / 3;
         grid-row: 3 / 4;
         padding: 0.5rem 0px 0.5rem 0px;
+        font-size: $h6-size;
       }
     }
   }

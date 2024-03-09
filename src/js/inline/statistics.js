@@ -223,7 +223,7 @@
       console.log('minMaxAvg:', minMaxAvg);
 
       // headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
-      headerOutput = `<p class="graph-header-text">${chosenCourseName}</p>`;
+      headerOutput = `<p class="graph-header-text">${chosenCourseName}</p><p>Hole Performance</p>`;
 
       // https://joshcollinsworth.com/blog/css-grid-bar-charts
       minMaxAvg.forEach((hole) => {
