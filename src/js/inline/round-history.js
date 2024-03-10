@@ -193,7 +193,7 @@
 
         warningOutput += `
           <p class="warning">You don't have any rounds saved yet,</p>
-          <a href="pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
+          <a href="/pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
         `;
         roundsWarning.innerHTML += warningOutput;
       };
