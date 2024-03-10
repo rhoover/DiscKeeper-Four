@@ -179,15 +179,17 @@
     }, // end roundScoresModal()
 
     noRounds(roundsData) {
-      let roundsWarning = document.querySelector('.roundhistory');
-      let statsEncourage = document.querySelector('.stats');
-      let roundItems = document.querySelector('.rounds')
+      const roundsWarning = document.querySelector('.roundhistory');
+      const statsEncourage = document.querySelector('.stats');
+      const roundItems = document.querySelector('.rounds');
+      const chooseElement = document.querySelector('.choose');
       let warningOutput = "";
 
       if (roundsData == null) {
 
         statsEncourage.remove();
         roundItems.remove();
+        chooseElement.remove();
 
         warningOutput += `
           <p class="warning">You don't have any rounds saved yet,</p>
