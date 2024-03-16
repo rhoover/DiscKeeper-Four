@@ -79,7 +79,7 @@
           @extend %modal-footer-svg;
           grid-column: 4 / 5;
           border: 1px solid setcolor(green, base);
-          stroke: setcolor(green, base);
+          fill: setcolor(green, base);
         }
         &-text {
           @extend %modal-footer-text;
@@ -141,7 +141,7 @@
           @extend %modal-footer-svg;
           grid-column: 4 / 5;
           border: 1px solid setcolor(green, base);
-          stroke: setcolor(green, base);
+          fill: setcolor(green, base);
         }
         &-text {
           @extend %modal-footer-text;
