@@ -84,6 +84,32 @@
         fill: setcolor(green, dark35);
       }
     }
+    &-radio {
+      display: grid;
+      place-content: center;
+      -webkit-appearance: none;
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: setcolor(white, base);
+      /* Not removed via appearance */
+      margin: 0;  
+      font: inherit;
+      color: currentColor;
+      width: 34px;
+      height: 34px;
+      border: 1px solid setcolor(green, base);
+      border-radius: 50%;
+    }
+    &-before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      transform: scale(0);
+      transition: 220ms transform ease-in-out;
+      box-shadow: inset 16px 16px setcolor(green, base);
+      transform-origin: bottom left;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
   }
   &-footer {
     display: grid;

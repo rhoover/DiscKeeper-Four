@@ -43,17 +43,12 @@
       let coursesOutput = "";
 
       courseList.forEach(function(course) {
-        // coursesOutput += `
-        // <p class="modal-courses-item" data-courseID="${course.courseID}">${course.courseName}
-        //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="modal-courses-item-checkmark"><path d="M170.718 216.482L141.6 245.6l93.6 93.6 208-208-29.118-29.118L235.2 279.918l-64.482-63.436zM422.4 256c0 91.518-74.883 166.4-166.4 166.4S89.6 347.518 89.6 256 164.482 89.6 256 89.6c15.6 0 31.2 2.082 45.764 6.241L334 63.6C310.082 53.2 284.082 48 256 48 141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208h-41.6z"/></svg>
-        // </p>
-        // `;
         coursesOutput += `
-        <label class="modal-courses-item">
-          ${course.courseName}
-          <input type="checkbox" data-courseID="${course.courseID}" />
-        </label>
-        `
+          <label class="modal-courses-item">
+            ${course.courseName}
+            <input type="radio" name="course" value="${course.courseID}" />
+          </label>
+        `;
       }); // end for loop
 
       insertCoursesHere.innerHTML = coursesOutput;
@@ -63,36 +58,27 @@
     }, // end buildCoursesModal()
 
     manageCoursesModal(courseList) {
+      // courses button on page to launch everything
       let chooseCourseButton = document.querySelector('[rh-button="courses"]');
 
       let coursesModal = document.querySelector('.modal-courses');
-      let courseListElement = document.querySelector('.modal-courses-list');
+      let courseListForm = document.querySelector('.modal-courses-list');
       let coursesFooter = document.querySelector('.modal-courses-footer');
 
-      let clickedCourse = {};
-      let clickedCourseID = '';
-      let chosenCourse = [];
-
       let mainDisplaySlot = document.querySelector('.selections-course');
-
 
       chooseCourseButton.addEventListener('click', (event) => {
         document.querySelector('.modal-courses').classList.add('modal-courses-display');
       });
 
-      courseListElement.addEventListener('click', (event) => {
-
-        clickedCourseID = event.target.closest('p').getAttribute('data-courseid');
-        clickedCourse = courseList.find((course) => course.courseID === clickedCourseID);
-
-        chosenCourse.push(clickedCourse);
-
-        event.target.closest('p').classList.toggle('modal-courses-item-clicked');
-
-      });
-
       coursesFooter.addEventListener('click', (event) => {
+        // which "button" was clicked
         let action = event.target.getAttribute('data-action');
+
+        // form data collection
+        let formCourseData = new FormData(courseListForm);
+        let formCourseID = formCourseData.get('course');
+        let courseObject = courseList.find(x => x.courseID === formCourseID);
 
         switch (action) {
           case 'close':
@@ -101,24 +87,17 @@
           break;
           case 'save':
 
-            // first dedupe chosenCourse array as each click on a course adds it to array, even if it appears on-screen that the user is changing their mind about course choice
-            //https://stackoverflow.com/questions/43505967/completely-removing-duplicate-items-from-an-array
-            let dedupeCourses = chosenCourse.filter(
-              Map.prototype.get,
-              chosenCourse.reduce((m,v) => m.set(v, !m.has(v)), new Map)
-            );
-
-            // then add some meta info of the round
+            // add some meta info of the round to course object
             let newRoundID = Math.random().toString(36).substring(2,11);
             newRoundID.toString();
-            dedupeCourses[0].roundID = newRoundID;
-            dedupeCourses[0].roundDate = new Date().toLocaleDateString('en-US');
+            courseObject.roundID = newRoundID;
+            courseObject.roundDate = new Date().toLocaleDateString('en-US');
 
             // then save to idb
-            localforage.setItem('chosenCourse', dedupeCourses[0]);
+            localforage.setItem('chosenCourse', courseObject);
 
             // then add to main screen
-            mainDisplaySlot.innerHTML = `${dedupeCourses[0].courseName}`;
+            mainDisplaySlot.innerHTML = `${courseObject.courseName}`;
 
             // then close modal
             coursesModal.classList.remove('modal-courses-display');
@@ -134,7 +113,7 @@
 
       let insertPlayersHere = document.querySelector('.modal-players-list');
       let playersOutput = '';
-      let primaryPlayer = playerList.filter((player) => player.primary == true);
+      let primaryPlayer = playerList.find(x => x.primary == true);
 
       for (let i = 0; i < playerList.length; i++) {
         if (playerList[i].primary == true) {
@@ -144,9 +123,10 @@
 
       playerList.forEach((player) => {
         playersOutput += `
-        <p class="modal-players-item" data-playerID="${player.playerID}">${player.nameFirst} ${player.nameLast}
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="modal-players-item-checkmark"><path d="M170.718 216.482L141.6 245.6l93.6 93.6 208-208-29.118-29.118L235.2 279.918l-64.482-63.436zM422.4 256c0 91.518-74.883 166.4-166.4 166.4S89.6 347.518 89.6 256 164.482 89.6 256 89.6c15.6 0 31.2 2.082 45.764 6.241L334 63.6C310.082 53.2 284.082 48 256 48 141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208h-41.6z"/></svg>
-        </p>
+          <label class="modal-players-item">
+            ${player.nameFirst} ${player.nameLast}
+            <input type="checkbox" name="player" value="${player.playerID}"/>
+          </label>
         `;
       });
 
@@ -157,65 +137,50 @@
 
     managePlayersModal(playerList, primaryPlayer) {
 
+      // players button on page to launch this
       let morePlayersButton = document.querySelector('[rh-button="players"]');
 
       let playersModal = document.querySelector('.modal-players');
-      let playersListElement = document.querySelector('.modal-players-list');
       let playersFooter = document.querySelector('.modal-players-footer');
 
       let playerDisplaySlot = document.querySelector('.selections-players');
-      let playerDisplayText = '';
 
-      let clickedPlayer = {};
-      let clickedPlayerID = '';
       let chosenPlayers = [];
 
-      chosenPlayers.push(primaryPlayer[0]);
+      chosenPlayers.push(primaryPlayer);
 
-      // save for final assembly if no more players are chosen, doing this ahaead of time
+      // save for final assembly if no more players are chosen, doing this ahead of time
       localforage.setItem('chosenPlayers', chosenPlayers);
 
       morePlayersButton.addEventListener('click', (event) => {
         playersModal.classList.add('modal-players-display');
       });
 
-      playersListElement.addEventListener('click', (event) => {
-
-        clickedPlayerID = event.target.closest('p').getAttribute('data-playerid');
-        clickedPlayer = playerList.find((player) => player.playerID === clickedPlayerID);
-
-        chosenPlayers.push(clickedPlayer);
-
-        event.target.closest('p').classList.toggle('modal-players-item-clicked');
-      });
-
       playersFooter.addEventListener('click', (event) => {
-
+        // which "button" was clicked
         let action = event.target.getAttribute('data-action');
+
+        let checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked");
 
         switch (action) {
           case 'close':
             playersModal.classList.remove('modal-players-display');
           break;
           case 'save':
-
-            // first dedupe chosenPlayers array
-            //https://stackoverflow.com/questions/43505967/completely-removing-duplicate-items-from-an-array
-            let dedupeResult = chosenPlayers.filter(
-              Map.prototype.get,
-              chosenPlayers.reduce((m,v) => m.set(v, !m.has(v)), new Map)
-            );
+            // find the players from the checked boxes
+            for (let i = 0; i < checkedBoxes.length; i++) {
+              let formPlayerID = checkedBoxes[i].getAttribute('value');
+              let playerObject = playerList.find(x => x.playerID === formPlayerID);
+              // push checked player into the array
+              chosenPlayers.push(playerObject);
+              // then add names to main screen
+              playerDisplaySlot.innerHTML += `, ${playerObject.nameFirst}, `;
+            };
 
             // then save to idb
-            localforage.setItem('chosenPlayers', dedupeResult);
+            localforage.setItem('chosenPlayers', chosenPlayers);
 
-            // then add to main screen
-            for (let i = 0; i < dedupeResult.length; i++) {
-              if (dedupeResult[i].primary == false) {
-                playerDisplayText = dedupeResult[i].nameFirst;
-                playerDisplaySlot.innerHTML += `, ${playerDisplayText}`;                
-              };
-            };
+
             // then close modal
             playersModal.classList.remove('modal-players-display');
           break;        

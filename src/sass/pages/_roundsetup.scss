@@ -31,7 +31,7 @@
   &-courses {
     @extend %modal;
     grid-template-rows: auto 1fr auto;
-    row-gap: 1rem;
+    row-gap: 16px;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-header {
       @extend %modal-header;
@@ -52,42 +52,15 @@
     }
     &-item {
       @extend %modal-list-item;
-      & > input[type="checkbox"] {  
-        display: grid;
-        place-content: center;
-        -webkit-appearance: none;
-        appearance: none;
-        /* For iOS < 15 to remove gradient background */
-        background-color: setcolor(white, base);
-        /* Not removed via appearance */
-        margin: 0;  
-        font: inherit;
-        color: currentColor;
-        width: 34px;
-        height: 34px;
-        border: 1px solid setcolor(green, base);
-        border-radius: 50%;
+      & > input[type="radio"] {
+        @extend %modal-list-item-radio;
         &::before {
-          content: "";
-          width: 24px;
-          height: 24px;
-          transform: scale(0);
-          transition: 220ms transform ease-in-out;
-          box-shadow: inset 16px 16px setcolor(green, base);
-          transform-origin: bottom left;
-          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          @extend %modal-list-item-before;
         }
         &:checked::before {
           transform: scale(1);
         }
       }
-      // &-checkmark {
-      //   @extend %modal-list-item-checkmark;
-      // }
-      // &-clicked {
-      //   border: 2px solid setcolor(green, base);
-      //   background-color: setcolor(green, light75);
-      // }
     }
     &-footer {
       @extend %modal-footer;
@@ -123,8 +96,8 @@
   }
   &-players {
     @extend %modal;
-    grid-template-rows: auto 7rem 1fr auto;
-    row-gap: 1rem;
+    grid-template-rows: auto 112px 1fr auto;
+    row-gap: 16px;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     &-header {
       @extend %modal-header;
@@ -143,12 +116,14 @@
     }
     &-item {
       @extend %modal-list-item;
-      &-checkmark {
-        @extend %modal-list-item-checkmark;
-      }
-      &-clicked {
-        border: 2px solid setcolor(green, base);
-        background-color: setcolor(green, light75);
+      & > input[type="checkbox"] {
+        @extend %modal-list-item-radio;
+        &::before {
+          @extend %modal-list-item-before;
+        }
+        &:checked::before {
+          transform: scale(1);
+        }
       }
     }
     &-footer {
