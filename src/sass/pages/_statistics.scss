@@ -144,6 +144,20 @@
   }
 }
 
+.warning {
+  font-size: $h5-size;
+  text-align: center;
+  margin-bottom: 32px;
+  &-link {
+    @extend %form-input-button;
+    font-size: $h5-size;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
 .scroller-modal {
   @extend %scroller-modal;
   &-visible {

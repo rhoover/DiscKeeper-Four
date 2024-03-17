@@ -14,14 +14,14 @@
         // are there rounds or not
         switch (data) {
           // if there is saved rounds data
-          case data:
+          case data !== null:
             stats.buildListForDOM(data);
             // console.log('fetched rounds:', fetchedRounds);
           break;
 
           // if there is not saved rounds data
-          case false:
-            stats.noRounds();            
+          case null:
+            stats.noRounds(data);            
           break;
         
           default:
@@ -31,7 +31,7 @@
 
     }, //end init()
 
-    noRounds() {
+    noRounds(roundsData) {
       let mainElement = document.querySelector('.statistics');
       let courseItemsSection = document.querySelector('.courses')
       let warningOutput = "";
@@ -43,7 +43,7 @@
 
       warningOutput += `
         <p class="warning">You don't have any rounds saved yet,</p>
-        <a href="pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
+        <a href="/pages/roundsetup.html" class="warning-link">Go ahead and start one!  ➤</a>
       `;
       mainElement.innerHTML += warningOutput;
 
