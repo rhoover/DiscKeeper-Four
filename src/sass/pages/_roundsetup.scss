@@ -97,6 +97,7 @@
     grid-template-rows: auto 112px 1fr auto;
     row-gap: 16px;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+    overflow-y: scroll;
     &-header {
       @extend %modal-header;
     }
@@ -105,6 +106,7 @@
       padding: 16px;
       justify-self: center;
       text-align: center;
+      font-weight: 700;
       border: 1px solid setcolor(blue, base);
       border-radius: 4px;
       background-color: rgba(setcolor(blue, base), 0.15);
@@ -188,5 +190,6 @@
 
 .button {
   @extend %form-input-button;
+  padding: 0px 16px;
   font-size: $h5-size;
 }
