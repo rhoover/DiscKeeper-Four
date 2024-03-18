@@ -6,14 +6,14 @@
     align-self: center;
     transform: translateX(-95vw);
     transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
-    padding: $h3-size;
+    padding: 49.6px;
     width: 90%;
     margin: 0 auto;
     text-align: center;
     color: setcolor(green, base);
     background-color: setcolor(white, light75);
-    font-size: $h4-size;
+    font-size: 38.4px;
     border: 1px solid setcolor(green, base);
-    border-radius: 0.65rem;
+    border-radius: 10.4px;
   }
 }

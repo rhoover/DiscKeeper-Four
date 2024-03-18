@@ -4,17 +4,17 @@
 }
 .list {
     display: grid;
-    row-gap: $h4-size;
-    padding-top: $p-size;
+    row-gap: 38.4px;
+    padding-top: 16px;
 }
 .item {
     display: grid;
     grid-template-rows: max-content;
     grid-template-columns: 1fr max-content 1fr;
-    row-gap: $p-size;
-    column-gap: $p-size;
-    padding: $p-size;
-    border-radius: 0.25rem;
+    row-gap: 16px;
+    column-gap: 16px;
+    padding: 16px;
+    border-radius: 4px;
     border: 1px solid setcolor(green, dark25);
     @extend %box-shadow;
       background-color: setcolor(white, light75);
@@ -45,7 +45,7 @@
       text-align: center;
       background: setcolor(blue, light65);
       border: 1px solid setcolor(green, base);
-      border-radius: 0.25rem;
+      border-radius: 4px;
       & svg {
         width: 32px;
         align-self: center;
@@ -59,7 +59,7 @@
       text-align: center;
       background: setcolor(blue, light65);
       border: 1px solid setcolor(green, base);
-      border-radius: 0.25rem;
+      border-radius: 4px;
       & svg {
         width: 32px;
         align-self: center;
@@ -72,8 +72,8 @@
     @extend %form-input-button;
     @extend %box-shadow;
     width: 100%;
-    margin-top: $h3-size;
-    margin-bottom: $h5-size;
+    margin-top: 49.6px;
+    margin-bottom: 28.8px;
 }
 .success {
     @extend %create-success;
@@ -81,4 +81,3 @@
       @extend %create-success-display;
     }
 }
-// }

@@ -27,7 +27,7 @@
   &-response {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: $h5-size;
+    row-gap: 28.8px;
     justify-items: center;
   }
   &-submit {
@@ -39,9 +39,9 @@
   &-holes {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: $h5-size;
+    row-gap: 28.8px;
     justify-items: center;
-    padding: $p-size;
+    padding: 16px;
     border-top: 1px solid setcolor(blue, base);
     border-bottom: 1px solid setcolor(blue, base);
     &-question {
@@ -59,7 +59,7 @@
     &-radio {
       display: grid;
       grid-template-rows: 1fr;
-      grid-template-columns: $h4-size 1fr;
+      grid-template-columns: 38.4px 1fr;
       align-items: center;
       font-size: $h5-size;
     }
@@ -85,8 +85,8 @@
 }
 
 input[type="radio"] {
-  width: $h5-size;
-  height: $h5-size;
+  width: 28.8px;
+  height: 28.8px;
 }
 
 input[type="text"]:focus {

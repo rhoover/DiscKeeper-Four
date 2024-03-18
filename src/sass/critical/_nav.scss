@@ -1,10 +1,10 @@
 .nav {
   position: absolute;
-  top: 5rem;
+  top: 80px;
   z-index: 25;
   width: 50%;
   left: -50%;
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 64px);
   // background:
   // // cribbed: https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/
   // repeating-conic-gradient(rgba(setcolor(white, base), 0.07) 0.000045%, rgba(setcolor(black, base), 0.07) 0.0005%) 60% 60%/3000px 3000px,
@@ -16,7 +16,7 @@
     display: grid;
     grid-template-columns: 35px 1fr;
     align-items: center;
-    padding: 1.25rem 0px 1.25rem 1.25rem;
+    padding: 20px 0px 20px 20px;
     border-top: 1px solid rgba(setcolor(green, dark45), 0.5);
     &-link {
       font-size: $p-size;
@@ -32,12 +32,12 @@
     &-small {
       font-size: calc($p-size * 0.5);
       font-weight: 700;
-      margin-left: 3.5rem;
+      margin-left: 56px;
     }
   }
   &-open {
     transform: translateX(100%);
-    padding-top: 2rem;
+    padding-top: 32px;
     box-shadow:
     3.2px 0px 2.9px -6px rgba(0, 0, 0, 0.01),
     10.9px 0px 6.9px -6px rgba(0, 0, 0, 0.025),
@@ -50,7 +50,7 @@
     display: grid;
     grid-template-columns: 35px 1fr;
     align-items: center;
-    padding: 1.25rem 0px 1.25rem 1.25rem;
+    padding: 20px 0px 20px 20px;
     border-top: 1px solid rgba(setcolor(green, dark45), 0.5);
     & svg {
       fill: setcolor(red, base);
@@ -63,5 +63,4 @@
       color: setcolor(red, base);
     }
   }
-
 }

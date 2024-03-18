@@ -43,8 +43,8 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  padding: $p-size 0px;
-  border-radius: 0.25rem;
+  padding: 16px 0px;
+  border-radius: 4px;
   border: 1px solid setcolor(green, dark15);
   &-hole {
     grid-column: 1 / 2;
@@ -71,7 +71,7 @@
 
 .confirm {
   display: grid;
-  grid-template-columns: 70% 25%;
+  grid-template-columns: .75fr .25fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
   &-name {
@@ -88,8 +88,8 @@
       width: 95%;
       background-color: setcolor(white, light75);
       border: 1px solid setcolor(green, dark25);
-      border-radius: 0.25rem;
-      padding: 0.5rem 0px;
+      border-radius: 4px;
+      padding: 8px 0px;
       font-size: $h6-size;
       font-weight: 700;
     }
@@ -102,7 +102,7 @@
 }
 
 .scores {
-  padding: $p-size 0px;
+  padding: 16px 0px;
   align-self: center;
   font-size: $h4-size;
   font-weight: 700;
@@ -110,17 +110,17 @@
 
 .players {
   display: grid;
-  row-gap: $h5-size;
+  row-gap: 28.8px;
   grid-auto-rows: fit-content(20vh);
-  margin-bottom: $h3-size;
+  margin-bottom: 49.6px;
   &-player {
     display: grid;
-    grid-template-columns: 75% 1fr;
-    row-gap: $h6-size;
+    grid-template-columns: .75fr 1fr;
+    row-gap: 20.8px;
     align-items: center;
-    padding: $p-size;
+    padding: 16px;
     background-color: setcolor(white, light95);
-    border-radius: 0.25rem;
+    border-radius: 4px;
     border: 1px solid setcolor(blue, base);
   }
   &-name {
@@ -146,7 +146,7 @@
 
 .modal {
   @extend %modal;
-  grid-template-rows: 12% 1fr 12%;
+  grid-template-rows: .12fr 1fr .12fr;
   row-gap: 16px;
   transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-open {
@@ -157,10 +157,10 @@
   }
   &-round {
     @extend %modal-list;
-    padding-top: $h5-size;
+    padding-top: 28.8px;
     &-header {
       width: 100%;
-      padding: 0.5rem 0px;
+      padding: 8px 0px;
       text-align: center;
       border-top: 1px solid setcolor(blue, base);
       border-bottom: 1px solid setcolor(blue, base);
@@ -173,8 +173,8 @@
     display: grid;
     @extend %modal-list-item;
     grid-template-columns: max-content max-content 1fr;
-    column-gap: $p-size;
-    padding-right: $p-size;
+    column-gap: 16px;
+    padding-right: 16px;
     &-name {
       grid-column: 1 / 2;
     }

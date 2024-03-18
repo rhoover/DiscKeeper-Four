@@ -4,20 +4,19 @@
 
 .courses {
   display: grid;
-  row-gap: $p-size;
-
+  row-gap: 16px;
 }
 
 .course {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  row-gap: $p-size;
+  row-gap: 16px;
   align-items: center;
   justify-items: center;
   line-height: $h3-size;
-  padding: $p-size;
-  border-radius: 0.25rem;
+  padding: 16px;
+  border-radius: 4px;
   border: 1px solid setcolor(blue, base);
   @extend %box-shadow;
   & p {
@@ -63,17 +62,17 @@
       display: grid;
       grid-template-columns: auto;
       grid-auto-columns: 1fr;
-      gap: 1.5em 0;
+      gap: 24px 0;
       align-items: center;
-      padding-bottom: 1.5rem;
-      border-radius: 0.65rem;
+      padding-bottom: 24px;
+      border-radius: 10.4;
       border: 1px solid setcolor(blue, base);
       background-color: rgba(setcolor(blue, base),0.05);
       @extend %box-shadow;
       &-name {
         display: flex;
         justify-content: space-between;
-        padding: 0.75rem;
+        padding: 12px;
         font-size: $h4-size;
         font-weight: 700;
         background-color: rgba(setcolor(blue, base),0.25);
@@ -88,12 +87,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 0.5rem;
+        padding: 0 8px;
         font-size: $h6-size;
         font-weight: 700;
         line-height: $h3-size;
-        border-top-right-radius: 2rem;
-        border-bottom-right-radius: 2rem;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
         background-color: rgba(setcolor(blue, base),0.55);
       }
     }
@@ -130,12 +129,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 0.5rem;
+      padding: 0 8px;
       font-size: $h6-size;
       font-weight: 700;
       line-height: $h3-size;
-      border-top-right-radius: 2rem;
-      border-bottom-right-radius: 2rem;
+      border-top-right-radius: 32px;
+      border-bottom-right-radius: 32px;
       background-color: rgba(setcolor(blue, base),0.55);
     }
   }

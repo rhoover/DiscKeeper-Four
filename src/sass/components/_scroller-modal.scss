@@ -3,7 +3,7 @@
   display: none;
   z-index: 350;
   right: 0px;
-  bottom: 1rem;
+  bottom: 16px;
   width: 60px;
   height: 60px;
   background-color: rgba(setcolor(blue, base),0.75);
@@ -33,11 +33,10 @@
     left: 17px;
     transform: rotate(45deg);
     background: transparent;
-    border-top: .3em solid setcolor(white, base);
-    border-left: .3em solid setcolor(white, base);
+    border-top: 4.8px solid setcolor(white, base);
+    border-left: 4.8px solid setcolor(white, base);
   }
   &-visible {
-    // opacity: 1;
     display: block;
   }
   & p {

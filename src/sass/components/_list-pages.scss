@@ -1,15 +1,15 @@
 %list-main {
   display: grid;
   grid-auto-rows: fit-content(20vh);
-  row-gap: $h6-size;
+  row-gap: 20.8px;
 }
 
 %list-item {
   display: grid;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   border: 1px solid setcolor(blue, base);
   align-items: center;
-  padding: $p-size;
+  padding: 16px;
   background-color: setcolor(white, light55);
   @extend %box-shadow;
 }

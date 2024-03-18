@@ -6,7 +6,7 @@
   height: 75vh;
   width: 90%;
   margin: 0 auto;
-  border-radius: .65rem;
+  border-radius: 10.4px;
   border: 1px solid setcolor(blue, dark25);
   background-color: setcolor(white, light25);
   box-shadow:
@@ -30,7 +30,7 @@
     font-size: $h4-size;
     align-self: center;
     text-align: center;
-    padding: $p-size;
+    padding: 16px;
     background-color: rgba(setcolor(blue, light55), 0.25);
     border-bottom: 1px solid setcolor(green, base);
     &-text {
@@ -40,31 +40,30 @@
     }
   }
   &-closing {
-    padding-bottom: $p-size;
-    padding-top: $p-size;
+    padding: 16px 0px 16px 0px;
     border-bottom: 1px solid setcolor(blue, dark35);
   }
   &-close-button {
     float: right;
-    padding: calc($p-size / 2);
-    margin-right: $h5-size;
+    padding: calc(16px / 2);
+    margin-right: 28.8px;
     font-size: $h6-size;
     color: setcolor(red, base);
     background-color: setcolor(white, base);
-    border-radius: 0.25rem;
+    border-radius: 4px;
     border: 1px solid setcolor(red, base);
     @extend %box-shadow;
   }
   &-chart {
     display: grid;
-    gap: 1.5rem 0;
-    margin: $p-size;
-    padding: 2rem 0px 2rem 0px;
+    gap: 24px 0;
+    margin: 16px;
+    padding: 32px 0px 32px 0px;
   }
   &-list {
     display: grid;
     align-content: flex-start;
-    row-gap: $p-size;
+    row-gap: 16px;
   }
   &-list-item {
     display: grid;
@@ -113,7 +112,7 @@
   }
   &-footer {
     display: grid;
-    grid-template-columns: 5rem 1fr 1fr 5rem;
+    grid-template-columns: 80px 1fr 1fr 80px;
     justify-items: center;
     align-items: center;
     padding: 16px 0px;

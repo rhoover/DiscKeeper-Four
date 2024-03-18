@@ -1,5 +1,5 @@
 .list-players {
-  row-gap: $h5-size;
+  row-gap: 28.8px;
 }
 
 .header {
@@ -21,7 +21,7 @@
       align-self: center;
       justify-self: center;
       font-size: $h5-size;
-      padding: $h6-size;
+      padding: 20.0px;
     }
   }
   &-header {
@@ -30,7 +30,7 @@
     width: 100%;
     text-align: center;
     align-self: center;
-    padding: $h6-size;
+    padding: 20.8px;
     border-bottom: 1px solid setcolor(blue, dark25);
     background-color: rgba(setcolor(blue, base), 0.15);
     font-size: $h5-size;
@@ -38,7 +38,7 @@
   }
   &-normal {
     @extend %list-item;
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 1fr .5fr;
     grid-template-rows: repeat(2, 1fr);
     & svg {
       @extend %list-svg;

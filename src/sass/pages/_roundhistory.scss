@@ -1,6 +1,6 @@
 .roundhistory {
   position: relative;
-  row-gap: $h5-size;
+  row-gap: 28.8px;
   grid-template-rows: auto auto 1fr;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .choose {
-  padding: $h5-size $p-size 0px $p-size;
+  padding: 28.8px 16px 0px 16px;
   border: 1px solid setcolor(blue, base);
   border-radius: 0.5rem;
 }
@@ -17,7 +17,7 @@
 .button {
   @extend %form-input-button;
   width: 100%;
-  margin-bottom: $h5-size;
+  margin-bottom: 28.8px;
   line-height: $h3-size;
   font-size: $h6-size;
 }
@@ -30,7 +30,7 @@
   display: none;
   &-visible {
     display: grid;
-    row-gap: $h6-size;
+    row-gap: 20.8px;
   }
 }
 
@@ -40,35 +40,34 @@
   &-link {
     text-decoration: none;
     @extend %form-input-button;
-    max-height: $h3-size;
+    max-height: 49.6px;
     font-size: $h5-size;
     text-align: center;
   }
 }
 
 .stats {
-  // @extend %form-input-button;
   line-height: calc($h6-size * $scale);
   font-size: $h6-size;
   text-decoration: none;
   text-align: center;
-  padding: $p-size;
+  padding: 16px;
   border: 1px solid setcolor(blue, dark35);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   @extend %box-shadow;
 }
 
 .round {
   display: grid;
   grid-template-rows: max-content;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   border: 1px solid setcolor(blue, base);
   @extend %box-shadow;
   &-header {
     display: flex;
     flex-direction: column;
-    row-gap: $p-size;
-    padding: $p-size;
+    row-gap: 16px;
+    padding: 16px;
     border-bottom: 1px solid setcolor(blue, dark25);
     background-color: rgba(setcolor(blue, base), 0.15);
     font-size: $h5-size;
@@ -79,26 +78,24 @@
     }
   }
   &-name {
-    margin-top: $p-size;
-    padding-left: $p-size;
+    margin-top: 16px;
+    padding-left: 16px;
     font-size: $h5-size;
   }
   &-score {
     display: flex;
     justify-content: space-evenly;
-    margin-top: $p-size;
-    padding-left: $p-size;
-    padding-right: $p-size;
-    padding-bottom: $p-size;
+    margin-top: 16px;
+    padding: 0px 16px 16px 16px;
     font-size: $h6-size;
   }
   &-arrow {
     justify-self: flex-end;
     font-size: $h6-size;
-    padding: $p-size;
-    margin: 0px $p-size $p-size 0px;
+    padding: 16px;
+    margin: 0px 16px 16px 0px;
     border: 1px solid setcolor(blue, base);
-    border-radius: 0.25rem;
+    border-radius: 4px;
     @extend %box-shadow;
   }
   &-modal {
@@ -114,7 +111,7 @@
       @extend %modal-header;
       display: flex;
       flex-direction: column;
-      row-gap: $p-size;
+      row-gap: 16px;
       justify-content: space-between;
       & p:first-of-type {
         font-size: $h5-size;
@@ -127,19 +124,19 @@
       @extend %modal-close-button;
     }
     &-holes {
-      margin-top: $p-size;
+      margin-top: 16px;
       display: grid;
-      row-gap: $p-size;
-      padding: 0px $p-size $p-size $p-size;
+      row-gap: 16px;
+      padding: 0px 16px 16px 16px;
       overflow-y: scroll;
     }
     &-hole {
       display: grid;
       grid-template-columns: .85fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      column-gap: 0.5rem;
+      column-gap: 8px;
       align-items: center;
-      padding: $p-size;
+      padding: 16px;
       font-size: $h5-size;
       font-weight: 700;
       background-color: setcolor(white, light75);
@@ -155,22 +152,22 @@
       & :nth-of-type(2) { // hole par
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        padding: 0.5rem 0px 0.5rem 0px;
+        padding: 8px 0px 8px 0px;
         border: 1px solid setcolor(blue, base);
-        border-radius: 0.5rem;
+        border-radius: 8px;
         text-align: center;
       }
       & :nth-of-type(3) { // hole throws
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        padding: 0.5rem 0px 0.5rem 0px;
+        padding: 8px 0px 8px 0px;
         border-bottom: 1px solid setcolor(blue, base);
         font-size: $h6-size;
       }
       & :nth-of-type(4) { // round score
         grid-column: 2 / 3;
         grid-row: 3 / 4;
-        padding: 0.5rem 0px 0.5rem 0px;
+        padding: 8px 0px 8px 0px;
         font-size: $h6-size;
       }
     }

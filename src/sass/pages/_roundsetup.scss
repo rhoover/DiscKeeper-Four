@@ -1,7 +1,7 @@
 .roundsetup {
   display: grid;
   grid-template-rows: repeat(3, 30%);
-  row-gap: $h5-size;
+  row-gap: 28.8px;
   align-items: center;
   position: relative;
 }
@@ -10,7 +10,7 @@
   &-nocourse {
     @extend %modal;
     height: 30vh;
-    padding: $p-size;
+    padding: 16px;
     transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     & p {
       font-size: $h6-size;
@@ -24,8 +24,6 @@
       @extend %modal-display;
       grid-template-rows: repeat(2, 50%);
       align-items: center;
-      // transform: translateX(-100vw);
-      // transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
     }
   }
   &-courses {
@@ -41,7 +39,7 @@
       width: 85%;
       justify-self: center;
       border: 1px solid setcolor(blue, base);
-      border-radius: 0.25rem;
+      border-radius: 4px;
       & p {
         line-height: 2rem;
       }
@@ -104,10 +102,11 @@
     }
     &-explain {
       width: 85%;
-      padding: 1rem;
+      padding: 16px;
       justify-self: center;
+      text-align: center;
       border: 1px solid setcolor(blue, base);
-      border-radius: 0.25rem;
+      border-radius: 4px;
       background-color: rgba(setcolor(blue, base), 0.15);
     }
     &-list {
@@ -164,25 +163,25 @@
   height: 100%;
   display: grid;
   grid-template-rows: 1fr max-content;
-  row-gap: $p-size;
+  row-gap: 16px;
   justify-items: center;
   align-items: center;
   &-results {
     width: 100%;
     border: 1px solid setcolor(green, base);
-    border-radius: 0.25rem;
+    border-radius: 4px;
   }
 }
 
 .selections {
   &-course {
     text-align: center;
-    padding: 1rem 0px;
+    padding: 16px 0px;
     font-size: $h5-size;
   }
   &-players {
     text-align: center;
-    padding: 1rem 0px;
+    padding: 16px 0px;
     font-size: $h5-size;
   }
 }
