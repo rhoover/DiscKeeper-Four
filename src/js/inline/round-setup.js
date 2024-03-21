@@ -181,24 +181,27 @@
             // re-print the primary player
             playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
 
-            // find the players from the checked boxes
+            // find the players from the checked boxes nodeList
               for (let i = 0; i < checkboxes.length; i++) {
+
+                // test state of checkboxes
                 if (checkboxes[i].checked == true) {
 
+                  // create the data
                   let checkedPlayerID = checkboxes[i].value;
                   let checkedPlayerObject = playerList.find(x => x.playerID === checkedPlayerID);
                   console.log('checked', checkedPlayerObject);
-
+    
                   // push checked player into the array
                   chosenPlayers.push(checkedPlayerObject);
-
                 } else { // find the players from the un-checked boxes
 
+                  // create the data
                   let unCheckedPlayerID = checkboxes[i].value;
                   let unCheckedPlayerObject = playerList.find(x => x.playerID === unCheckedPlayerID);
                   console.log('unchecked', unCheckedPlayerObject);
                   
-                  // remove un-checked players from array
+                  // remove un-checked player from array
                   chosenPlayers.forEach((item, index) => {
                     if (item.playerID == unCheckedPlayerID) {
                       chosenPlayers.splice(index, 1);
