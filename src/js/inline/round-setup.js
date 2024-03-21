@@ -137,55 +137,96 @@
 
     managePlayersModal(playerList, primaryPlayer) {
 
-      // players button on page to launch this
+      // players button on page to launch choose players modal
       let morePlayersButton = document.querySelector('[rh-button="players"]');
 
+      // page elements
       let playersModal = document.querySelector('.modal-players');
       let playersFooter = document.querySelector('.modal-players-footer');
 
+      // on page to insert chosen players into
       let playerDisplaySlot = document.querySelector('.selections-players');
 
+      // initialising
       let chosenPlayers = [];
-
       chosenPlayers.push(primaryPlayer);
 
-      // save for final assembly if no more players are chosen, doing this ahead of time
-      localforage.setItem('chosenPlayers', chosenPlayers);
+      // first display purposes
+      playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
 
       morePlayersButton.addEventListener('click', (event) => {
         playersModal.classList.add('modal-players-display');
+        setTimeout(() => {
+          // temporarily erasing this display
+          playerDisplaySlot.innerHTML = '';          
+        }, 1000);
       });
 
+      //  the main event, clicking on the modal footer
       playersFooter.addEventListener('click', (event) => {
+
+        // grabbing all the checkboxes
+        let checkboxes = document.querySelectorAll("input[type='checkbox']");
+
         // which "button" was clicked
         let action = event.target.getAttribute('data-action');
-
-        let checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked");
-
         switch (action) {
           case 'close':
+            playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
             playersModal.classList.remove('modal-players-display');
           break;
+          // the big kahuna
           case 'save':
+
+            // re-print the primary player
+            playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
+
             // find the players from the checked boxes
-            for (let i = 0; i < checkedBoxes.length; i++) {
-              let formPlayerID = checkedBoxes[i].getAttribute('value');
-              let playerObject = playerList.find(x => x.playerID === formPlayerID);
-              // push checked player into the array
-              chosenPlayers.push(playerObject);
-              // then add names to main screen
-              playerDisplaySlot.innerHTML += `, ${playerObject.nameFirst}, `;
-            };
+              for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked == true) {
+
+                  let checkedPlayerID = checkboxes[i].value;
+                  let checkedPlayerObject = playerList.find(x => x.playerID === checkedPlayerID);
+                  console.log('checked', checkedPlayerObject);
+
+                  // push checked player into the array
+                  chosenPlayers.push(checkedPlayerObject);
+
+                } else { // find the players from the un-checked boxes
+
+                  let unCheckedPlayerID = checkboxes[i].value;
+                  let unCheckedPlayerObject = playerList.find(x => x.playerID === unCheckedPlayerID);
+                  console.log('unchecked', unCheckedPlayerObject);
+                  
+                  // remove un-checked players from array
+                  chosenPlayers.forEach((item, index) => {
+                    if (item.playerID == unCheckedPlayerID) {
+                      chosenPlayers.splice(index, 1);
+                    };
+                  });
+                }; // end if-else
+              }; // end for...
+
+            // just in case there's any duplication due to monkey running
+            chosenPlayers = chosenPlayers.filter((obj, index) => {
+              return index === chosenPlayers.findIndex(o => obj.playerID === o.playerID)
+            });
+            console.log('  chosen players', chosenPlayers);
+           
+            // update players display slot on page with accurate list of players
+            chosenPlayers.forEach((item) => {
+              if (item.primary !== true) {
+                playerDisplaySlot.innerHTML += `,${item.nameFirst }`;
+              }
+            });
 
             // then save to idb
             localforage.setItem('chosenPlayers', chosenPlayers);
-
-
             // then close modal
             playersModal.classList.remove('modal-players-display');
-          break;        
+          break; // end big kahuna
           default:
-            break;
+          break;
         };
       });
     }, // end managePlayersModal()
