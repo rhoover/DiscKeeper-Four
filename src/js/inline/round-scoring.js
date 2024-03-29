@@ -4,12 +4,12 @@
   const roundscoring = {
 
     init() {
-      async function getChosenCourse() {
+      async function getChosenData() {
         const courseFetch = await localforage.getItem('chosenCourse');
         const playersFetch = await localforage.getItem('chosenPlayers');
-        return [courseFetch, playersFetch];
+        return [courseFetch, playersFetch]; // [ data[0], data[1] ]
       };
-      getChosenCourse().then(data => {
+      getChosenData().then(data => {
           //send down course data (courseFetch)
           roundscoring.seedMeta(data[0]);
   
