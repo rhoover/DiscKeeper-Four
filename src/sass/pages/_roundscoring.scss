@@ -1,6 +1,7 @@
 .roundscoring {
   position: relative;
   grid-template-rows: repeat(4, auto);
+  row-gap: 16px;
 }
 
 .course-name {
@@ -73,6 +74,7 @@
   display: grid;
   grid-template-columns: .75fr .25fr;
   grid-template-rows: 1fr 1fr;
+  row-gap: 16px;
   align-items: center;
   &-name {
     grid-column: 1 / 2;
@@ -110,7 +112,7 @@
 
 .players {
   display: grid;
-  row-gap: 28.8px;
+  row-gap: 16px;
   grid-auto-rows: fit-content(20vh);
   margin-bottom: 49.6px;
   &-player {
