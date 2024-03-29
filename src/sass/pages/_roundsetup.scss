@@ -180,6 +180,14 @@
     text-align: center;
     padding: 16px 0px;
     font-size: $h5-size;
+    &-error {
+      color: setcolor(red, base);
+      font-size: $h6-size;
+      visibility: hidden;
+      &-show {
+        visibility: visible;
+      }
+    }
   }
   &-players {
     text-align: center;

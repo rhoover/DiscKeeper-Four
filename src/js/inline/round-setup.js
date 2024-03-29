@@ -98,6 +98,9 @@
 
             // then add to main screen
             mainDisplaySlot.innerHTML = `${courseObject.courseName}`;
+            // then remove error message if it's visible
+            let errorShow = document.querySelector('.selections-course-error');
+            errorShow.classList.remove('selections-course-error-show');
 
             // then close modal
             coursesModal.classList.remove('modal-courses-display');
@@ -254,7 +257,9 @@
         let players = data[0];
         let course = data[1];
         let playerList = data[2];
+        let errorMessage = document.querySelector('.selections-course-error');
 
+        // make sure primary player is in chosenPlayers array
         if (players == null) {
           players = [];
           for (let i = 0; i < playerList.length; i++) {
@@ -264,27 +269,34 @@
           };
         };
 
-        for (let i = 0; i < players.length; i++) {
-          // add course meta for round saves
-          players[i].courseName = course.courseName;
-          players[i].courseID = course.courseID;
-          players[i].roundDate = new Date().toLocaleDateString('en-US');
-          // add course holes for scorekeeping purposes
-          players[i].courseHoles = course.courseHoles;
-        }; // end for loop
+        if (course == null) {
 
-        // re-save players new data
-        localforage.setItem('chosenPlayers', players);
+          errorMessage.classList.toggle('selections-course-error-show');
+
+        } else {
+
+          errorMessage.classList.toggle('selections-course-error-show');
+
+          for (let i = 0; i < players.length; i++) {
+            // add course meta for round saves
+            players[i].courseName = course.courseName;
+            players[i].courseID = course.courseID;
+            players[i].roundDate = new Date().toLocaleDateString('en-US');
+            // add course holes for scorekeeping purposes
+            players[i].courseHoles = course.courseHoles;
+          }; // end for loop
+  
+          // re-save players new data
+          localforage.setItem('chosenPlayers', players);
+
+          // off to the show
+            setTimeout(() => {
+              window.location.href = '/pages/roundscoring.html';
+            }, 500);
+        };
       }); // end .then
-      
-
-      // off to the show
-      setTimeout(() => {
-        window.location.href = '/pages/roundscoring.html';
-      }, 500);
-
     }); // end submitButton listener
   
-  } // end assembleFinalData()
+  }; // end assembleFinalData()
   assembleFinalData();
 })();
