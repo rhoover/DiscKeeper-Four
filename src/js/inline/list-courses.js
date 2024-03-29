@@ -28,7 +28,7 @@ const listcourses = {
       noCoursesOutput = `
       <p>You do not have any courses created :(.</p>
       `;
-      coursesList.innerHTML = noCoursesOutput;
+      coursesList.innerText = noCoursesOutput;
     };
 
     console.log('fetched courses:', fetchedCourses);
@@ -92,7 +92,7 @@ const listcourses = {
 
               // insert info into the modal DOM
               insertCourseName = document.querySelector('.modal-warning-name');
-              insertCourseName.innerHTML = `${clickedCourseObj.courseName}`;
+              insertCourseName.innerText = `${clickedCourseObj.courseName}`;
     
               // make the fully dressed modal appear
               coursesModal.classList.add('modal-open');
@@ -192,7 +192,7 @@ const listcourses = {
     let clickedCourse = fetchedCourses.find(x => x.courseID === clickedCourseID);
     let clickedCourseName = clickedCourse.courseName;
 
-    document.querySelector('.modal-deleted-name').innerHTML = `${clickedCourseName}`;
+    document.querySelector('.modal-deleted-name').innerText = `${clickedCourseName}`;
 
     // click on modal button to send it back off-screen
     deletedModal.addEventListener('click', buttonListener);

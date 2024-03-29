@@ -219,7 +219,7 @@
             // update players display slot on page with accurate list of players
             chosenPlayers.forEach((item) => {
               if (item.primary !== true) {
-                playerDisplaySlot.innerHTML += `,${item.nameFirst }`;
+                playerDisplaySlot.innerText += `,${item.nameFirst }`;
               }
             });
 

@@ -24,9 +24,9 @@
 
     seedMeta(course) {
       // console.log(course);
-      document.querySelector('[data-courseName]').innerHTML = course.courseName;
-      document.querySelector('[data-holeNumber]').innerHTML = course.courseHoles[0].holeNumber;
-      document.querySelector('[data-parNumber]').innerHTML = course.courseHoles[0].holePar;
+      document.querySelector('[data-courseName]').innerText = course.courseName;
+      document.querySelector('[data-holeNumber]').innerText = course.courseHoles[0].holeNumber;
+      document.querySelector('[data-parNumber]').innerText = course.courseHoles[0].holePar;
     }, // end seedMeta()
 
     seedConfirm(players) {
