@@ -162,7 +162,7 @@
             </div>
           `;
           
-        }
+        };
 
         // bring it
         roundModal.classList.add('round-modal-open');
