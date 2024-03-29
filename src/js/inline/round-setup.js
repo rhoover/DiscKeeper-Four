@@ -244,14 +244,25 @@
     submitButton.addEventListener('click', () => {
 
       async function getChosenData() {
-        const players = await localforage.getItem('chosenPlayers');
+        const chosenPlayers = await localforage.getItem('chosenPlayers');
         const course = await localforage.getItem('chosenCourse');
-        return [players, course];
+        const playerList = await localforage.getItem('playerList');
+        return [chosenPlayers, course, playerList];
       };
 
       getChosenData().then(data => {
         let players = data[0];
         let course = data[1];
+        let playerList = data[2];
+
+        if (players == null) {
+          players = [];
+          for (let i = 0; i < playerList.length; i++) {
+            if (playerList[i].primary) {
+              players.push(playerList[i]);
+            };
+          };
+        };
 
         for (let i = 0; i < players.length; i++) {
           // add course meta for round saves
