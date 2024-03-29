@@ -81,7 +81,7 @@
       numberPad.forEach(number => {
         number.addEventListener('click', (event) => {
           // a ternery in case there's a double digit throw for the hole
-          throwsBox.innerHTML ? throwsBox.innerHTML += number.innerHTML : throwsBox.innerHTML = number.innerHTML;
+          throwsBox.innerText ? throwsBox.innerText += number.innerText : throwsBox.innerText = number.innerText;
         });
       });
 
@@ -93,13 +93,13 @@
       // and by submit we mean update both the DOM display and the js objects
       submitThrowsButton.addEventListener('click', event => {
         
-        if (throwsBox.innerHTML) {
+        if (throwsBox.innerText) {
 
           // deep copy necessary
           activePlayer = JSON.parse(JSON.stringify(players[activePlayerIndex]));
 
           // this is it!! calling the function just below
-          scores(parseInt(throwsBox.innerHTML, 10), activePlayer);
+          scores(parseInt(throwsBox.innerText, 10), activePlayer);
         };
       }); // end submit click
 
@@ -117,7 +117,7 @@
           activePlayer.courseHoles[roundIndex].roundOverUnder += activePlayer.courseHoles[roundIndex].holeOverUnder;
 
           // then write new score to displayed scores
-          playerScoreCurrent[activePlayerIndex].innerHTML = activePlayer.courseHoles[roundIndex].roundOverUnder;
+          playerScoreCurrent[activePlayerIndex].innerText = activePlayer.courseHoles[roundIndex].roundOverUnder;
 
           // then UI goodness: different colors for different scores
           let roundScore = activePlayer.courseHoles[roundIndex].roundOverUnder;
@@ -168,7 +168,7 @@
               
               // update UI confirm area player
               activePlayerName.forEach(function(name) {
-                name.innerHTML = players[activePlayerIndex].nameFirst;
+                name.innerText = players[activePlayerIndex].nameFirst;
               });
             break;
 
@@ -179,12 +179,12 @@
   
               // update UI confirm area player
               activePlayerName.forEach(function(name) {
-                name.innerHTML = players[activePlayerIndex].nameFirst;
+                name.innerText = players[activePlayerIndex].nameFirst;
               });
   
               // update displayed hole meta info at the top of the screen
-              holeNumber.innerHTML = course.courseHoles[roundIndex].holeNumber;
-              holePar.innerHTML = course.courseHoles[roundIndex].holePar;
+              holeNumber.innerText = course.courseHoles[roundIndex].holeNumber;
+              holePar.innerText = course.courseHoles[roundIndex].holePar;
               
             break;
           
@@ -223,7 +223,7 @@
               
               // update UI confirm area player
               activePlayerName.forEach(function(name) {
-                name.innerHTML = players[activePlayerIndex].nameFirst;
+                name.innerText = players[activePlayerIndex].nameFirst;
               });
             break;
 
@@ -233,12 +233,12 @@
   
               // update UI confirm area player
               activePlayerName.forEach(function(name) {
-                name.innerHTML = players[activePlayerIndex].nameFirst;
+                name.innerText = players[activePlayerIndex].nameFirst;
               });
   
               // update displayed hole meta info at the top of the screen
-              holeNumber.innerHTML = course.courseHoles[roundIndex].holeNumber;
-              holePar.innerHTML = course.courseHoles[roundIndex].holePar;
+              holeNumber.innerText = course.courseHoles[roundIndex].holeNumber;
+              holePar.innerText = course.courseHoles[roundIndex].holePar;
 
               // finishing up
               // then seed the finishing modal
