@@ -13,10 +13,15 @@
       };
       getData().then(fetchedData => {
         const displayedPlayers = document.querySelector('.selections-players');
+        let chosenPlayers = [];
 
         fetchedData[1].forEach((player) => {
           if (player.primary == true) {
+            // set page display
             displayedPlayers.innerHTML = player.nameFirst;
+            // add to idb immediately
+            chosenPlayers.push(player);
+            localforage.setItem('chosenPlayers', chosenPlayers);
           };
         });
 
@@ -249,33 +254,19 @@
       async function getChosenData() {
         const chosenPlayers = await localforage.getItem('chosenPlayers');
         const course = await localforage.getItem('chosenCourse');
-        const playerList = await localforage.getItem('playerList');
-        return [chosenPlayers, course, playerList];
+        return [chosenPlayers, course];
       };
 
       getChosenData().then(data => {
         let players = data[0];
         let course = data[1];
-        let playerList = data[2];
         let errorMessage = document.querySelector('.selections-course-error');
-
-        // make sure primary player is in chosenPlayers array
-        if (players == null) {
-          players = [];
-          for (let i = 0; i < playerList.length; i++) {
-            if (playerList[i].primary) {
-              players.push(playerList[i]);
-            };
-          };
-        };
 
         if (course == null) {
 
           errorMessage.classList.toggle('selections-course-error-show');
 
         } else {
-
-          errorMessage.classList.toggle('selections-course-error-show');
 
           for (let i = 0; i < players.length; i++) {
             // add course meta for round saves
