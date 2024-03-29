@@ -10,22 +10,13 @@
         return roundsFetch;
       };
 
-      getData().then(data => {
-        // are there rounds or not
-        switch (data) {
-          // if there is saved rounds data
-          case data !== null:
-            stats.buildListForDOM(data);
-            // console.log('fetched rounds:', fetchedRounds);
-          break;
+      getData().then((data) => {
 
-          // if there is not saved rounds data
-          case null:
-            stats.noRounds(data);            
-          break;
-        
-          default:
-          break;
+        // are there rounds or not
+        if (data) {
+          stats.buildListForDOM(data);          
+        } else {
+          stats.noRounds(data);          
         };
       });
 
