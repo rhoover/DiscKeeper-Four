@@ -1,7 +1,14 @@
 let newName = () => {
-  let result = Math.random().toString(36).substring(2,9);
+
+  // declare all characters
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let result = ' ';
+  const charactersLength = characters.length;
+  for ( let i = 0; i < 7; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
   result.toString();
-  let cacheName = `cacheName-${result}`;
+  let cacheName = `disckeeperCache-${result}`;
   return cacheName
 };
 
