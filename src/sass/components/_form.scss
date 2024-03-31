@@ -23,10 +23,11 @@
     position: relative;
     font-size: $h4-size;
     line-height: calc($h4-size * $scale);
-    background:
+    // background:
       // cribbed: https://css-tricks.com/making-static-noise-from-a-weird-css-gradient-bug/
-      repeating-conic-gradient(rgba(setcolor(white, base), 0.05) 0.000045%, rgba(setcolor(black, base), 0.05) 0.0005%) 60% 60%/3000px 3000px,
-      linear-gradient(rgba(setcolor(blue, light45), 0.35), rgba(setcolor(blue, light15), 0.45));
+      // repeating-conic-gradient(rgba(setcolor(white, base), 0.05) 0.000045%, rgba(setcolor(black, base), 0.05) 0.0005%) 60% 60%/3000px 3000px,
+    // background: linear-gradien(rgba(setcolor(blue, light25), 0.15), rgba(setcolor(blue, light15), 0.25));
+    background: rgba(setcolor(blue, light25), 0.05);
     border: 1px solid setcolor(green, dark45);
     border-radius: 10.4px;
     color: setcolor(green, dark15);
@@ -36,6 +37,9 @@
       color: setcolor(black, light65);
       background: setcolor(blue, light85);
       border: 1px solid setcolor(red, base);
+    }
+    &:active {
+      background: linear-gradient(rgba(setcolor(blue, light25), 0.25), rgba(setcolor(blue, light15), 0.35));
     }
   }
 }

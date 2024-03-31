@@ -52,6 +52,9 @@
     border-radius: 4px;
     border: 1px solid setcolor(red, base);
     @extend %box-shadow;
+    &:active {
+      background: linear-gradient(rgba(setcolor(blue, light25), 0.25), rgba(setcolor(blue, light15), 0.35));
+    }
   }
   &-chart {
     display: grid;

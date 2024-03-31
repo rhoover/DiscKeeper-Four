@@ -47,13 +47,13 @@
 }
 
 .stats {
+  @extend %form-input-button;
   line-height: calc($h6-size * $scale);
   font-size: $h6-size;
   text-decoration: none;
   text-align: center;
   padding: 16px;
   border: 1px solid setcolor(blue, dark35);
-  border-radius: 8px;
   @extend %box-shadow;
 }
 
@@ -97,6 +97,9 @@
     border: 1px solid setcolor(blue, base);
     border-radius: 4px;
     @extend %box-shadow;
+    &:active {
+      background: linear-gradient(rgba(setcolor(blue, light25), 0.25), rgba(setcolor(blue, light15), 0.35));
+    }
   }
   &-modal {
     @extend %modal;
@@ -122,12 +125,14 @@
     }
     &-close {
       @extend %modal-close-button;
+      &:active {
+        background: linear-gradient(rgba(setcolor(blue, light25), 0.25), rgba(setcolor(blue, light15), 0.35));
+      }
     }
     &-holes {
-      margin-top: 16px;
       display: grid;
       row-gap: 16px;
-      padding: 0px 16px 16px 16px;
+      padding: 16px 16px;
       overflow-y: scroll;
     }
     &-hole {
@@ -154,7 +159,6 @@
         grid-row: 2 / 3;
         padding: 8px 0px 8px 0px;
         border-radius: 8px;
-        text-align: center;
         font-size: $h6-size;
       }
       & :nth-of-type(3) { // hole throws
