@@ -58,9 +58,23 @@
     }
   }
   &-chart {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     gap: 24px 0;
     margin: 16px;
+    &-item {
+      display: grid;
+      grid-template-columns: auto;
+      grid-auto-columns: 1fr;
+      gap: 24px 0;
+      align-items: center;
+      padding-bottom: 24px;
+      border-radius: 10.4px;
+      border: 1px solid setcolor(blue, base);
+      background-color: rgba(setcolor(blue, base),0.05);
+      @extend %box-shadow;
+    }
   }
   &-list {
     display: grid;

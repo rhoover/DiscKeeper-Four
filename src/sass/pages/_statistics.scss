@@ -60,16 +60,7 @@
     @extend %modal-chart;
     overflow-y: scroll;
     &-hole {
-      display: grid;
-      grid-template-columns: auto;
-      grid-auto-columns: 1fr;
-      gap: 24px 0;
-      align-items: center;
-      padding-bottom: 24px;
-      border-radius: 10.4;
-      border: 1px solid setcolor(blue, base);
-      background-color: rgba(setcolor(blue, base),0.05);
-      @extend %box-shadow;
+      @extend %modal-chart-item;
       &-name {
         display: flex;
         justify-content: space-between;
@@ -96,7 +87,7 @@
   @extend %modal;
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 60vh;
   &-header {
     @extend %modal-header;
     &-text {
@@ -111,10 +102,12 @@
   }
   // https://joshcollinsworth.com/blog/css-grid-bar-charts
   &-chart {
-    @extend %modal-chart;
-    border-left: 1px solid setcolor(blue, dark50);
+    @extend %modal-chart-item;
+    margin: 16px;
+    padding-top: 12px;
     & p {
       @extend %chart-bars;
+      line-height: $h2-size;
     }
   }
   &-display {
