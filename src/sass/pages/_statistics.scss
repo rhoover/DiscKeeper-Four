@@ -7,7 +7,7 @@
   row-gap: 16px;
 }
 
-.course {
+.course-card {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -38,7 +38,7 @@
   }
 }
 
-.graph {
+.holes {
   @extend %modal;
   transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-header {
@@ -81,20 +81,7 @@
         }
       }
       & p:nth-child(n+2):nth-child(-n+4) {
-        grid-column-start: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 8px;
-        font-size: $h6-size;
-        font-weight: 700;
-        line-height: $h3-size;
-        border-top-right-radius: 32px;
-        border-bottom-right-radius: 32px;
-        background-color: rgba(setcolor(blue, base),0.55);
-        border-top: 1px solid setcolor(black, base);
-        border-right: 1px solid setcolor(black, base);
-        border-bottom: 1px solid setcolor(black, base);
+        @extend %chart-bars;
       }
     }
   }
@@ -103,7 +90,7 @@
   }
 }
 
-.round {
+.course {
   @extend %modal;
   display: flex;
   flex-direction: column;
@@ -126,20 +113,7 @@
     @extend %modal-chart;
     border-left: 1px solid setcolor(blue, dark50);
     & p {
-      grid-column-start: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 8px;
-      font-size: $h6-size;
-      font-weight: 700;
-      line-height: $h3-size;
-      border-top-right-radius: 32px;
-      border-bottom-right-radius: 32px;
-      background-color: rgba(setcolor(blue, base),0.55);
-      border-top: 1px solid setcolor(black, base);
-      border-right: 1px solid setcolor(black, base);
-      border-bottom: 1px solid setcolor(black, base);
+      @extend %chart-bars;
     }
   }
   &-display {

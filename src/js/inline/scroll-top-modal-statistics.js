@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var contentElem = document.querySelector('.graph-chart');
+  var contentElem = document.querySelector('.holes-chart');
   var contentElemPos = contentElem.offsetTop;
   var scrollButton = document.querySelector('.scroller-modal');
   // console.log(contentElem.getBoundingClientRect().top);

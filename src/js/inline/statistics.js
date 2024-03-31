@@ -53,10 +53,10 @@
       // then present on-screen
       deduped.forEach((round) => {
         coursesOutput += `
-          <div class="course">
+          <div class="course-card">
             <p>${round.courseName}</p>
-            <button class="course-button" data-choice="round" data-courseid="${round.courseID}">Round Stats</button>
-            <button class="course-button" data-choice="holes" data-courseid="${round.courseID}">Hole Stats</button>
+            <button class="course-card-button" data-choice="round" data-courseid="${round.courseID}">Course Stats</button>
+            <button class="course-card-button" data-choice="holes" data-courseid="${round.courseID}">Hole Stats</button>
           </div>
           
         `;
@@ -78,15 +78,15 @@
       function getRounds(event) {
 
         // which button was clicked
-        chosenCourseID = event.target.closest('.course-button').dataset.courseid;
-        buttonChoice = event.target.closest('.course-button').dataset.choice;
+        chosenCourseID = event.target.closest('.course-card-button').dataset.courseid;
+        buttonChoice = event.target.closest('.course-card-button').dataset.choice;
 
         // get the appropriate rounds
         chosenCourseRounds = fetchedRounds.filter((round) => {return round.courseID == chosenCourseID});
 
         switch (buttonChoice) {
           case 'round':
-            stats.buildRoundData(chosenCourseRounds);            
+            stats.buildCourseData(chosenCourseRounds);            
           break;
           case 'holes':
             stats.buildHoleData(chosenCourseRounds);            
@@ -155,7 +155,7 @@
 
     }, //end buildHoleData()
 
-    buildRoundData(chosenCourseRounds) {
+    buildCourseData(chosenCourseRounds) {
       let chosenCourseName = chosenCourseRounds[0].courseName;
       let playerScoring = [];
       let playerScoringRounds = [];
@@ -199,14 +199,14 @@
       minMaxAvgScore.push({minimum: bestScore, maximum: worstScore, gridaverage: gridAverageScore, realavg: realAverageScore});
       // console.log('minMaxAvgScore', minMaxAvgScore);
 
-      stats.buildRoundGraph(chosenCourseName, minMaxAvgScore)
-    }, // end buildRoundData()
+      stats.buildCourseGraph(chosenCourseName, minMaxAvgScore)
+    }, // end buildCourseData()
 
     buildHoleGraph(chosenCourseName, minMaxAvg) {
 
-      let graphDiv = document.querySelector('.graph');
-      let graphDivHeader = document.querySelector('.graph-header');
-      let graphDivChart = document.querySelector('.graph-chart');
+      let graphDiv = document.querySelector('.holes');
+      let graphDivHeader = document.querySelector('.holes-header');
+      let graphDivChart = document.querySelector('.holes-chart');
       let headerOutput = '';
       let chartOutput = '';
 
@@ -214,15 +214,15 @@
       console.log('minMaxAvg:', minMaxAvg);
 
       // headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
-      headerOutput = `<p class="graph-header-text">${chosenCourseName}</p><p>Hole Performance</p>`;
+      headerOutput = `<p class="holes-header-text">${chosenCourseName}</p><p>Hole-By-Hole</p>`;
 
       // https://joshcollinsworth.com/blog/css-grid-bar-charts
       minMaxAvg.forEach((hole) => {
         chartOutput += `
-          <div class="graph-chart-hole">
-            <h4 class="graph-chart-hole-name" style="grid-column: span ${hole.maximum}">
+          <div class="holes-chart-hole">
+            <h4 class="holes-chart-hole-name" style="grid-column: span ${hole.maximum}">
               ${hole.hole} 
-              <span class="graph-chart-hole-name-par">Par: ${hole.par}</span>
+              <span class="holes-chart-hole-name-par">Par: ${hole.par}</span>
             </h4>
             <p style="grid-column-end: span ${hole.minimum}">
               Best: <span>${hole.minimum}</span>
@@ -240,24 +240,24 @@
       graphDivHeader.innerHTML = headerOutput;
       graphDivChart.innerHTML = chartOutput;
 
-      graphDiv.classList.toggle('graph-display');
+      graphDiv.classList.toggle('holes-display');
 
-      let closeModal = document.querySelector('.graph-close');
+      let closeModal = document.querySelector('.holes-close');
       closeModal.addEventListener('click', (event) => {
-        graphDiv.classList.remove('graph-display');
+        graphDiv.classList.remove('holes-display');
       });
 
     }, // end buildHoleGraph()
 
-    buildRoundGraph(chosenCourseName, minMaxAvgScore) {
+    buildCourseGraph(chosenCourseName, minMaxAvgScore) {
       // console.log(chosenCourseName, minMaxAvgScore);
-      let roundDiv = document.querySelector('.round');
-      let roundDivHeader = document.querySelector('.round-header');
-      let roundDivChart = document.querySelector('.round-chart');
+      let roundDiv = document.querySelector('.course');
+      let roundDivHeader = document.querySelector('.course-header');
+      let roundDivChart = document.querySelector('.course-chart');
       let roundHeaderOutput = '';
       let roundChartOutput = '';
 
-      roundHeaderOutput = `<p class="round-header-text">${chosenCourseName}</p>`;
+      roundHeaderOutput = `<p class="course-header-text">${chosenCourseName}</p>`;
 
       roundChartOutput = `
         <p style="grid-column-end: span ${minMaxAvgScore[0].minimum}">
@@ -273,11 +273,11 @@
       roundDivHeader.innerHTML = roundHeaderOutput;
       roundDivChart.innerHTML = roundChartOutput;
 
-      roundDiv.classList.toggle('round-display');
+      roundDiv.classList.toggle('course-display');
 
-      let closeModal = document.querySelector('.round-close');
+      let closeModal = document.querySelector('.course-close');
       closeModal.addEventListener('click', (event) => {
-        roundDiv.classList.remove('round-display');
+        roundDiv.classList.remove('course-display');
       });
     } // end buildHoleGraph()
   }; // end stats{}
