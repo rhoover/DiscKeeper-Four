@@ -18,6 +18,7 @@
     7px 7px 12.1px rgba(0, 0, 0, 0.081),
     11.2px 11.2px 19.2px rgba(0, 0, 0, 0.093),
     21px 21px 36px rgba(0, 0, 0, 0.12);
+    transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
     z-index: 100;
   &-display {
     transform: translateX(-95vw);

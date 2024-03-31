@@ -42,7 +42,7 @@
   @extend %modal;
   display: flex;
   flex-direction: column;
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  height: 85vh;
   &-header {
     @extend %modal-header;
     &-text {
@@ -97,7 +97,6 @@
   display: flex;
   flex-direction: column;
   height: 50vh;
-  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
   &-header {
     @extend %modal-header;
     &-text {
