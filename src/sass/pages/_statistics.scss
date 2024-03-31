@@ -92,6 +92,9 @@
         border-top-right-radius: 32px;
         border-bottom-right-radius: 32px;
         background-color: rgba(setcolor(blue, base),0.55);
+        border-top: 1px solid setcolor(black, base);
+        border-right: 1px solid setcolor(black, base);
+        border-bottom: 1px solid setcolor(black, base);
       }
     }
   }
@@ -134,6 +137,9 @@
       border-top-right-radius: 32px;
       border-bottom-right-radius: 32px;
       background-color: rgba(setcolor(blue, base),0.55);
+      border-top: 1px solid setcolor(black, base);
+      border-right: 1px solid setcolor(black, base);
+      border-bottom: 1px solid setcolor(black, base);
     }
   }
   &-display {
