@@ -18,10 +18,37 @@
       @extend %box-shadow;
     }
   }
-  &-success {
-    @extend %create-success;
-    &-display {
-      @extend %create-success-display;
-    }
+  // &-success {
+  //   @extend %create-success;
+  //   &-display {
+  //     @extend %create-success-display;
+  //   }
+  // }
+}
+
+dialog {
+  padding: 49.6px;
+  width: 90%;
+  opacity: 0;
+  text-align: center;
+  color: setcolor(green, base);
+  background-color: setcolor(white, light75);
+  font-size: 38.4px;
+  border: 1px solid setcolor(green, base);
+  border-radius: 10.4px;
+  &[open] {
+    animation: show 1s ease-in forwards;
   }
 }
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+dialog::backdrop {
+  background: rgba(setcolor(blue, base), 0.25);
+  backdrop-filter: blur(0.2rem);
+} 
