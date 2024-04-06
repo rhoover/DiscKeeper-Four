@@ -90,6 +90,7 @@
     storage(courseObject) {
 
       let deduped;
+      const successDialog = document.querySelector('.success');
       
       // get course list
       async function getCourselist() {
@@ -123,11 +124,16 @@
         localforage.removeItem('courseInProgress');
 
         //some UI assistance on our way out the door
-        document.querySelector('.success').classList.add('success-good');
+        // document.querySelector('.success').classList.add('success-good');
+
+        setTimeout(() => {
+          successDialog.showModal();
+        }, 250);
+
 
         setTimeout(() => {
           window.location.href = '/';
-        }, 1000);
+        }, 2000);
       });
     } // end storage()
 

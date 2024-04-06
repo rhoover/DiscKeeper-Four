@@ -75,9 +75,22 @@
     margin-top: 49.6px;
     margin-bottom: 28.8px;
 }
-.success {
-    @extend %create-success;
-    &-good {
-      @extend %create-success-display;
-    }
+// .success {
+//     @extend %create-success;
+//     &-good {
+//       @extend %create-success-display;
+//     }
+// }
+
+// for success box
+dialog.success {
+  @extend %dialog-success;
+}
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }

@@ -68,9 +68,7 @@
       let formElement = document.querySelector('.createplayer-form');
 
       localforage.setItem('playerList', finishedList);
-      
-      //some UI assistance
-      // success.classList.add('createplayer-success-display');
+
       setTimeout(() => {
         success.showModal();
       }, 500);
