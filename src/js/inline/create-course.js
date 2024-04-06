@@ -138,6 +138,13 @@
 
     alreadyExists() {
       const exists = document.querySelector('.exists');
+      const existsButton = document.querySelector('.exists-button');
+      const formElement = document.querySelector('.form');
+
+      existsButton.addEventListener('click', () => {
+        formElement.reset();
+        exists.close();
+      });
       createNewCourse.dialogBehavior(exists);
     }, // end alreadyExists()
     
