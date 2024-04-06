@@ -10,10 +10,13 @@
     border: 1px solid setcolor(green, base);
     border-radius: 10.4px;
     &[open] {
-      animation: show 1s ease-in forwards;
+      animation:  1s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards show;
+      &::backdrop {
+        animation: 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards show-backdrop;
+      }
     }
     &::backdrop {
-      background: rgba(setcolor(blue, base), 0.25);
+      background: rgba(setcolor(blue, base), 0.35);
       backdrop-filter: blur(0.2rem);
     }
   }
