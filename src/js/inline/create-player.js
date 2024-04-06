@@ -95,10 +95,6 @@
       }
       
       success.addEventListener('click', handleBackdropClick); 
-
-      // setTimeout(() => {
-        // window.location.href = '/';
-      // }, 1000);
     } // end storePlayer()
   };
   createNewPlayer.init();
