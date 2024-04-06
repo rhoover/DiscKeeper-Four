@@ -67,21 +67,11 @@
 }
 
 .success {
-  @extend %create-success;
-  &-display {
-    @extend %create-success-display;
-  }
+  @extend %dialog-success;
 }
 
 .exists {
-  @extend %create-success;
-  font-size: $h5-size;
-  & a {
-    font-size: $h5-size;
-  }
-  &-display {
-    @extend %create-success-display;
-  }
+  @extend %dialog-success;
 }
 
 input[type="radio"] {
@@ -91,4 +81,30 @@ input[type="radio"] {
 
 input[type="text"]:focus {
   border: 1px solid setcolor(green, dark25);
+}
+
+// for exists box
+dialog.exists {
+  @extend %dialog-success;
+}
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+// for success box
+dialog.success {
+  @extend %dialog-success;
+}
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }

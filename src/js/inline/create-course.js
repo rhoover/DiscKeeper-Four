@@ -110,24 +110,17 @@
           const deduped = idbData.filter((obj, index) => {
             return index === idbData.findIndex(o => obj.courseName === o.courseName)
           });
-
-          //some UI assistance
-          document.querySelector('.success').classList.add('success-display');
           
           localforage.setItem('courseList', deduped);
-
-          // redirect to home
-          setTimeout(() => {
-            window.location.href = '/';
-          }, 2000);
 
         break;
 
         // pressed bottom button, i.e. fix pars
         case 'differentpar':
 
-          //some UI assistance
-          document.querySelector('.success').classList.add('success-display');
+          //some dialog assistance
+          const successDialog = document.querySelector('.success');
+          createNewCourse.dialogBehavior(successDialog);
 
           // courseInProgress because the pars for the course need to be adjusted
           // this will be handled by adjustpars.js
@@ -135,7 +128,7 @@
 
           setTimeout(() => {
             window.location.href = '/pages/adjustpars.html';
-          }, 500);
+          }, 2000);
         break;
       
         default:
@@ -144,8 +137,40 @@
     }, // end handleButtonSelection()
 
     alreadyExists() {
-      document.querySelector('.exists').classList.add('exists-display');
-    } // end alreadyExists()
+      const exists = document.querySelector('.exists');
+      createNewCourse.dialogBehavior(exists);
+    }, // end alreadyExists()
+    
+    dialogBehavior (incomingDialog) {
+
+      const formElement = document.querySelector('.form');
+
+      setTimeout(() => {
+        incomingDialog.showModal();
+      }, 500);
+
+      // https://www.linkedin.com/pulse/how-make-modals-html-dialogtag-vanilla-react-mike-cronin-p2loe
+      const handleBackdropClick = (e) => {
+        if (!e.target.matches('dialog')) return;
+        const { top, bottom, left, right } = e.target.getBoundingClientRect();
+        const { clientX: mouseX, clientY: mouseY } = e;
+      
+        // Ignore radio button arrow movement "clicks"
+        // https://github.com/facebook/react/issues/7407
+        if (mouseX === 0 && mouseY === 0) return;
+      
+        const clickedOutsideOfModalBox = (
+          mouseX <= left || mouseX >= right ||
+          mouseY <= top || mouseY >= bottom
+        );
+      
+        if (clickedOutsideOfModalBox) incomingDialog.close();
+        formElement.reset();
+      }
+      
+      incomingDialog.addEventListener('click', handleBackdropClick); 
+
+    } // end dialogBehavior()
   };
 
   createNewCourse.init();
