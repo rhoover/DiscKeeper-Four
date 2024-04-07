@@ -84,30 +84,10 @@
     dialogBehavior(whichDialog) {
 
       const formElement = document.querySelector('.createplayer-form');
-      const successButton = document.querySelector('.createplayer-success');
-      const existsButton = document.querySelector('.createplayer-exists');
+      const successButton = document.querySelector('.createplayer-success-button');
+      const existsButton = document.querySelector('.createplayer-exists-button');
 
       whichDialog.showModal();
-
-      // https://www.linkedin.com/pulse/how-make-modals-html-dialogtag-vanilla-react-mike-cronin-p2loe
-      const handleBackdropClick = (e) => {
-        if (!e.target.matches('dialog')) return;
-        const { top, bottom, left, right } = e.target.getBoundingClientRect();
-        const { clientX: mouseX, clientY: mouseY } = e;
-      
-        // Ignore radio button arrow movement "clicks"
-        // https://github.com/facebook/react/issues/7407
-        if (mouseX === 0 && mouseY === 0) return;
-      
-        const clickedOutsideOfModalBox = (
-          mouseX <= left || mouseX >= right ||
-          mouseY <= top || mouseY >= bottom
-        );
-      
-        if (clickedOutsideOfModalBox) whichDialog.close();
-        formElement.reset();
-      };
-      whichDialog.addEventListener('click', handleBackdropClick); 
 
       successButton.addEventListener('click', () => {
         formElement.reset();

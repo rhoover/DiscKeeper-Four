@@ -18,29 +18,25 @@
       @extend %box-shadow;
     }
   }
-  &-exists-button {
+  &-exists {
+    @extend %dialog-success;
+    &-button {
+      @extend %form-input-button;
+      margin-top: 16px;
+      width: 100%;
+    }
+  }
+  &-success {
+    @extend %dialog-success;
+    &-button {
     @extend %form-input-button;
     margin-top: 16px;
     width: 100%;
-  }
-  &-success-button {
-    @extend %form-input-button;
-    margin-top: 16px;
-    width: 100%;
+    }
   }
 }
 
-// success box basics
-dialog.createplayer-success {
-  @extend %dialog-success;
-}
-
-// exists box basics
-dialog.createplayer-exists {
-  @extend %dialog-success;
-}
-
-// for success box
+// for success & exists box
 @keyframes show {
   from {
       opacity: 0;

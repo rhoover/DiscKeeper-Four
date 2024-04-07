@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    let cacheName = 'disckeeperCacheTdEQrzk';
+    let cacheName = 'disckeeperCacheIjmQLph';
 
     
   //get the array of urls
