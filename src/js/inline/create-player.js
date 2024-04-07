@@ -22,16 +22,26 @@
     setUpPlayerObject(playerList, incomingFormEl) {
 
       let nameObject = {};
+      const existsDialog = document.querySelector('.createplayer-exists');
 
       incomingFormEl.addEventListener('submit', createPlayer);
       function createPlayer(event) {
         event.preventDefault();
         const formData = new FormData(incomingFormEl);
+        
+        // object skeleton
         nameObject = {
-          firstName: formData.get('playerNameFirst'),
-          lastName: formData.get('playerNameLast')
+          nameFirst: formData.get('playerNameFirst'),
+          nameLast: formData.get('playerNameLast')
         };
-        createNewPlayer.addPlayerMetaData(playerList, nameObject);
+
+        if (playerList.find(x => x.nameFirst == nameObject.nameFirst && playerList.find(x => x.nameLast == nameObject.nameLast))) {
+          console.log('firstname', playerList.find(x => x.nameFirst == nameObject.nameFirst));
+          console.log('lastname', playerList.find(x => x.nameLast == nameObject.nameLast));
+          createNewPlayer.dialogBehavior(existsDialog);
+        } else {
+          createNewPlayer.addPlayerMetaData(playerList, nameObject);
+        };
       };
     }, // end setUpPlayerObject()
 
@@ -40,8 +50,8 @@
       newPlayerID.toString();
 
       let playerMetaInfo = {
-        nameFirst: nameObject.firstName,
-        nameLast: nameObject.lastName,
+        nameFirst: nameObject.nameFirst,
+        nameLast: nameObject.nameLast,
         playerID: newPlayerID,
         playerCreated: new Date().toLocaleDateString('en-US')
       };
@@ -65,13 +75,19 @@
 
     storePlayer(finishedList) {
       let success = document.querySelector('.createplayer-success');
-      let formElement = document.querySelector('.createplayer-form');
 
       localforage.setItem('playerList', finishedList);
 
-      setTimeout(() => {
-        success.showModal();
-      }, 500);
+      createNewPlayer.dialogBehavior(success);
+    }, // end storePlayer()
+
+    dialogBehavior(whichDialog) {
+
+      const formElement = document.querySelector('.createplayer-form');
+      const successButton = document.querySelector('.createplayer-success');
+      const existsButton = document.querySelector('.createplayer-exists');
+
+      whichDialog.showModal();
 
       // https://www.linkedin.com/pulse/how-make-modals-html-dialogtag-vanilla-react-mike-cronin-p2loe
       const handleBackdropClick = (e) => {
@@ -88,12 +104,21 @@
           mouseY <= top || mouseY >= bottom
         );
       
-        if (clickedOutsideOfModalBox) success.close();
+        if (clickedOutsideOfModalBox) whichDialog.close();
         formElement.reset();
-      }
-      
-      success.addEventListener('click', handleBackdropClick); 
-    } // end storePlayer()
+      };
+      whichDialog.addEventListener('click', handleBackdropClick); 
+
+      successButton.addEventListener('click', () => {
+        formElement.reset();
+        whichDialog.close();
+      });
+
+      existsButton.addEventListener('click', () => {
+        formElement.reset();
+        whichDialog.close();
+      });
+    } // end dialogBehavior()
   };
   createNewPlayer.init();
 })();
