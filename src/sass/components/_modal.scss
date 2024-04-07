@@ -80,6 +80,8 @@
     display: grid;
     align-content: flex-start;
     row-gap: 16px;
+    min-height: 250px;
+    overflow-y: scroll;
   }
   &-list-item {
     display: grid;

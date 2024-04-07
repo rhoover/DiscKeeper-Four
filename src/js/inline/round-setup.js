@@ -34,7 +34,7 @@
 
       if (courseList == null) { // if there are no courses available
         const noCoursesModal = document.querySelector('.modal-nocourse')
-        noCoursesModal.classList.add('modal-nocourse-display');
+        noCoursesModal.showModal();
       } else { // otherwised thedre are!
         setup.buildCoursesModal(courseList);
         setup.buildPlayersModal(playerList);
@@ -73,7 +73,7 @@
       let mainDisplaySlot = document.querySelector('.selections-course');
 
       chooseCourseButton.addEventListener('click', (event) => {
-        document.querySelector('.modal-courses').classList.add('modal-courses-display');
+        coursesModal.showModal();
       });
 
       coursesFooter.addEventListener('click', (event) => {
@@ -87,7 +87,7 @@
 
         switch (action) {
           case 'close':
-            coursesModal.classList.remove('modal-courses-display');
+            coursesModal.close();
 
           break;
           case 'save':
@@ -108,7 +108,7 @@
             errorShow.classList.remove('selections-course-error-show');
 
             // then close modal
-            coursesModal.classList.remove('modal-courses-display');
+            coursesModal.close();
           break;
         
           default:
@@ -163,7 +163,9 @@
       playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
 
       morePlayersButton.addEventListener('click', (event) => {
-        playersModal.classList.add('modal-players-display');
+
+        playersModal.showModal();
+
         setTimeout(() => {
           // temporarily erasing this display
           playerDisplaySlot.innerHTML = '';          
@@ -181,7 +183,7 @@
         switch (action) {
           case 'close':
             playerDisplaySlot.innerHTML = primaryPlayer.nameFirst;
-            playersModal.classList.remove('modal-players-display');
+            playersModal.close();
           break;
           // the big kahuna
           case 'save':
@@ -234,7 +236,7 @@
             // then save to idb
             localforage.setItem('chosenPlayers', chosenPlayers);
             // then close modal
-            playersModal.classList.remove('modal-players-display');
+            playersModal.close();
           break; // end big kahuna
           default:
           break;
