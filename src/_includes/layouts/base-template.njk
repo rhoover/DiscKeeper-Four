@@ -39,7 +39,7 @@ eleventyComputed:
   <body>
     {% include "components/header.njk" %}
     {% include "components/nav.njk" %}
-    <main class="{{ page.fileSlug or 'home' }} main" >
+    <main class="{{ page.fileSlug or 'home' }}" >
       {{ content | safe }}
     </main>
     {% include "components/inlines.njk" %}

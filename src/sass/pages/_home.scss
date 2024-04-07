@@ -47,13 +47,20 @@
 
 .modal {
   @extend %dialog-success;
+  padding: 32px;
   & p {
     font-size: $h6-size;
+    margin-bottom: 16px;
   }
   &-link {
     @extend %form-input-button;
     font-size: $h5-size;
-    text-decoration: none;
+    padding: 16px;
+    margin-top: 16px;
+    & a {
+      text-decoration: none;
+      color: setcolor(green, base);
+    }
   }
 
 }
