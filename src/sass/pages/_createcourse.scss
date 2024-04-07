@@ -68,6 +68,11 @@
 
 .success {
   @extend %dialog-success;
+  &-button {
+    @extend %form-input-button;
+    margin-top: 16px;
+    width: 100%;
+  }
 }
 
 .exists {

@@ -130,9 +130,9 @@ const listcourses = {
           listcourses.deleteCourse(targetDOM, clickedCourseID, fetchedCourses);
           listcourses.deleteRounds(clickedCourseID, fetchedRounds);
         break;
-        case 'no':
-          coursesModal.classList.remove('modal-open');
-        break;
+        // case 'no':
+        //   coursesModal.classList.remove('modal-open');
+        // break;
         default:
         break;
       };
@@ -142,9 +142,6 @@ const listcourses = {
   }, // end modalChoices()
 
   deleteCourse(targetDOM, clickedCourseID, fetchedCourses) {
-
-    // send it along before it gets stripped out of courses array
-    listcourses.successModal(fetchedCourses, clickedCourseID);
 
     //remove course from courses array
     let indexOfCourse = fetchedCourses.findIndex(course => {
@@ -182,25 +179,25 @@ const listcourses = {
     };
   }, // end deleteRounds()
 
-  successModal(fetchedCourses, clickedCourseID) {
+  // successModal(fetchedCourses, clickedCourseID) {
 
-    // bring the modal down
-    let deletedModal = document.querySelector('.modal-deleted');
-    deletedModal.classList.toggle('modal-deleted-open');
+  //   // bring the modal down
+  //   let deletedModal = document.querySelector('.modal-deleted');
+  //   deletedModal.classList.toggle('modal-deleted-open');
 
-    // insert the deleted course name into the modal
-    let clickedCourse = fetchedCourses.find(x => x.courseID === clickedCourseID);
-    let clickedCourseName = clickedCourse.courseName;
+  //   // insert the deleted course name into the modal
+  //   let clickedCourse = fetchedCourses.find(x => x.courseID === clickedCourseID);
+  //   let clickedCourseName = clickedCourse.courseName;
 
-    document.querySelector('.modal-deleted-name').innerText = `${clickedCourseName}`;
+  //   document.querySelector('.modal-deleted-name').innerText = `${clickedCourseName}`;
 
-    // click on modal button to send it back off-screen
-    deletedModal.addEventListener('click', buttonListener);
-    function buttonListener(event) {
-      event.stopPropagation();
-      deletedModal.classList.toggle('modal-deleted-open');
-    };
-  } // end successModal()
+  //   // click on modal button to send it back off-screen
+  //   deletedModal.addEventListener('click', buttonListener);
+  //   function buttonListener(event) {
+  //     event.stopPropagation();
+  //     deletedModal.classList.toggle('modal-deleted-open');
+  //   };
+  // } // end successModal()
 
 }; // end const listcourses {}
 

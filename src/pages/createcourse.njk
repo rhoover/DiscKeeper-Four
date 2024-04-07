@@ -4,6 +4,7 @@ title: Create Disckeeper Course
 permalink: "/pages/createcourse.html"
 ---
 
+<!-- form element -->
 <form class="form">
   <div class="form-input">
     <input type="text" name="courseName" class="form-input-text" required>
@@ -21,6 +22,8 @@ permalink: "/pages/createcourse.html"
       18 Holes
     </label>
   </div>
+
+  <!-- form response form-->
   <div class="form-response">
     <p class="form-holes-question">Are *ALL* the holes Par 3?</p>
     <button type="submit" class="form-submit" value="samepar">Yes, Submit ➤</button>
@@ -28,7 +31,13 @@ permalink: "/pages/createcourse.html"
     <button type="submit" class="form-submit" value="differentpar">Yes, Customize ➤</button>
   </div>
 </form>
-<dialog class="success">Success!!</dialog>
+
+<!-- success dialog-->
+<dialog class="success">Success!!<br />
+  <button class="success-button">Got It!</button>
+</dialog>
+
+<!-- exists dialog-->
 <dialog class="exists">This course already exists!<br />
   <button class="exists-button">Got It!</button>
 </dialog>

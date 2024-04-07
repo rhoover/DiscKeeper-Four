@@ -99,6 +99,7 @@
     handleButtonSelection(idbData, courseObject, whichButton) {
 
       let buttonClicked = whichButton.getAttribute('value');
+      const successDialog = document.querySelector('.success');
 
       switch (buttonClicked) {
         case 'samepar':
@@ -113,13 +114,15 @@
           
           localforage.setItem('courseList', deduped);
 
+          //some dialog assistance
+          createNewCourse.dialogBehavior(successDialog);
+
         break;
 
         // pressed bottom button, i.e. fix pars
         case 'differentpar':
 
           //some dialog assistance
-          const successDialog = document.querySelector('.success');
           createNewCourse.dialogBehavior(successDialog);
 
           // courseInProgress because the pars for the course need to be adjusted
@@ -151,10 +154,11 @@
     dialogBehavior (incomingDialog) {
 
       const formElement = document.querySelector('.form');
+      const successButton = document.querySelector('.success-button');
 
-      setTimeout(() => {
+      // setTimeout(() => {
         incomingDialog.showModal();
-      }, 500);
+      // }, 500);
 
       // https://www.linkedin.com/pulse/how-make-modals-html-dialogtag-vanilla-react-mike-cronin-p2loe
       const handleBackdropClick = (e) => {
@@ -175,7 +179,12 @@
         formElement.reset();
       }
       
-      incomingDialog.addEventListener('click', handleBackdropClick); 
+      incomingDialog.addEventListener('click', handleBackdropClick);
+
+      successButton.addEventListener('click', () => {
+        formElement.reset();
+        incomingDialog.close();
+      });
 
     } // end dialogBehavior()
   };
