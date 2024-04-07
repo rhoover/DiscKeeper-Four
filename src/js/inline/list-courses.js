@@ -179,26 +179,6 @@ const listcourses = {
     };
   }, // end deleteRounds()
 
-  // successModal(fetchedCourses, clickedCourseID) {
-
-  //   // bring the modal down
-  //   let deletedModal = document.querySelector('.modal-deleted');
-  //   deletedModal.classList.toggle('modal-deleted-open');
-
-  //   // insert the deleted course name into the modal
-  //   let clickedCourse = fetchedCourses.find(x => x.courseID === clickedCourseID);
-  //   let clickedCourseName = clickedCourse.courseName;
-
-  //   document.querySelector('.modal-deleted-name').innerText = `${clickedCourseName}`;
-
-  //   // click on modal button to send it back off-screen
-  //   deletedModal.addEventListener('click', buttonListener);
-  //   function buttonListener(event) {
-  //     event.stopPropagation();
-  //     deletedModal.classList.toggle('modal-deleted-open');
-  //   };
-  // } // end successModal()
-
 }; // end const listcourses {}
 
 listcourses.init()
