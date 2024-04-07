@@ -20,7 +20,6 @@
       } else {
         menuText.innerHTML = 'Menu'}
 
-      main.classList.toggle('main-menu');
     };
     
     close.onclick = function() {
@@ -36,7 +35,6 @@
         menuText.innerHTML = 'Menu'
       };
       
-      main.classList.toggle('main-menu');
     };
 
   })();
