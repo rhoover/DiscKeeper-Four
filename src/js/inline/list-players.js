@@ -61,10 +61,13 @@ const listplayers = {
 
       // only listen on not app owner players
       let target = event.target.closest('[data-primary="false"]');
+
       //which player was clicked
       ident = target.getAttribute('data-playerid');
+
       // first move off-screen
       target.classList.add('item-normal-remove');
+      
       //remove player from DOM
       setTimeout(() => {
         target.remove();

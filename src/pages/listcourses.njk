@@ -4,21 +4,15 @@
   permalink: "/pages/listcourses.html"
 ---
 
+<!-- course list -->
+<section class="items"></section>
+
 <!-- want to delete rounds from deleting course? -->
-<div class="modal">
+<dialog class="modal">
   <h4 class="modal-header">Saved Rounds Conflict</h4>
   <p class="modal-warning">You have saved round(s) for the <span class="modal-warning-name"></span> course.<br/><br />Are you sure you want to nuke everything?</p>
   <button class="modal-choices" data-options="yes">Yes!</button>
   <button class="modal-choices" data-options="no">No, my mistake.</button>
-</div>
-
-<!-- successful deletion -->
-{# <div class="modal-deleted">
-  <p>You successfully deleted <span class="modal-deleted-name"></span></p>
-  <button class="modal-deleted-button">Got It!</button>
-</div> #}
-
-<!-- course list -->
-<section class="items"></section>
+</dialog>
 
 {% include "components/scroll-button.njk" %}

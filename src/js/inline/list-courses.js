@@ -95,7 +95,7 @@ const listcourses = {
               insertCourseName.innerText = `${clickedCourseObj.courseName}`;
     
               // make the fully dressed modal appear
-              coursesModal.classList.add('modal-open');
+              coursesModal.showModal();
     
               listcourses.modalChoices(target, coursesModal, clickedCourseID, fetchedCourses, fetchedRounds);
           
@@ -115,6 +115,7 @@ const listcourses = {
 
     let buttonClicked;
     let buttonChoice = '';
+    let deleteModal = document.querySelector('.modal');
 
     coursesModal.addEventListener('click', clickedButtonListener);
 
@@ -129,16 +130,15 @@ const listcourses = {
         case 'yes':
           listcourses.deleteCourse(targetDOM, clickedCourseID, fetchedCourses);
           listcourses.deleteRounds(clickedCourseID, fetchedRounds);
+          deleteModal.close();
         break;
-        // case 'no':
-        //   coursesModal.classList.remove('modal-open');
-        // break;
+        case 'no':
+          deleteModal.close();
+        break;
         default:
         break;
       };
     };
-   
-
   }, // end modalChoices()
 
   deleteCourse(targetDOM, clickedCourseID, fetchedCourses) {
@@ -152,14 +152,11 @@ const listcourses = {
     //save modified courses array
     localforage.setItem('courseList', fetchedCourses);
 
-    //remove course from DOM
-    targetDOM.remove();
-
-
-    if (document.querySelector('.modal-open')) {
-      document.querySelector('.modal').classList.toggle('modal-open');
-    };
-
+    //remove course from screen and DOM
+    targetDOM.classList.add('modal-deleted');
+    setTimeout(() => {
+      targetDOM.remove();
+    }, 1000);
   }, // end deleteCourse()
 
   deleteRounds(clickedCourseID, fetchedRounds) {
