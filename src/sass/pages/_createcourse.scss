@@ -93,10 +93,7 @@ input[type="text"]:focus {
   border: 1px solid setcolor(green, dark25);
 }
 
-// for exists box
-dialog.exists {
-  @extend %dialog-success;
-}
+// for dialogs
 @keyframes show {
   from {
       opacity: 0;
@@ -106,11 +103,8 @@ dialog.exists {
   }
 }
 
-// for success box
-dialog.success {
-  @extend %dialog-success;
-}
-@keyframes show {
+// for backdrop
+keyframes show-backdrop {
   from {
       opacity: 0;
   }

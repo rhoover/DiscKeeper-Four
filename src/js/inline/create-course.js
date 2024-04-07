@@ -156,30 +156,7 @@
       const formElement = document.querySelector('.form');
       const successButton = document.querySelector('.success-button');
 
-      // setTimeout(() => {
-        incomingDialog.showModal();
-      // }, 500);
-
-      // https://www.linkedin.com/pulse/how-make-modals-html-dialogtag-vanilla-react-mike-cronin-p2loe
-      const handleBackdropClick = (e) => {
-        if (!e.target.matches('dialog')) return;
-        const { top, bottom, left, right } = e.target.getBoundingClientRect();
-        const { clientX: mouseX, clientY: mouseY } = e;
-      
-        // Ignore radio button arrow movement "clicks"
-        // https://github.com/facebook/react/issues/7407
-        if (mouseX === 0 && mouseY === 0) return;
-      
-        const clickedOutsideOfModalBox = (
-          mouseX <= left || mouseX >= right ||
-          mouseY <= top || mouseY >= bottom
-        );
-      
-        if (clickedOutsideOfModalBox) incomingDialog.close();
-        formElement.reset();
-      }
-      
-      incomingDialog.addEventListener('click', handleBackdropClick);
+      incomingDialog.showModal();
 
       successButton.addEventListener('click', () => {
         formElement.reset();
