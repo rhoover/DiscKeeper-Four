@@ -213,7 +213,6 @@
 
       console.log('minMaxAvg:', minMaxAvg);
 
-      // headerOutput = `<h1 class="graph-header-text">${chosenCourseName}</h1><p class="graph-close">Close</p>`;
       headerOutput = `<p class="holes-header-text">${chosenCourseName}</p><p>Hole-By-Hole</p>`;
 
       // https://joshcollinsworth.com/blog/css-grid-bar-charts
@@ -240,11 +239,11 @@
       graphDivHeader.innerHTML = headerOutput;
       graphDivChart.innerHTML = chartOutput;
 
-      graphDiv.classList.toggle('holes-display');
+      graphDiv.showModal();
 
       let closeModal = document.querySelector('.holes-close');
       closeModal.addEventListener('click', (event) => {
-        graphDiv.classList.remove('holes-display');
+        graphDiv.close();
       });
 
     }, // end buildHoleGraph()
@@ -273,11 +272,13 @@
       roundDivHeader.innerHTML = roundHeaderOutput;
       roundDivChart.innerHTML = roundChartOutput;
 
-      roundDiv.classList.toggle('course-display');
+      // roundDiv.classList.toggle('course-display');
+      roundDiv.showModal();
 
       let closeModal = document.querySelector('.course-close');
       closeModal.addEventListener('click', (event) => {
-        roundDiv.classList.remove('course-display');
+        // roundDiv.classList.remove('course-display');
+        roundDiv.close();
       });
     } // end buildHoleGraph()
   }; // end stats{}
