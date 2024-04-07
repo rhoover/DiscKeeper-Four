@@ -21,7 +21,7 @@
         let onboardModal = document.querySelector('.modal');
 
         if (fetchedData == null) {
-          onboardModal.classList.add('modal-display');
+          onboardModal.showModal;
         };
       } // end displayModal()
   }

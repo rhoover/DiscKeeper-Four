@@ -46,11 +46,7 @@
 }
 
 .modal {
-  @extend %modal;
-  height: 30vh;
-  align-items: center;
-  padding: 16px;
-  text-align: center;
+  @extend %dialog-success;
   & p {
     font-size: $h6-size;
   }
@@ -59,9 +55,7 @@
     font-size: $h5-size;
     text-decoration: none;
   }
-  &-display {
-    @extend %modal-display;
-  }
+
 }
 
 .share {
@@ -93,5 +87,15 @@
     position: absolute;
     top: 31px;
     left: 4px;
+  }
+}
+
+// no app owner dialog animation
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
   }
 }
