@@ -16,7 +16,7 @@ dealWithContent((err, content) => {
   let newFile = `(() => {
     "use strict";
 
-    let cacheName = ${cache};
+    let cacheName = '${cache}';
 
     ${content};
 

@@ -9,8 +9,9 @@ let newName = () => {
   };
 
   result.toString();
+  let resultOne = result.trimStart();
   
-  let cacheName = `disckeeperCache-${result}`;
+  let cacheName = 'disckeeperCache' + resultOne;
   return cacheName
 };
 
