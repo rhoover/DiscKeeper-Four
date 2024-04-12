@@ -243,12 +243,6 @@
               // finishing up
               // then seed the finishing modal
               roundscoring.seedFinishedModal(course, players, roundIndex);
-
-              // then bring the modal in
-              setTimeout(() => {
-                finishedModal = document.querySelector('.modal');
-                finishedModal.classList.toggle('modal-open');
-              }, 300);
               
             break;
           
@@ -291,6 +285,7 @@
     }, // end seedFinishedModal()
 
     manageFinishedModal(course, players) {
+      let scoringModal = document.querySelector('.modal');
       let closeButton = document.querySelector('.modal-footer-close-icon');
       let saveButton = document.querySelector('.modal-footer-save-icon');
       let savedRound = {};
@@ -303,6 +298,8 @@
         roundID: course.roundID,
         roundDate: new Date().toLocaleDateString('en-US')
       };
+
+      scoringModal.showModal();
 
       // footer actions
       saveButton.addEventListener('click', saveButtonListener); 
@@ -322,11 +319,12 @@
             roundscoring.storage(savedRoundsArray, course);
           };
         }); // end .then
-        document.querySelector('.modal').classList.remove('modal-open');
+
+        scoringModal.close();
       };// end save button listener
 
       closeButton.addEventListener('click', event => {
-        document.querySelector('.modal').classList.remove('modal-open');
+        scoringModal.close();
       });
 
     }, // end manageFinishedModal()
@@ -356,7 +354,8 @@
       
       // off to round history page
       setTimeout(() => {
-        window.location.href = 'roundhistory';
+        // window.location.href = 'roundhistory';
+        window.location.href = '/';
       }, 1000);
     } // end storage()
   }; //end const roundscoring{}
