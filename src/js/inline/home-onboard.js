@@ -21,7 +21,7 @@
         let onboardModal = document.querySelector('.modal');
 
         if (fetchedData == null) {
-          onboardModal.showModal;
+          onboardModal.showModal();
         };
       } // end displayModal()
   }

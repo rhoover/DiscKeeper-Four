@@ -157,7 +157,9 @@
             <div class="round-modal-hole">
               <p>Hole ${holesArray[i].holeNumber}</p>
               <p>Par: ${holesArray[i].holePar}</p>
-              <p>Throws: ${holesArray[i].holeThrows}</p>
+              <p>Hole Throws: ${holesArray[i].holeThrows}</p>
+              <p>Hole Score: ${holesArray[i].holeOverUnder}</p>
+              <p>Round Throws: ${holesArray[i].roundThrows}</p>
               <p>Round Score: ${holesArray[i].roundOverUnder}</p>
             </div>
           `;
@@ -165,14 +167,14 @@
         };
 
         // bring it
-        roundModal.classList.add('round-modal-open');
+        roundModal.showModal();
 
       });
 
 
       // close it and delete the interior info
       closeButton.addEventListener('click', (event) => {
-        roundModal.classList.remove('round-modal-open');
+        roundModal.close();
         holesSection.innerHTML = "";
       });
 
