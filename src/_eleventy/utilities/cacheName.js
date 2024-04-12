@@ -11,7 +11,7 @@ let newName = () => {
   result.toString();
   let resultOne = result.trimStart();
   
-  let cacheName = 'disckeeperCache' + resultOne;
+  let cacheName = 'disckeeperCache-' + resultOne;
   return cacheName
 };
 
