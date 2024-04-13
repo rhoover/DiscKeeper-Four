@@ -30,6 +30,7 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       row-gap: 32px;
+      margin: auto;
     }
     &-header {
       @extend %modal-header;
@@ -95,6 +96,7 @@
       display: grid;
       grid-template-rows: auto 112px 1fr auto;
       row-gap: 16px;
+      margin: auto;
     }
     &-header {
       @extend %modal-header;
