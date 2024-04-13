@@ -49,6 +49,7 @@
     flex-direction: column;
     height: 85vh;
     width: 100vw;
+    margin: auto;
   }
   &-header {
     @extend %modal-header;
@@ -98,6 +99,7 @@
     flex-direction: column;
     height: 60vh;
     width: 100vw;
+    margin: auto;
   }
   &-header {
     @extend %modal-header;
