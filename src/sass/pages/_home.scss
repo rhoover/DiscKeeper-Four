@@ -20,7 +20,7 @@
   @extend %box-shadow;
   & p {
     font-weight: 700;
-    font-size: $h4-size;
+    font-size: typesize($size-scale, "three");
     text-shadow: -1px -1px 0 setcolor(black, base),
       1px -1px 0 setcolor(black, base),
       -1px 1px 0 setcolor(black, base),
