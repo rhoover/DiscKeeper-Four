@@ -6,7 +6,6 @@ header {
   display: grid;
   grid-template-columns: .25fr 1fr .25fr;
   align-items: center;
-  justify-items: center;
   color: setcolor(white, base);
   background-image: linear-gradient(rgba(setcolor(blue, light15), 1.0), rgba(setcolor(blue, base), 1.0));
   border-bottom: 1px solid setcolor(blue, dark35);
@@ -21,7 +20,7 @@ header {
     fill: setcolor(white, light25);
   }
   &-text {
-    font-size: $p-size;
+    font-size: typesize($size-scale, "zero");
     color: setcolor(white, base);
     text-shadow: -1px 1px 2px rgba(setcolor(black, base), 0.15),1px 1px 2px rgba(setcolor(black, base), 0.15),1px -1px 2px rgba(setcolor(black, base), 0.15),-1px -1px 2px rgba(setcolor(black, base), 0.15);
   }
@@ -31,17 +30,18 @@ header {
   grid-column: 2 / 3;
   width: 100%;
   display: grid;
-  grid-template-columns: .30fr .70fr;
+  grid-template-columns: .5fr 1fr;
+  column-gap: 16px;
   align-items: center;
-  justify-items: center;
   &-icon {
     height: 50px;
     width: 50px;
+    justify-self: right;
     filter: drop-shadow(0px 0px 2px white);
   }
   &-text {
-    text-align: center;
-    font-size: $h6-size;
+    text-align: left;
+    font-size: typesize($size-scale, "four");
     text-decoration: none;
     color: inherit;
     &:hover {
@@ -55,7 +55,7 @@ header {
   grid-column: 3 / 4;
   @extend %header-button;
   &-text {
-    font-size: $p-size;
+    font-size: typesize($size-scale, "zero");
     color: setcolor(white, base);
     align-self: start;
     text-shadow: -1px 1px 2px rgba(setcolor(black, base), 0.15),1px 1px 2px rgba(setcolor(black, base), 0.15),1px -1px 2px rgba(setcolor(black, base), 0.15),-1px -1px 2px rgba(setcolor(black, base), 0.15);
