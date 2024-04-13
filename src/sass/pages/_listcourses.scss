@@ -31,13 +31,13 @@
   padding: 0px;
   &-header {
     @extend %modal-header;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
   }
   &-warning {
     width: 100%;
     padding: 16px;
     text-align: center;
-    font-size: $h6-size;
+    font-size: typesize($size-scale, "five");
     line-height: $h5-size;
     color: setcolor(black, base);
     &-name {
@@ -51,7 +51,7 @@
     width: 85%;
     padding: 16px;
     line-height: calc($h5-size * $scale);
-    font-size: $h6-size;
+    font-size: typesize($size-scale, "five");
     color: setcolor(green, dark35);
   }
   &-deleted {

@@ -11,12 +11,12 @@
     @extend %dialog-success;
     padding: 16px;
     & p {
-      font-size: $h6-size;
+      font-size: typesize($size-scale, "five");
       margin-bottom: 16px;
     }
     &-link {
       @extend %form-input-button;
-      font-size: $h5-size;
+      font-size: typesize($size-scale, "five");
       & a {
         text-decoration: none;
         color: setcolor(green, base);
@@ -173,10 +173,10 @@
   &-course {
     text-align: center;
     padding: 16px 0px;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
     &-error {
       color: setcolor(red, base);
-      font-size: $h6-size;
+      font-size: typesize($size-scale, "five");
       visibility: hidden;
       &-show {
         visibility: visible;
@@ -186,14 +186,14 @@
   &-players {
     text-align: center;
     padding: 16px 0px;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
   }
 }
 
 .button {
   @extend %form-input-button;
   padding: 16px 16px;
-  font-size: $h5-size;
+  font-size: typesize($size-scale, "five");
 }
 
 @keyframes show {

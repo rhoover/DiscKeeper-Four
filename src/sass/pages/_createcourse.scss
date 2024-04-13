@@ -47,11 +47,11 @@
     &-question {
       grid-column: 1 / 3;
       line-height: $h4-size;
-      font-size: $h5-size;
+      font-size: typesize($size-scale, "five");
       font-weight: 700;
       text-align: center;
       &-italics {
-        font-size: $h4-size;
+        font-size: typesize($size-scale, "five");
         font-style: italic;
         color: setcolor(blue, base);
       }
@@ -61,7 +61,7 @@
       grid-template-rows: 1fr;
       grid-template-columns: 38.4px 1fr;
       align-items: center;
-      font-size: $h5-size;
+      font-size: typesize($size-scale, "five");
     }
   }
 }

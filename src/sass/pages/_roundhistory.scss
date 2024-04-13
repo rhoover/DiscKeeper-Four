@@ -19,7 +19,7 @@
   width: 100%;
   margin-bottom: 28.8px;
   line-height: $h3-size;
-  font-size: $h6-size;
+  font-size: typesize($size-scale, "five");
 }
 
 .rounds {
@@ -35,13 +35,13 @@
 }
 
 .warning{
-  font-size: $h6-size;
+  font-size: typesize($size-scale, "five");
   text-align: center;
   &-link {
     text-decoration: none;
     @extend %form-input-button;
     max-height: 49.6px;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
     text-align: center;
   }
 }
@@ -49,7 +49,7 @@
 .stats {
   @extend %form-input-button;
   line-height: calc($h6-size * $scale);
-  font-size: $h6-size;
+  font-size: typesize($size-scale, "five");
   text-decoration: none;
   text-align: center;
   padding: 16px;
@@ -70,28 +70,28 @@
     padding: 16px;
     border-bottom: 1px solid setcolor(blue, dark25);
     background-color: rgba(setcolor(blue, base), 0.15);
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
     font-weight: 700;
     text-align: center;
     &-name {
-      font-size: $h4-size;
+      font-size: typesize($size-scale, "four");
     }
   }
   &-name {
     margin-top: 16px;
     padding-left: 16px;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "five");
   }
   &-score {
     display: flex;
     justify-content: space-evenly;
     margin-top: 16px;
     padding: 0px 16px 16px 16px;
-    font-size: $h6-size;
+    font-size: typesize($size-scale, "five");
   }
   &-arrow {
     justify-self: flex-end;
-    font-size: $h6-size;
+    font-size: typesize($size-scale, "five");
     padding: 16px;
     margin: 0px 16px 16px 0px;
     border: 1px solid setcolor(blue, base);
@@ -118,7 +118,7 @@
       row-gap: 16px;
       justify-content: space-between;
       & p:first-of-type {
-        font-size: $h5-size;
+        font-size: typesize($size-scale, "five");
       }
     }
     &-closing {
@@ -147,7 +147,7 @@
       column-gap: 8px;
       align-items: center;
       padding: 16px;
-      font-size: $h5-size;
+      font-size: typesize($size-scale, "five");
       font-weight: 700;
       background-color: setcolor(white, light75);
       border-radius: 0.25rem;
@@ -156,7 +156,7 @@
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         align-self: center;
-        font-size: $h5-size;
+        font-size: typesize($size-scale, "five");
         font-weight: 700;
       }
       & :nth-of-type(2) { // hole par
@@ -164,13 +164,12 @@
         grid-row: 2 / 3;
         padding: 8px 0px 8px 0px;
         border-radius: 8px;
-        font-size: $h6-size;
+        font-size: typesize($size-scale, "zero");
       }
       & :nth-of-type(3) { // hole throws
         grid-column: 2 / 3;
         grid-row: 1 / 2;
-        // padding: 8px 0px 8px 0px;
-        font-size: $p-size;
+        font-size: typesize($size-scale, "zero");
         text-align: left;
       }
       & :nth-of-type(4) { // hole score
@@ -178,21 +177,20 @@
         grid-row: 2 / 3;
         padding: 8px 0px 8px 0px;
         border-bottom: 1px solid setcolor(blue, base);
-        font-size: $p-size;
+        font-size: typesize($size-scale, "zero");
         text-align: left;
       }
       & :nth-of-type(5) { // round throws
         grid-column: 2 / 3;
         grid-row: 3 / 4;
-        // padding: 8px 0px 8px 0px;
-        font-size: $p-size;
+        font-size: typesize($size-scale, "zero");
         text-align: left;
       }
       & :nth-of-type(6) { // round score
         grid-column: 2 / 3;
         grid-row: 4 / 5;
         // padding: 8px 0px 8px 0px;
-        font-size: $p-size;
+        font-size: typesize($size-scale, "zero");
         text-align: left;
       }
     }
