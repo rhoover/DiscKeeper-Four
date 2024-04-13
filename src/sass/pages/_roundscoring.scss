@@ -6,7 +6,8 @@
 
 .course-name {
   text-align: center;
-  font-size: typesize($size-scale, "five");
+  font-size: typesize($size-scale, "four");
+  line-height: calc($h4-size * $scale);
 }
 
 .numpad {
@@ -100,6 +101,7 @@
     grid-column: 1 / 3;
     @extend %form-input-button;
     font-size: typesize($size-scale, "five");
+    color: setcolor(green, dark55);
   }
 }
 
