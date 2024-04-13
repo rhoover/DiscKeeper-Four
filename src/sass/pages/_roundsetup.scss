@@ -10,6 +10,9 @@
   &-nocourse {
     @extend %dialog-success;
     padding: 16px;
+    &[open] {
+      margin: auto;
+    }
     & p {
       font-size: typesize($size-scale, "five");
       margin-bottom: 16px;

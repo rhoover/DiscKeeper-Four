@@ -154,6 +154,7 @@
     grid-template-rows: .12fr 1fr .12fr;
     padding: 0px;
     width: 100vw;
+    margin: auto;
   }
   &-header {
     @extend %modal-header;
