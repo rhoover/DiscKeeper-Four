@@ -5,7 +5,7 @@
     text-align: center;
     color: setcolor(green, base);
     background-color: setcolor(white, light75);
-    font-size: 38.4px;
+    font-size: typesize($size-scale, "three");
     border: 1px solid setcolor(green, base);
     border-radius: 10.4px;
     &[open] {

@@ -104,17 +104,13 @@
   &-modal {
     @extend %dialog-success;
     &[open] {
-      // position: fixed;
       display: grid;
       position: relative;
       grid-template-rows: max-content max-content 1fr;
       padding: 0px;
       width: 100vw;
+      margin: auto;
     }
-    // transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-    // &-open {
-    //   @extend %modal-display;
-    // }
     &-header {
       @extend %modal-header;
       display: flex;

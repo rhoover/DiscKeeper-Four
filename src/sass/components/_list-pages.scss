@@ -15,7 +15,7 @@
 }
 
 %list-name {
-  font-size: $h6-size;
+  font-size: typesize($size-scale, "five");
   grid-column: 1 / 2;
   grid-row: 1 / 3;
 }
