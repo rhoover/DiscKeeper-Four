@@ -8,6 +8,9 @@
 
 .items {
   @extend %list-main;
+  & div:last-of-type {
+    margin-bottom: 32px;
+  }
 }
 
 .item {
