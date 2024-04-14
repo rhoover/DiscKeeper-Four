@@ -107,7 +107,6 @@
       position: relative;
       grid-template-rows: max-content max-content 1fr;
       padding: 0px;
-      width: 100vw;
     }
     &-header {
       @extend %modal-header;
