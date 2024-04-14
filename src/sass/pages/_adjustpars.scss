@@ -2,9 +2,17 @@
 .header {
     @extend %inner-header;
 }
+.name {
+  text-align: center;
+  // padding: 16px 0px;
+  margin-bottom: 16px;
+  color: setcolor(green, base);
+  border-top: 1px solid setcolor(green, dark25);
+  border-bottom: 1px solid setcolor(green, dark25);
+}
 .list {
     display: grid;
-    row-gap: 38.4px;
+    row-gap: 32px;
     padding-top: 16px;
 }
 .item {
@@ -59,6 +67,7 @@
 .submit {
     @extend %form-input-button;
     @extend %box-shadow;
+    font-weight: 700;
     width: 100%;
     margin-top: 49.6px;
     margin-bottom: 28.8px;
@@ -67,7 +76,11 @@
 // for success box
 dialog.success {
   @extend %dialog-success;
+  &[open] {
+    margin: auto;
+  }
 }
+
 @keyframes show {
   from {
       opacity: 0;

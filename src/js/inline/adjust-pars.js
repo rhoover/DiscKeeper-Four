@@ -17,8 +17,13 @@
     
     buildDOMList(courseObject) {
 
-      let insertHere = document.querySelector('.list');
+      let insertListHere = document.querySelector('.list');
+      let insertNameHere = document.querySelector('.name');
       let holesOutput = '';
+      let nameOutput = '';
+
+      nameOutput = `${courseObject.courseName}`;
+      insertNameHere.innerHTML = nameOutput;
 
       courseObject.courseHoles.forEach((hole) => {
         holesOutput += `
@@ -36,7 +41,7 @@
         ` //end template literal
       });
 
-      insertHere.innerHTML = holesOutput;
+      insertListHere.innerHTML = holesOutput;
 
       adjustPars.dataBinding(courseObject)
     }, // end buildDOMList()
@@ -122,9 +127,6 @@
 
         // no need for this anymore, so get rid of it
         localforage.removeItem('courseInProgress');
-
-        //some UI assistance on our way out the door
-        // document.querySelector('.success').classList.add('success-good');
 
         setTimeout(() => {
           successDialog.showModal();
