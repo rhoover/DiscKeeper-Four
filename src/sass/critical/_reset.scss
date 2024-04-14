@@ -19,7 +19,7 @@ html {
   margin: 0;
 }
 body {
-  line-height: 1.5;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 img, picture, video, canvas, svg {
@@ -29,6 +29,7 @@ img, picture, video, canvas, svg {
 }
 input, button, textarea, select {
   font: inherit;
+  font-size: typesize($size-scale, "zero");;
 }
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
@@ -40,8 +41,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-td,
-th {
+td, th {
   padding: 0;
 }
 iframe {
