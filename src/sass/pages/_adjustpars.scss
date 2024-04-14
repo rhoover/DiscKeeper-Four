@@ -76,9 +76,6 @@
 // for success box
 dialog.success {
   @extend %dialog-success;
-  &[open] {
-    margin: auto;
-  }
 }
 
 @keyframes show {

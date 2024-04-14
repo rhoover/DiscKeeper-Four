@@ -10,6 +10,7 @@
     border-radius: 10.4px;
     &[open] {
       animation:  1s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards show;
+      margin: auto;
       &::backdrop {
         animation: 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards show-backdrop;
       }

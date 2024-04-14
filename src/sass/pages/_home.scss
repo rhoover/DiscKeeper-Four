@@ -47,9 +47,6 @@
 
 .modal {
   @extend %dialog-success;
-  &[open] {
-    margin: auto;
-  }
   padding: 32px;
   & p {
     font-size: typesize($size-scale, "four");

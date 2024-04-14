@@ -20,9 +20,6 @@
   }
   &-exists {
     @extend %dialog-success;
-    &[open] {
-      margin: auto;
-    }
     &-button {
       @extend %form-input-button;
       margin-top: 16px;
@@ -31,9 +28,6 @@
   }
   &-success {
     @extend %dialog-success;
-    &[open] {
-      margin: auto;
-    }
     &-button {
     @extend %form-input-button;
     margin-top: 16px;

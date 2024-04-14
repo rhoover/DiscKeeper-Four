@@ -10,9 +10,6 @@
   &-nocourse {
     @extend %dialog-success;
     padding: 16px;
-    &[open] {
-      margin: auto;
-    }
     & p {
       font-size: typesize($size-scale, "five");
       margin-bottom: 16px;
@@ -33,7 +30,6 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       row-gap: 32px;
-      margin: auto;
     }
     &-header {
       @extend %modal-header;
@@ -99,7 +95,6 @@
       display: grid;
       grid-template-rows: auto 112px 1fr auto;
       row-gap: 16px;
-      margin: auto;
     }
     &-header {
       @extend %modal-header;
