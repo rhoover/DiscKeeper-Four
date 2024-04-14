@@ -113,7 +113,7 @@
                 <p class="round-header-name">${roundsData[j].courseName}</p>
                 <p class=round-header-date> ${dateReadable}</p>
               </div>
-              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span> <span>from</span> <span> ${roundsData[j].players[0].finalThrows} throws</span></p><p class="round-arrow">Details  ➤</p>
+              <p class="round-score"><span>Scored ${roundsData[j].players[0].finalScore}</span><br /><br /><span>from</span><br /><br /><span> ${roundsData[j].players[0].finalThrows} throws</span></p><p class="round-arrow">Details  ➤</p>
             </div>
           `;
           };
