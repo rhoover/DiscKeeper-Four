@@ -31,7 +31,7 @@ const listcourses = {
     // if there are no courses created
     if (fetchedCourses.length == 0) {
       noCoursesOutput = `
-      <p>You do not have any courses created :(</p>
+      <p>You do not have any courses created yet :(</p>
       <a href="/pages/createcourse.html">Create One Here ➤</a>
       `;
       noCourses.innerHTML = noCoursesOutput;
@@ -40,7 +40,7 @@ const listcourses = {
     console.log('fetched courses:', fetchedCourses);
 
     // create list of courses created
-    fetchedCourses.forEach((course, duplicates) => {
+    fetchedCourses.forEach((course) => {
       
       coursesOutput += `
         <div class="item" data-courseid="${course.courseID}">
