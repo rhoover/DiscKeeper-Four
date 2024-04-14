@@ -40,30 +40,18 @@
       font-weight: 700;
     }
     &-increase {
-      grid-column: 3 / 4;
+      @extend %adjust-buttons;
       grid-row: 1 / 2;
-      text-align: center;
-      background: setcolor(blue, light65);
-      border: 1px solid setcolor(green, base);
-      border-radius: 4px;
       & svg {
         width: 32px;
-        align-self: center;
-        justify-self: center;
         fill: setcolor(green, base);
       }
     }
     &-decrease {
-      grid-column: 3 / 4;
+      @extend %adjust-buttons;
       grid-row: 2 / 3;
-      text-align: center;
-      background: setcolor(blue, light65);
-      border: 1px solid setcolor(green, base);
-      border-radius: 4px;
       & svg {
         width: 32px;
-        align-self: center;
-        justify-self: center;
         fill: setcolor(red, base);
       }
     }
