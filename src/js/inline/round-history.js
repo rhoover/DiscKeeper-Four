@@ -158,7 +158,7 @@
               <p>Hole ${holesArray[i].holeNumber}</p>
               <p>Par: ${holesArray[i].holePar}</p>
               <p>Hole Throws: ${holesArray[i].holeThrows}</p>
-              <p>Hole Score: ${holesArray[i].holeOverUnder}</p>
+              <p>Hole Score: ${holesArray[i].holeOverUnder == 0 ? `Par` : `${holesArray[i].holeOverUnder}`}</p>
               <p>Round Throws: ${holesArray[i].roundThrows}</p>
               <p>Round Score: ${holesArray[i].roundOverUnder}</p>
             </div>
