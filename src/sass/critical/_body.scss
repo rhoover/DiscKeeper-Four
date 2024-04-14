@@ -27,27 +27,27 @@ a {
 }
 ul, ol, p {
   font-size: typesize($size-scale, "zero");
-  line-height: calc($p-size * $scale);
+  // line-height: calc($p-size * $scale);
 }
 h5 { 
   font-size: typesize($size-scale, "five");
-  line-height: calc($h5-size * $scale);
+  // line-height: calc($h5-size * $scale);
 } 
 h4 { 
   font-size: typesize($size-scale, "four");
-  line-height: calc($h4-size * $scale);
+  // line-height: calc($h4-size * $scale);
 }
 h3 { 
   font-size: typesize($size-scale, "three");
-  line-height: calc($h3-size * $scale);
+  // line-height: calc($h3-size * $scale);
 } 
 h2 { 
   font-size: typesize($size-scale, "two");
-  line-height: calc($h2-size * $scale);
+  // line-height: calc($h2-size * $scale);
 }
 h1 { 
   font-size: typesize($size-scale, "one");
-  line-height: calc($h1-size * $scale);
+  // line-height: calc($h1-size * $scale);
 }
 
 
