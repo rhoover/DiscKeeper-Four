@@ -40,7 +40,6 @@
   &-link {
     text-decoration: none;
     @extend %form-input-button;
-    max-height: 49.6px;
     font-size: typesize($size-scale, "five");
     text-align: center;
   }

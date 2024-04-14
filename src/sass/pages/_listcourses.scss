@@ -13,7 +13,7 @@
 
 .item {
   @extend %list-item;
-  grid-template-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr 0.3fr;
   &-name {
     @extend %list-name;
     font-weight: 700;
@@ -23,6 +23,11 @@
   }
   &-delete {
     @extend %list-delete-text;
+  }
+  &-scored {
+    grid-column: 1 / 4;
+    font-size: typesize($size-scale, "five");
+    padding-top: 16px;
   }
 }
 

@@ -1,5 +1,5 @@
 .home {
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 130px);
   grid-template-rows: repeat(4, 1fr);
   align-items: center;
   justify-items: center;
@@ -47,14 +47,17 @@
 
 .modal {
   @extend %dialog-success;
+  &[open] {
+    margin: auto;
+  }
   padding: 32px;
   & p {
-    font-size: $h6-size;
+    font-size: typesize($size-scale, "four");
     margin-bottom: 16px;
   }
   &-link {
     @extend %form-input-button;
-    font-size: $h5-size;
+    font-size: typesize($size-scale, "four");
     padding: 16px;
     margin-top: 16px;
     & a {
