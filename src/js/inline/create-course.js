@@ -131,7 +131,7 @@
 
           setTimeout(() => {
             window.location.href = '/pages/adjustpars.html';
-          }, 2000);
+          }, 500);
         break;
       
         default:
@@ -158,10 +158,12 @@
 
       incomingDialog.showModal();
 
-      successButton.addEventListener('click', () => {
-        formElement.reset();
-        incomingDialog.close();
-      });
+      if (successButton) {
+        successButton.addEventListener('click', () => {
+          formElement.reset();
+          incomingDialog.close();
+        });        
+      };
 
     } // end dialogBehavior()
   };

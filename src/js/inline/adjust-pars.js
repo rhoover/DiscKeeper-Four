@@ -90,43 +90,35 @@
     }, // end dataBinding()
     
     storage(courseObject) {
-
-      let deduped;
-      const successDialog = document.querySelector('.success');
       
       // get course list
       async function getCourselist() {
         const idbData = await localforage.getItem('courseList');
         return idbData;
       };
+
       getCourselist().then(idbData => {
-console.log(idbData);
         switch (idbData) {
            // if courselist does not exist
-          case idbData == null:
+          case null:
             idbData = [];
             idbData.push(courseObject);
+            localforage.setItem('courseList', idbData);
           break;
            // if courselist does exist
-          case idbData !== null:
-            idbData.push(courseObject);
-            // remove duplicates leaving 1 original
-            deduped = idbData.filter((obj, index) => {
-              return index === idbData.findIndex(o => obj.courseName === o.courseName)
-            });            
+          case !null:
+            idbData.push(courseObject)
+            localforage.setItem('courseList', idbData);
           break;        
           default:
             break;
         };
 
-        // however that sugars out above, store the course in the iDB
-        localforage.setItem('courseList', deduped);
-
         // no need for this anymore, so get rid of it
         localforage.removeItem('courseInProgress');
 
         setTimeout(() => {
-          successDialog.showModal();
+          document.querySelector('.success').showModal();
         }, 250);
 
 
