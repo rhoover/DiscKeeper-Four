@@ -35,8 +35,10 @@
           nameLast: formData.get('playerNameLast')
         };
 
+        // if list exists
         if (playerList !==  null) {
 
+          // if the player exists
           if (playerList.find(x => x.nameFirst == nameObject.nameFirst && playerList.find(x => x.nameLast == nameObject.nameLast))) {
             console.log('firstname', playerList.find(x => x.nameFirst == nameObject.nameFirst));
             console.log('lastname', playerList.find(x => x.nameLast == nameObject.nameLast));
@@ -44,7 +46,8 @@
           } else {
             createNewPlayer.addPlayerMetaData(playerList, nameObject);
           };
-          
+
+        // else list does not exist
         } else {
           createNewPlayer.addPlayerMetaData(playerList, nameObject);
         };
