@@ -35,10 +35,14 @@
           nameLast: formData.get('playerNameLast')
         };
 
-        if (playerList.find(x => x.nameFirst == nameObject.nameFirst && playerList.find(x => x.nameLast == nameObject.nameLast))) {
-          console.log('firstname', playerList.find(x => x.nameFirst == nameObject.nameFirst));
-          console.log('lastname', playerList.find(x => x.nameLast == nameObject.nameLast));
-          createNewPlayer.dialogBehavior(existsDialog);
+        if (playerList !==  null) {
+          if (playerList.find(x => x.nameFirst == nameObject.nameFirst && playerList.find(x => x.nameLast == nameObject.nameLast))) {
+            console.log('firstname', playerList.find(x => x.nameFirst == nameObject.nameFirst));
+            console.log('lastname', playerList.find(x => x.nameLast == nameObject.nameLast));
+            createNewPlayer.dialogBehavior(existsDialog);
+          } else {
+            createNewPlayer.addPlayerMetaData(playerList, nameObject);
+          };
         } else {
           createNewPlayer.addPlayerMetaData(playerList, nameObject);
         };

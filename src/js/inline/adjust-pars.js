@@ -18,12 +18,9 @@
     buildDOMList(courseObject) {
 
       let insertListHere = document.querySelector('.list');
-      let insertNameHere = document.querySelector('.name');
       let holesOutput = '';
-      let nameOutput = '';
 
-      nameOutput = `${courseObject.courseName}`;
-      insertNameHere.innerHTML = nameOutput;
+      document.querySelector('.name').innerHTML = `${courseObject.courseName}`;
 
       courseObject.courseHoles.forEach((hole) => {
         holesOutput += `
@@ -103,7 +100,7 @@
         return idbData;
       };
       getCourselist().then(idbData => {
-
+console.log(idbData);
         switch (idbData) {
            // if courselist does not exist
           case idbData == null:
@@ -111,7 +108,7 @@
             idbData.push(courseObject);
           break;
            // if courselist does exist
-          case idbData:
+          case idbData !== null:
             idbData.push(courseObject);
             // remove duplicates leaving 1 original
             deduped = idbData.filter((obj, index) => {
