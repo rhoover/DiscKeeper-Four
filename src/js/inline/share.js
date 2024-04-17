@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const homeShareButton = document.querySelector(".home-share");
+  const homeShareButton = document.querySelector(".share");
   
   const pageTitle = document.title;
   const pageURL = document.querySelector("link[rel=canonical]");
