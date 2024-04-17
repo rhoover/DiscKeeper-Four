@@ -8,10 +8,5 @@ main {
   & > * {
     grid-column: 2 / 3;
   }
-
 }
 
-// .main-menu {
-//   @extend %animate-helper;
-//   opacity: 0.10;
-// }
