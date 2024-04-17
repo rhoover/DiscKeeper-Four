@@ -8,6 +8,7 @@
 
 
   if (navigator.share) {
+    homeShareButton.classList.add('share-phone');
     homeShareButton.addEventListener('click', () =>
       navigator.share({
         title: pageTitle,
