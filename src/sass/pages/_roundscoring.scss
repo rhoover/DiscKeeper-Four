@@ -1,17 +1,18 @@
 .roundscoring {
   position: relative;
-  grid-template-rows: repeat(4, auto);
-  row-gap: 16px;
+  grid-template-rows: repeat(6, max-content);
+  row-gap: 8px;
+  margin-top: 100px;
 }
 
 .course-name {
   text-align: center;
   font-size: typesize($size-scale, "four");
-  line-height: calc($h4-size * $scale);
+  line-height: calc($h6-size * $scale);
 }
 
 .numpad {
-  height: 30vh;
+  height: 25vh;
   display: flex;
   flex-flow: row wrap;
   flex-direction: row-reverse;
@@ -45,7 +46,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  padding: 16px 0px;
+  padding: 8px 0px;
   border-radius: 4px;
   border: 1px solid setcolor(green, dark15);
   &-hole {
@@ -74,8 +75,7 @@
 .confirm {
   display: grid;
   grid-template-columns: .75fr .25fr;
-  grid-template-rows: 1fr 1fr;
-  row-gap: 16px;
+  row-gap: 8px;
   align-items: center;
   &-name {
     grid-column: 1 / 2;
@@ -106,7 +106,7 @@
 }
 
 .scores {
-  padding: 16px 0px;
+  padding: 8px 0px;
   align-self: center;
   font-size: typesize($size-scale, "four");
   font-weight: 700;
