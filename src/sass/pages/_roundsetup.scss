@@ -1,6 +1,6 @@
 .roundsetup {
   display: grid;
-  grid-template-rows: repeat(3, 30%);
+  grid-template-rows: repeat(3, 1fr);
   row-gap: 28.8px;
   align-items: center;
   position: relative;
@@ -178,8 +178,10 @@
       color: setcolor(red, base);
       font-size: typesize($size-scale, "five");
       visibility: hidden;
+      display: none;
       &-show {
         visibility: visible;
+        display: block;
       }
     }
   }
