@@ -69,9 +69,9 @@
   display: none;
   position: fixed;
   left: 0px;
-  bottom: 16px;
-  width: 60px;
-  height: 60px;
+  bottom: 32px;
+  width: 66px;
+  height: 66px;
   background-color: rgba(setcolor(blue, base),0.75);
   border-radius: 0% 30% 30% 0%;
   border-top: 1px solid setcolor(blue, dark25);
@@ -85,14 +85,14 @@
     position: absolute;
     top: 5px;
     left: 9px;
-    width: 55%;
-    height: 55%;
+    width: 65%;
+    height: 65%;
     fill: setcolor(white, light25);
   }
   &-text {
     color: setcolor(white, base);
     position: absolute;
-    top: 31px;
+    top: 40px;
     left: 4px;
   }
   &-phone {
