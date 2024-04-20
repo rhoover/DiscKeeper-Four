@@ -39,7 +39,7 @@
     <!-- Normal Styles -->
 
     {# This is how to concatenate strings with Nunjucks, join stuff in an array #}
-    {% set cssName = ['/css/dk-', page.fileSlug, '.css'] | join%}
+    {% set cssName = ['/css/dk-', page.fileSlug, '.css'] | join %}
 
     {# note here the rev, signaling to the plugin for it's cache-busting revisioning prowess #}
     {% if page.fileSlug == '' %}
