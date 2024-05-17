@@ -250,7 +250,7 @@
             break;
           }; // end switch
           
-        }; // end if-else for for wether or not it's the last hole
+        }; // end if-else for for whether or not it's the last hole
         
         // start all over again
         throwsBox.innerHTML = "";
